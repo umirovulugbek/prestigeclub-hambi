@@ -1,0 +1,362 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+	body {
+		@apply bg-[#EBF0F5]  duration-300;
+	}
+	.dark body {
+		@apply bg-[#141414] duration-300;
+	}
+}
+@layer utilities {
+	.transition-max-height {
+		transition: max-height 0.5s ease-in-out;
+	}
+}
+
+@font-face {
+	font-family: 'Euclid Circular A';
+	src: url('../public/fonts/Euclid-Circular-Bold.ttf') format('truetype');
+	font-style: normal;
+	font-display: swap;
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: 'Euclid Circular A';
+	src: url('../public/fonts/Euclid-Circular-SemiBold.ttf') format('truetype');
+	font-style: normal;
+	font-display: swap;
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: 'Euclid Circular A';
+	src: url('../public/fonts/Euclid-Circular-Medium.ttf') format('truetype');
+	font-style: normal;
+	font-display: swap;
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Euclid Circular A';
+	src: url('../public/fonts/Euclid-Circular-Regular.ttf') format('truetype');
+	font-style: normal;
+	font-display: swap;
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'Euclid Circular A';
+	src: url('../public/fonts/Euclid-Circular-Regular.ttf') format('truetype');
+	font-style: normal;
+	font-display: swap;
+	font-weight: 300;
+}
+
+:root {
+	--bold: #141414 !important;
+	--black: #141414 !important;
+	--brown: #6e7892 !important;
+	--blue: #235dff !important;
+	--yellow: #ffe984 !important;
+	--light-brown: #f9f6f3 !important;
+	--brown-light: rgba(110, 120, 146, 0.5) !important;
+	--white: #ffffff !important;
+	--red: #ff5749 !important;
+	--green: #46cb5c !important;
+	--toastify-color-info: #5254f1;
+	--toastify-color-success: #46cb5c;
+	--toastify-color-warning: #f1c40f;
+	--toastify-color-error: #ff5749;
+	--safe-area-inset-bottom: 25px;
+}
+* {
+	box-sizing: border-box;
+	user-select: text;
+	font-family: 'Euclid Circular A', sans-serif !important;
+}
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-weight: 400 !important;
+	margin: 0;
+	color: #141414;
+	padding-bottom: constant(safe-area-inset-bottom); /* Для iOS 11.2+ */
+	padding-bottom: env(safe-area-inset-bottom); /* Для iOS 11.0+ */
+}
+
+body,
+button,
+select,
+input,
+textarea {
+	font-family: 'Euclid Circular A', sans-serif !important;
+}
+::selection {
+	background: var(--yellow);
+	color: var(--black);
+}
+::-webkit-scrollbar {
+	width: 0px;
+	height: 0px;
+}
+::-webkit-scrollbar-track {
+	background: var(--white);
+}
+::-webkit-scrollbar-thumb {
+	background: #4b4b59;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+}
+
+a {
+	text-decoration: none !important;
+	cursor: pointer;
+	color: var(--black) !important;
+}
+a:hover,
+a.active {
+	color: var(--blue) !important;
+}
+ul {
+	list-style-type: none !important;
+	padding: 0;
+}
+input {
+	outline: none !important;
+	box-shadow: none !important;
+	font-family: 'Euclid Circular A', sans-serif;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: #ffffff;
+	transition: background-color 5000s ease-in-out 0s;
+}
+input[data-autocompleted] {
+	background-color: transparent !important;
+}
+input[type='number'] {
+	appearance: textfield;
+}
+input[type='date'] {
+	cursor: text !important;
+}
+
+textarea {
+	resize: none !important;
+}
+button {
+	outline: none !important;
+	box-shadow: none !important;
+	cursor: pointer;
+}
+
+.container_main {
+	margin: 0 auto;
+	max-width: 640px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.slick-active > .custompage::before {
+	content: '';
+	display: block;
+	height: 8px;
+	border-radius: 8px;
+	width: 0;
+	background: #235dff;
+	animation: progressBar 5000ms linear forwards;
+}
+#jvLabelWrap {
+	display: none !important;
+}
+
+@keyframes progressBar {
+	0% {
+		width: 0;
+	}
+	100% {
+		width: 60px;
+	}
+}
+.font-urbanist {
+	font-family: 'Urbanist', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+.slick-dots .custompage {
+	background: #cad3df;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+}
+
+/* yandex map */
+.ymaps-2-1-79-controls__control {
+	inset: auto 10px 10px auto !important;
+}
+.css-jupps9-MuiInputBase-root-MuiOutlinedInput-root {
+	height: 45px;
+	padding-right: 20px !important;
+	border: none;
+	outline: none !important;
+	border-radius: 12px !important;
+}
+/* .css-elo8k2-MuiInputAdornment-root {
+		display: none !important;
+	} */
+.css-189ousr-MuiPopper-root-MuiPickersPopper-root {
+	z-index: 99999999 !important;
+}
+.css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input {
+	font-size: 14px !important;
+}
+.ymaps-2-1-79-gototech,
+.ymaps-2-1-79-copyright,
+.ymaps-2-1-79-controls__control_toolbar {
+	display: none !important;
+}
+/* yandex map */
+
+/* calendar */
+
+.react-calendar__year-view__months__month,
+.react-calendar__decade-view__years__year,
+.react-calendar__century-view__decades__decade,
+.react-calendar__navigation__label,
+.react-calendar__navigation__prev-button,
+.react-calendar__navigation__next-button {
+	background-color: #f5fbff !important;
+	transition: 0.2s ease-in-out;
+}
+.react-calendar__year-view__months__month:hover,
+.react-calendar__decade-view__years__year:hover,
+.react-calendar__century-view__decades__decade:hover,
+.react-calendar__navigation__label:hover,
+.react-calendar__navigation__prev-button:hover,
+.react-calendar__navigation__next-button:hover {
+	background-color: #235dff !important;
+	/* color: #fff !important; */
+}
+
+.react-calendar__navigation__prev2-button,
+.react-calendar__navigation__next2-button {
+	display: none !important;
+}
+
+.react-calendar__navigation__label {
+	order: 1 !important;
+	font-size: 26px;
+	font-weight: 500;
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+}
+.react-calendar__navigation__prev-button {
+	order: 2 !important;
+	font-size: 30px;
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+}
+.react-calendar__navigation__next-button {
+	order: 3 !important;
+	font-size: 30px;
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+}
+.react-calendar__month-view__weekdays__weekday {
+	font-weight: 400 !important;
+}
+.react-calendar__month-view__days__day--weekend {
+	color: '#1E2344' !important;
+}
+.react-calendar__month-view__weekdays__weekday > abbr {
+	text-decoration: none !important;
+}
+/* calendar */
+.custom-checkbox {
+	position: relative;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+}
+
+.custom-checkbox input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.custom-checkbox input + .checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	cursor: pointer;
+}
+
+.custom-checkbox input:checked + .checkmark {
+	background-color: #2196f3;
+	border-color: #2196f3;
+}
+
+.custom-checkbox input + .checkmark::after {
+	content: '';
+	position: absolute;
+	display: none;
+}
+
+.custom-checkbox input:checked + .checkmark::after {
+	display: block;
+}
+
+.custom-checkbox .checkmark::after {
+	left: 7px;
+	top: 3px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	transform: rotate(45deg);
+}
+
+.lg-backdrop {
+	z-index: 1449px !important;
+}
+.lg-outer {
+	z-index: 1450px !important;
+}
+
+.getreview-widget-items-block {
+	padding-bottom: 0 !important;
+}
+.lg-download {
+	display: none !important;
+}
+.mobile-tab {
+	padding-bottom: var(--safe-area-inset-bottom);
+}
+.swiper-pagination {
+	z-index: 99999999;
+}
+.stories-img div {
+	border-radius: 8px;
+}
