@@ -255,7 +255,7 @@ const HotelListBySearch = ({ darkmode }) => {
 						<>
 							<div className='container_main  z-999 w-full bg-white dark:bg-[#272829] rounded-bl-[20px] rounded-br-[20px]  h-[75px]  !mb-[14px] p-[15px]'></div>
 							<div className='container_main'>
-								<PrestigeBanner darkmode={darkmode} />
+								<PrestigeBanner darkmode={darkmode} guarantee={false} />
 							</div>
 							<div className='flex  mt-[5px] gap-1 items-center mx-[10px]'>
 								<div className='w-full'>
@@ -290,8 +290,8 @@ const HotelListBySearch = ({ darkmode }) => {
 											: obj?.widget
 									}
 								/>
-								<div className='container_main'>
-									<PrestigeBanner darkmode={darkmode} />
+								<div className='container_main '>
+									<PrestigeBanner darkmode={darkmode} guarantee={false} />
 								</div>
 
 								<div className='flex gap-1 items-center mx-[10px]'>

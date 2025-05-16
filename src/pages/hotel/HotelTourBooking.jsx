@@ -421,7 +421,7 @@ const HotelTourBooking = ({ darkmode }) => {
 						const hours = Math.floor(totalMinutes / 60);
 						const minutes = totalMinutes % 60;
 
-						const resultDate = `${hours}ч ${minutes}мин`;
+						const resultDate = hours ? `${hours}ч ${minutes}мин` : '';
 
 						return (
 							<div key={index} className={darkmode ? '!text-white' : ''}>

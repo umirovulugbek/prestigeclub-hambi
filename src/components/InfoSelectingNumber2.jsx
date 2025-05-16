@@ -84,33 +84,49 @@ const InfoSelectingNumber2 = ({ index, room, items, darkmode }) => {
 								{item?.meal}
 							</p>
 							<div className='p-[10px] bg-[#EBF0F5] dark:bg-[#141414] px-[15px] rounded-lg  items-center flex gap-3 justify-between w-full relative'>
-								<div className=' dark:text-white'>
-									<div className=' md:text-lg font-medium'>
-										{item?.nights} {t('home.nights')}
-									</div>
-									<p className=' text-sm md:text-base font-normal'>
-										{item?.adult + item?.child} {t('home.turist')} , 1 {t('home.number2')}
-									</p>
-								</div>
-								<button
-									onClick={() => {
-										StorePrice(item);
-										setroomId(item?.id);
-									}}
-									className='flex items-center gap-2 bg-[#235DFF] px-[10px] py-2 rounded-lg'
-								>
-									<p className={`font-medium md:text-xl    text-white`}>
-										{loading && room_id === item?.id ? (
-											'loading...'
-										) : (
-											<>
-												{PriceFormat(item?.convertedPriceNumber)} {t('home.uzs')}
-											</>
+								<div className='flex flex-col items-start gap-1'>
+									<>
+										{item?.convertedPriceOld?.length <= 0 || item?.convertedPriceOld === null || item?.convertedPriceOld === undefined ? null : (
+											<span className='bg-[#FF8800] text-white  font-medium rounded-[20px] px-3'>10%</span>
 										)}
-									</p>
+									</>
+									<div className=' dark:text-white'>
+										<div className=' md:text-lg font-medium'>
+											{item?.nights} {t('home.nights')}
+										</div>
+										<p className=' text-sm md:text-base font-normal'>
+											{item?.adult + item?.child} {t('home.turist')} , 1 {t('home.number2')}
+										</p>
+									</div>
+								</div>
+								<div className='flex flex-col items-end gap-1 '>
+									{item?.convertedPriceOld?.length <= 0 || item?.convertedPriceOld === null || item?.convertedPriceOld === undefined ? null : (
+										<span className='dark:text-white  line-through'>{item?.convertedPriceOld}</span>
+									)}
+									<button
+										onClick={() => {
+											StorePrice(item);
+											setroomId(item?.id);
+										}}
+										className={`flex items-center gap-2 ${
+											item?.convertedPriceOld?.length <= 0 || item?.convertedPriceOld === null || item?.convertedPriceOld === undefined
+												? 'bg-[#235DFF]'
+												: 'bg-[#FF8800]'
+										}  px-[10px] py-2 rounded-lg`}
+									>
+										<p className={`font-medium md:text-xl    text-white`}>
+											{loading && room_id === item?.id ? (
+												'loading...'
+											) : (
+												<>
+													{PriceFormat(item?.convertedPriceNumber)} {t('home.uzs')}
+												</>
+											)}
+										</p>
 
-									<ArrowRight fill={darkmode ? '#fff' : '#fff'} />
-								</button>
+										<ArrowRight fill={darkmode ? '#fff' : '#fff'} />
+									</button>
+								</div>
 							</div>
 						</div>
 					);

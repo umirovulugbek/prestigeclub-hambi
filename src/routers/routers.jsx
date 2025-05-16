@@ -106,7 +106,7 @@ const AppRouter = () => {
 		const value = getCookie('click-web-session');
 		const theme = getCookie('click-theme');
 		const language = getCookie('click-language');
-		setTheme(theme ? theme : 'dark');
+		setTheme(theme ? theme : 'white');
 
 		localStorage.setItem('i18nextLng', language ? language : 'ru');
 		i18n.changeLanguage(language ? language : 'uz');

@@ -190,7 +190,7 @@ const HotelCard = ({ index, item, darkmode }) => {
 						}}
 						className=' cursor-pointer'
 					>
-						<div className='p-[14px] flex gap-3 justify-between w-full relative'>
+						<div className='p-[14px] flex gap-3 justify-between w-full relative items-center'>
 							<div className={`text-base font-normal ${darkmode ? '!text-white' : ''}`}>
 								<span>
 									{item?.adult + item?.child} {t('home.turist')},{' '}
@@ -200,7 +200,12 @@ const HotelCard = ({ index, item, darkmode }) => {
 									{/* , {item?.price?.room_key} номер */}
 								</span>
 							</div>
-							<div className='flex items-center gap-3'>
+							<div className='flex flex-col items-end'>
+								{item?.converted_price_old !== '' || item?.converted_price_old === null || item?.converted_price_old === undefined ? (
+									<span className='text-[#FF8800]  text-sm line-through'>
+										{Number(item?.converted_price_old?.slice(0, -4)).toLocaleString('en-US').replace(/,/g, ' ')} {t('home.uzs')}
+									</span>
+								) : null}
 								<p className={`font-medium text-xl ${darkmode ? 'text-[#235DFF]' : 'text-[#235DFF]'}`}>
 									{item?.converted_price_number?.toLocaleString('en-US').replace(/,/g, ' ')} {t('home.uzs')}
 								</p>
