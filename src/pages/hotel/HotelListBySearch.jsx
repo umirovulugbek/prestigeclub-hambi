@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Skeleton from 'react-loading-skeleton';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ClipLoader } from 'react-spinners';
 import { Back } from '../../components/itemIcon';
 import GetReviewWidget from '../../components/widget';
@@ -257,6 +257,7 @@ const HotelListBySearch = ({ darkmode }) => {
 							<div className='container_main'>
 								<PrestigeBanner darkmode={darkmode} guarantee={false} />
 							</div>
+
 							<div className='flex  mt-[5px] gap-1 items-center mx-[10px]'>
 								<div className='w-full'>
 									<Skeleton height={50} style={{ borderRadius: '8px', width: '100%' }} baseColor={darkmode ? '#36393E' : '#DADADA'} />
@@ -266,6 +267,21 @@ const HotelListBySearch = ({ darkmode }) => {
 								</div>
 								<div className='w-full'>
 									<Skeleton height={50} style={{ borderRadius: '8px', width: '100%' }} baseColor={darkmode ? '#36393E' : '#DADADA'} />
+								</div>
+							</div>
+							<div className='mx-[10px]  mt-[12px]'>
+								<div className='container_main w-full !px-0 '>
+									<Link
+										to={'https://t.me/Prestigeagent_bot'}
+										target='blank'
+										className='bg-white dark:bg-[#272829] cursor-pointer  flex gap-[15px] items-center px-[15px] py-[18px] rounded-xl w-full'
+									>
+										<img src='/images/chatgpt-user.svg' alt='' className='w-14 h-14' />
+										<div className='flex flex-col justify-between gap-1'>
+											<div className='text-[#141414] text-[15px] dark:text-white font-medium leading-[18.47px]  '>{t('home.trevel_managers_1')}</div>
+											<div className='text-sm leading-[18.47px] dark:text-white text-[#141414]'>{t('home.trevel_managers_2')}</div>
+										</div>
+									</Link>
 								</div>
 							</div>
 							<div className='mb-[15px] mt-[5px] mx-[10px] gap-[15px] flex flex-col'>
@@ -335,6 +351,21 @@ const HotelListBySearch = ({ darkmode }) => {
 									</button>
 								</div>
 
+								<div className='mx-[10px]'>
+									<div className='container_main w-full !px-0 '>
+										<Link
+											to={'https://t.me/Prestigeagent_bot'}
+											target='blank'
+											className='bg-white dark:bg-[#272829] cursor-pointer  flex gap-[15px] items-center px-[15px] py-[18px] rounded-xl w-full'
+										>
+											<img src='/images/chatgpt-user.svg' alt='' className='w-14 h-14' />
+											<div className='flex flex-col gap-1 justify-between'>
+												<div className='text-[#141414] text-[15px] dark:text-white font-medium leading-[18.47px]'>{t('home.trevel_managers_1')}</div>
+												<div className='text-sm leading-[18.47px] dark:text-white text-[#141414]'>{t('home.trevel_managers_2')}</div>
+											</div>
+										</Link>
+									</div>
+								</div>
 								{stars?.length > 0 ? (
 									<div className='mx-[10px]'>
 										<div className='flex gap-2'>
