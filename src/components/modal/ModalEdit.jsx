@@ -193,6 +193,7 @@ const ModalEdit = ({ setEditModal, editModal, setObjError, darkmode, obj, objErr
 				modalNumberOfTourists={modalNumberOfTourists}
 				setModalNumberOfTourists={setModalNumberOfTourists}
 				setObj={setObj}
+				setModalDepartureDate={setModalDepartureDate}
 				obj={obj}
 				objError={objError}
 				setObjError={setObjError}

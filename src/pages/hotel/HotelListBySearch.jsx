@@ -395,7 +395,7 @@ const HotelListBySearch = ({ darkmode }) => {
 										?.filter(
 											item =>
 												(tags.length === 0 || item.hotel.tags.some(tag => tags.includes(tag.id))) &&
-												(stars.length === 0 || stars.includes(item?.hotel?.star_key)) &&
+												(stars.length === 0 || stars.includes(+item?.hotel?.star_alt)) &&
 												item?.converted_price_number >= minPrice &&
 												item?.converted_price_number <= maxPrice
 										)
