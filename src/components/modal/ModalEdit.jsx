@@ -53,14 +53,22 @@ const ModalEdit = ({ setEditModal, editModal, setObjError, darkmode, obj, objErr
 			.get(`api/v1/somo-travel/tour-nights?tour_somo_id=${tour_somo_id}&tour_operator_id=${tour_operator_id}&checkin=${checkin}`)
 			.then(r => {
 				let data = r?.data?.data?.places?.place;
-				let findObj = data?.find(el => Number(el) === Number(nights));
+				let findObj;
+
+				if (typeof data === 'string') {
+					findObj = data;
+					setNumberOfDaysList([data]);
+				} else if (Array.isArray(data)) {
+					findObj = data?.find(el => Number(el) === Number(nights));
+					setNumberOfDaysList(data);
+				}
+
 				if (nights != undefined) {
 					setObj(pV => ({
 						...pV,
 						number_of_days: findObj,
 					}));
 				}
-				setNumberOfDaysList(data);
 			})
 			.catch(e => {
 				console.log(e);

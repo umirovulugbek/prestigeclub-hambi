@@ -348,8 +348,15 @@ const FindTour = ({ darkmode }) => {
 			.get(`api/v1/somo-travel/tour-nights?&tour_operator_id=${tour_operator_id}&checkin=${checkin}&tour_somo_id=${tour_somo_id}`)
 			.then(r => {
 				let data = r?.data?.data?.places?.place;
+				let findObj;
 
-				let findObj = Number(tour_somo_id) === 427 ? data : data?.find(el => Number(el) === Number(nights));
+				if (typeof data === 'string') {
+					findObj = data;
+					setNumberOfDaysList([data]);
+				} else if (Array.isArray(data)) {
+					findObj = data?.find(el => Number(el) === Number(nights));
+					setNumberOfDaysList(data);
+				}
 
 				if (nights != undefined) {
 					setObj(pV => ({
@@ -357,7 +364,6 @@ const FindTour = ({ darkmode }) => {
 						number_of_days: findObj,
 					}));
 				}
-				setNumberOfDaysList(Number(tour_somo_id) === 427 ? [data] : data);
 			})
 			.catch(e => {
 				console.log(e);
