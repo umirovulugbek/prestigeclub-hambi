@@ -370,7 +370,7 @@ const HotelDetail = ({ darkmode }) => {
 											<div className='text-[#141414] dark:text-white font-medium' key={index}>
 												{item?.distance} - {item?.title}
 											</div>
-											<div className='text-[#76787A]'>{item?.title}</div>
+											<div className='text-[#76787A]'>{item?.description}</div>
 										</div>
 									);
 								})}

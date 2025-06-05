@@ -19,8 +19,8 @@ const StoryModal = ({ stories, onClose, setSelectStories }) => {
 	return (
 		<div className=''>
 			<div className='fixed   inset-0 z-[99999] bg-black flex items-center justify-center' onClick={onClose}>
-				<div className='container_main !px-0'>
-					<div className='relative     h-screen' onClick={e => e.stopPropagation()}>
+				<div className='container_main !px-0 w-full'>
+					<div className='relative h-screen' onClick={e => e.stopPropagation()}>
 						<Stories
 							stories={stories}
 							onAllStoriesEnd={() => {
@@ -45,7 +45,7 @@ const StoryModal = ({ stories, onClose, setSelectStories }) => {
 							// width={window.innerWidth}
 							width={'100%'}
 							height={window.innerHeight}
-							defaultInterval={3000}
+							defaultInterval={3000000}
 							isPaused={story_loading}
 						/>
 
@@ -165,6 +165,131 @@ const Storiess = () => {
 										{lan === 'ru' ? 'Проверь состав тура' : 'Tur tarkibini tekshiring'} <br /> 6.{' '}
 										{lan === 'ru' ? 'Введи данные — и бронируй' : "Ma'lumotlarni kiriting - va band qiling"}
 									</div>
+								</div>
+							</div>
+						);
+					},
+				},
+			],
+		},
+		{
+			id: 2,
+			title: (
+				<div className='flex flex-col gap-1'>
+					<div className='text-sm font-medium leading-[14px]'>Дананг</div>
+					<p className=' font-bold text-[10px]'>Рекомендуемые отели </p>
+				</div>
+			),
+			image: '/images/trabzon-stories-1.png',
+			bgColor: 'bg-[#203D8F]',
+			stories: [
+				{
+					content: () => {
+						return (
+							<div className=' w-full h-full    px-[15px] '>
+								<img src='/images/trabzon-stories-1.png' alt='' className=' absolute left-0 top-0  w-full right-0 bottom-0 h-full object-cover' />
+								<div className=' z-10  relative flex  justify-between h-full items-center flex-col pb-[100px] pt-[60px]'>
+									<div>
+										<h2 className='text-white font-semibold text-[64px]'>Трабзон</h2>
+										<p className='font-semibold text-[26px] text-white mt-[35px]'>
+											Горы... Чанные террасы... <br /> черное море...
+										</p>
+										<p className='font-semibold text-[26px] text-white mt-[20px]'>Почему стоит поехать в Трабзон и Ризе хотя бы раз?</p>
+									</div>
+									<p className='font-medium text-[17px] bg-white p-[15px] rounded-[10px]'>
+										Есть места, куда нужно попасть хотя бы один раз в жизни.  Трабзон и Ризе — из таких. Это не про "показать в сторис",  а про "почувствовать и
+										сохранить внутри".
+									</p>
+								</div>
+							</div>
+						);
+					},
+				},
+				{
+					content: () => {
+						return (
+							<div className=' w-full h-full  bg-[#196e0c]  px-[15px] '>
+								<img src='/images/trabzon-stories-2.jpg' alt='' className=' absolute left-0 top-0  w-full right-0 bottom-0 h-full object-cover' />
+								<div className=' z-10  relative flex  justify-between h-full items-center flex-col pb-[100px] pt-[60px]'>
+									<div></div>
+									<p className='font-medium text-[17px] bg-white p-[15px] rounded-[10px]'>
+										Haqiqiy osoyishtalik qanday bo‘lishini ko‘rish uchun. Sukunat, tabiat, choy tepaliklari - nafas rostlash uchun zarur bo‘lgan barcha narsa.
+									</p>
+								</div>
+							</div>
+						);
+					},
+				},
+				{
+					content: () => {
+						return (
+							<div className=' w-full h-full  bg-[#0b3704]  px-[15px] '>
+								<img src='/images/trabzon-stories-3.jpg' alt='' className=' absolute left-0 top-0  w-full right-0 bottom-0 h-full object-cover' />
+								<div className=' z-10  relative flex  justify-between h-full items-center flex-col pb-[100px] pt-[60px]'>
+									<div></div>
+									<p className='font-medium text-[17px] bg-white p-[15px] rounded-[10px]'>
+										Чтобы оказаться внутри облаков. Нет фильтров. Только ты, горы и дыхание природы.{' '}
+									</p>
+								</div>
+							</div>
+						);
+					},
+				},
+				{
+					content: () => {
+						return (
+							<div className=' w-full h-full  bg-[#49963d]  px-[15px] '>
+								<img src='/images/trabzon-stories-4.jpg' alt='' className=' absolute left-0 top-0  w-full right-0 bottom-0 h-full object-cover' />
+								<div className=' z-10  relative flex  justify-between h-full items-center flex-col pb-[100px] pt-[60px]'>
+									<div></div>
+									<p className='font-medium text-[17px] bg-white p-[15px] rounded-[10px]'>
+										Чтобы понять, что такое "ничего не делать" — и быть счастливым.  Озеро Узунгёль просто останавливает время.{' '}
+									</p>
+								</div>
+							</div>
+						);
+					},
+				},
+				{
+					content: () => {
+						return (
+							<div className=' w-full h-full  bg-[#70a015]  px-[15px] '>
+								<img src='/images/trabzon-stories-5.jpg' alt='' className=' absolute left-0 top-0  w-full right-0 bottom-0 h-full object-cover' />
+								<div className=' z-10  relative flex  justify-between h-full items-center flex-col pb-[100px] pt-[60px]'>
+									<div></div>
+									<p className='font-medium text-[17px] bg-white p-[15px] rounded-[10px]'>
+										Чтобы почувствовать простую, тёплую радость  вдалеке от городского шума. Здесь живёт настоящий уют.{' '}
+									</p>
+								</div>
+							</div>
+						);
+					},
+				},
+				{
+					content: () => {
+						return (
+							<div className=' w-full h-full  bg-[#a5a167]  px-[15px] '>
+								<img src='/images/trabzon-stories-6.jpg' alt='' className=' absolute left-0 top-0  w-full right-0 bottom-0 h-full object-cover' />
+								<div className=' z-10  relative flex  justify-between h-full items-center flex-col pb-[100px] pt-[60px]'>
+									<div></div>
+									<p className='font-medium text-[17px] bg-white p-[15px] rounded-[10px]'>
+										Чтобы увидеть, как люди строили в невозможных местах  и почувствовать силу веры и времени — прямо в скале.{' '}
+									</p>
+								</div>
+							</div>
+						);
+					},
+				},
+				{
+					content: () => {
+						return (
+							<div className=' w-full h-full  bg-[#4eb31c]  px-[15px] '>
+								<img src='/images/trabzon-stories-7.jpg' alt='' className=' absolute left-0 top-0  w-full right-0 bottom-0 h-full object-cover' />
+								<div className=' z-10  relative flex  justify-between h-full items-center flex-col pb-[100px] pt-[60px]'>
+									<div></div>
+									<p className='font-medium text-[17px] bg-white p-[15px] rounded-[10px]'>
+										Чтобы встретить один из самых красивых закатов в жизни.  С чашкой чая и полным спокойствием внутри.{' '}
+									</p>
 								</div>
 							</div>
 						);

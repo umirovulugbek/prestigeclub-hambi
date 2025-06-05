@@ -21,12 +21,12 @@ const BroneForm = ({ darkmode, setModal }) => {
 		});
 	};
 
-	useEffect(()=>{
+	useEffect(() => {
 		window.scrollTo({
 			top: 0,
 			behavior: 'smooth',
 		});
-	},[])
+	}, []);
 	return (
 		<div className={`min-h-screen  dark:bg-[#141414] bg-[#F5F5F5]`}>
 			<div className='container_main !px-0'>

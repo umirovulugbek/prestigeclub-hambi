@@ -339,7 +339,7 @@ const HotelListBySearch = ({ darkmode }) => {
 										onClick={() => {
 											setModalMap(true);
 										}}
-										className='bg-[#0077FF]  text-white flex justify-center items-center whitespace-nowrap rounded-lg px-4 py-[18px] h-[50px] gap-1'
+										className='bg-[#0077FF]  w-full text-sm text-white flex justify-center items-center whitespace-nowrap rounded-lg px-4 py-[18px] h-[50px] gap-1'
 									>
 										<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
 											<path

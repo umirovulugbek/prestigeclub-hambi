@@ -98,10 +98,16 @@ const TourDetail = ({ darkmode }) => {
 								<img src='/images/linedashed.svg' className='w-full object-cover h-[0.5px] ' alt='' />
 								<div className=' flex items-center justify-between'>
 									<div className='flex gap-[10px] items-center'>
-										{Number(paramsObject?.tour_operator_id) === 4 ? <img src='/images/centrum.svg' alt='' /> : <img src='/images/uzairways.svg' alt='' />}
+										{Number(paramsObject?.tour_operator_id) === 4 || [248].includes(Number(paramsObject?.tour_somo_id)) ? (
+											<img src='/images/centrum.svg' alt='' />
+										) : (
+											<img src='/images/uzairways.svg' alt='' />
+										)}
 										<div className='flex flex-col justify-between'>
 											<div className='text-[#132339] dark:text-white font-medium text-[20px] leading-[120%]'>
-												{Number(paramsObject?.tour_operator_id) === 4 ? 'Centrum Air' : 'Uzairways'}
+												{Number(paramsObject?.tour_operator_id) === 4 || [248].includes(Number(paramsObject?.tour_somo_id))
+													? 'Centrum Air'
+													: 'Uzairways'}
 											</div>
 											<div className='text-[#76787A] text-sm '>
 												{[34, 223, 221, 220, 173, 194].includes(Number(paramsObject?.tour_somo_id))

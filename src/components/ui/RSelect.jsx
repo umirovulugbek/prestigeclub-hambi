@@ -1,9 +1,9 @@
+
 import React from 'react';
 import Select from 'react-select';
 import useReactSelectConfig from '../../hooks/useReactSelectConfig';
 const RSelect = props => {
 	const reactSelectConfiguration = useReactSelectConfig();
-
 	return (
 		<Select
 			maxMenuHeight={200}
