@@ -40,7 +40,7 @@ const HotelDetailAmenities = lazy(() => import('../pages/hotel/HotelDetailAmenit
 const HotelListByHotel = lazy(() => import('../pages/hotel/HotelListByHotel'));
 const ProgramTour = lazy(() => import('../pages/tour-uzb/ProgramTour'));
 const FaqsTourUzb = lazy(() => import('../pages/tour-uzb/FaqsTourUzb'));
-
+const HotelRixos = lazy(() => import('../pages/hotel/HoteRixos'));
 const AppRouter = () => {
 	const dispatch = useDispatch();
 	const location = useLocation();
@@ -105,7 +105,7 @@ const AppRouter = () => {
 	useEffect(() => {
 		const value = getCookie('click-web-session');
 		const theme = getCookie('click-theme');
-		setTheme(theme ? theme : 'dark');
+		setTheme(theme ? theme : 'white');
 		const language = getCookie('click-language');
 
 		localStorage.setItem('i18nextLng', language ? language : 'ru');
@@ -139,6 +139,7 @@ const AppRouter = () => {
 						{ path: '/hotels/detail/hoteltourbooking/:id', element: <HotelTourBooking darkmode={darkSide} /> },
 						{ path: '/hotels/detail/hoteltourbooking/:id/brone', element: <HotelTourBookingBrone darkmode={darkSide} /> },
 						{ path: '/hotels/result', element: <HotelListBySearch darkmode={darkSide} /> },
+						{ path: '/hotels/rixos-result', element: <HotelRixos darkmode={darkSide} /> },
 						{ path: '/hotels/tour-info', element: <TourDetail darkmode={darkSide} /> },
 						{ path: '/hotels/result-hotel', element: <HotelListByHotel darkmode={darkSide} /> },
 						{ path: '/hotels/result-graphic-tour', element: <HotelListByGraphicTour darkmode={darkSide} /> },

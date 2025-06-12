@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 import HeaderDetailParams from '../../components/HeaderDetailParams';
@@ -11,6 +11,7 @@ import HotelRoom from '../../svg/HotelRoomIcon';
 import InsuranceIcon from '../../svg/InsuranceIcon';
 import MealIcon from '../../svg/MealIcon';
 import PlusIcon from '../../svg/PlusIcon';
+import TicketIcon from '../../svg/TicketIcon';
 import TransferIcon from '../../svg/TransferIcon';
 import { getSearchParams } from '../../utils/function';
 
@@ -19,6 +20,12 @@ const TourDetail = ({ darkmode }) => {
 	const paramsObject = getSearchParams();
 	const { search } = useLocation();
 	const { t, i18n } = useTranslation();
+	useEffect(() => {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		});
+	}, []);
 	return (
 		<div className={`  min-h-screen pb-[10px] bg-neutralSand dark:bg-[#141414] `}>
 			<div className='container_main !px-0'>
@@ -48,16 +55,20 @@ const TourDetail = ({ darkmode }) => {
 							Выберите отель, тип номера и питание, заполните свои данные и забронируйте тур!
 						</div>
 					</div>
+					{paramsObject?.tour_somo_id === 7 ? <img src='/images/lopez-banner.png' alt='' className='rounded-xl' /> : null}
 					<h2 className=' font-medium text-lg dark:text-white'>Что входит в стоимость тура</h2>
 					<div className='bg-white dark:bg-[#272829]  flex flex-col p-[15px] rounded-xl gap-2'>
 						<h4 className=' font-medium  text-[#141414] dark:text-white flex items-center gap-2'>
 							<HotelIcon />
 							Отель
 						</h4>
-
 						<div
 							onClick={() => {
-								navigate(`/hotels/result${search}`);
+								if (paramsObject?.rixos) {
+									navigate(`/hotels/rixos-result${search}`);
+								} else {
+									navigate(`/hotels/result${search}`);
+								}
 							}}
 							className='bg-[#EBF0F5] dark:text-white dark:bg-[#36393E] cursor-pointer h-[100px] rounded-lg flex justify-center items-center gap-2'
 						>
@@ -68,6 +79,7 @@ const TourDetail = ({ darkmode }) => {
 					<div>
 						<div className='flex flex-col gap-[10px]'>
 							{[
+								...(paramsObject?.tour_somo_id === 7 ? [{ icon: <TicketIcon />, desc: 'Бесплатный билет на концерт ', title: t('home.number') }] : []),
 								{ icon: <HotelRoom />, desc: 'Выбранный тип номера в отеле', title: t('home.number') },
 								{ icon: <MealIcon />, desc: 'Выбранный тип питания', title: t('home.nutrition2') },
 								{ icon: <TransferIcon />, desc: t('home.transfet_group_title'), title: t('home.transfet_group') },

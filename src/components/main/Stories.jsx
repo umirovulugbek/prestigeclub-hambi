@@ -45,7 +45,7 @@ const StoryModal = ({ stories, onClose, setSelectStories }) => {
 							// width={window.innerWidth}
 							width={'100%'}
 							height={window.innerHeight}
-							defaultInterval={3000000}
+							defaultInterval={3000}
 							isPaused={story_loading}
 						/>
 
@@ -65,70 +65,6 @@ const Storiess = () => {
 	const lan = i18n.language;
 
 	const data = [
-		// {
-		// 	id: 1,
-		// 	title: (
-		// 		<div className='flex flex-col gap-1'>
-		// 			<p className=' font-bold'>Дананг</p>
-		// 			<div className='text-sm font-medium leading-[14px]'>Рекомендуемые отели</div>
-		// 		</div>
-		// 	),
-		// 	image: '/images/story-danang.jpg',
-		// 	stories: [
-		// 		{
-		// 			content: () => {
-		// 				return (
-		// 					<div className='relative w-full h-full'>
-		// 						<PreloadImage duration='300ms' lazy src='/images/story-danang.jpg' alt='' className=' absolute left-0 top-0 right-0 bottom-0 w-full h-full object-cover' />
-		// 						<div className=' z-10  relative flex  justify-between h-full items-center flex-col'>
-		// 							<div></div>
-		// 							<div></div>
-		// 							<div></div>
-		// 							<div className=' mx-[15px]'>
-		// 								<h1 className='text-white font-semibold text-[64px] leading-[150%] text-start select-none'>Дананг</h1>
-		// 								<p className='bg-white p-[15px] rounded-[10px] select-none'>
-		// 									Идеальное сочетание природы, культуры и современного комфорта! Золотые пляжи, потрясающие пейзажи и исторические достопримечательности
-		// 									делают его одним из самых востребованных курортов.
-		// 								</p>
-		// 							</div>
-		// 							<div></div>
-		// 						</div>
-		// 					</div>
-		// 				);
-		// 			},
-		// 		},
-		// 		{
-		// 			content: () => {
-		// 				return (
-		// 					<div className='relative w-full h-full'>
-		// 						<PreloadImage duration='300ms' lazy src='/images/crowne-plaza.jpg' alt='' className=' absolute left-0 top-0 right-0 bottom-0 w-full h-full object-cover' />
-		// 						<div className=' z-10   flex  justify-between h-full items-center flex-col'>
-		// 							<div></div>
-		// 							<div className='m-[15px] flex gap-3 flex-col z-[999999]'>
-		// 								<p className='bg-[#235DFF] py-[5px] px-[15px] rounded-lg  w-max text-xl  font-semibold text-white select-none'>Crowne Plaza Danang</p>
-		// 								<p className='bg-white p-[15px] rounded-[10px] mb-5 select-none'>
-		// 									Объект размещения расположен в одном из лучших районов г. Da Nang — Hòa H?i, вблизи от интересных мест и популярных ресторанов. Для более
-		// 									комфортного размещения этот 4.5-звездочный отель предлагает гостям непосредственно на своей территории такие услуги, как термальная
-		// 									купальня, массаж и сауна.
-		// 								</p>
-		// 								<button
-		// 									onClick={() => {
-		// 										if (window.location.href !== 'https://kun.uz/') {
-		// 											window.location.href = 'https://kun.uz/';
-		// 										}
-		// 									}}
-		// 									className='w-full z-[999999] select-none   cursor-pointer bg-white h-[55px] font-medium  rounded-[10px] flex justify-center items-center'
-		// 								>
-		// 									Перейти в отель
-		// 								</button>
-		// 							</div>
-		// 						</div>
-		// 					</div>
-		// 				);
-		// 			},
-		// 		},
-		// 	],
-		// },
 		{
 			id: 1,
 			title: (
@@ -176,8 +112,8 @@ const Storiess = () => {
 			id: 2,
 			title: (
 				<div className='flex flex-col gap-1'>
-					<div className='text-sm font-medium leading-[14px]'>Дананг</div>
-					<p className=' font-bold text-[10px]'>Рекомендуемые отели </p>
+					<div className='text-sm font-medium leading-[14px]'> {lan === 'ru' ? 'Дананг' : 'Danang'} </div>
+					<p className=' font-bold text-[10px]'> {lan === 'ru' ? 'Рекомендуемые отели' : 'Tavsiya etilgan mehmonxonalar'} </p>
 				</div>
 			),
 			image: '/images/trabzon-stories-1.png',
@@ -190,15 +126,35 @@ const Storiess = () => {
 								<img src='/images/trabzon-stories-1.png' alt='' className=' absolute left-0 top-0  w-full right-0 bottom-0 h-full object-cover' />
 								<div className=' z-10  relative flex  justify-between h-full items-center flex-col pb-[100px] pt-[60px]'>
 									<div>
-										<h2 className='text-white font-semibold text-[64px]'>Трабзон</h2>
+										<h2 className='text-white font-semibold text-[64px]'>{lan === 'ru' ? 'Трабзон' : 'Trabzon'}</h2>
 										<p className='font-semibold text-[26px] text-white mt-[35px]'>
-											Горы... Чанные террасы... <br /> черное море...
+											{lan === 'ru' ? (
+												<>
+													Горы... Чанные террасы... <br /> черное море...
+												</>
+											) : (
+												<>Tog‘lar... Qora dengiz...</>
+											)}
 										</p>
-										<p className='font-semibold text-[26px] text-white mt-[20px]'>Почему стоит поехать в Трабзон и Ризе хотя бы раз?</p>
+										<p className='font-semibold text-[26px] text-white mt-[20px]'>
+											{' '}
+											{lan === 'ru'
+												? ' Почему стоит поехать в Трабзон и Ризе хотя бы раз?'
+												: 'Nima uchun Trabzon va Rizega kamida bir marta tashrif buyurishga arziydi?'}
+										</p>
 									</div>
 									<p className='font-medium text-[17px] bg-white p-[15px] rounded-[10px]'>
-										Есть места, куда нужно попасть хотя бы один раз в жизни.  Трабзон и Ризе — из таких. Это не про "показать в сторис",  а про "почувствовать и
-										сохранить внутри".
+										{lan === 'ru' ? (
+											<>
+												Есть места, куда нужно попасть хотя бы один раз в жизни. Трабзон и Ризе — из таких. Это не про "показать в сторис", а про
+												"почувствовать и сохранить внутри".
+											</>
+										) : (
+											<>
+												Hayotda kamida bir marta borish kerak bo‘lgan joylar bor. Trabzon va Rize ana shunday joylardan. Bu "ijtimoiy tarmoqlarda
+												ko‘z-ko‘z qilish" emas, balki "his etish va qalbingizda saqlash" haqida.
+											</>
+										)}
 									</p>
 								</div>
 							</div>
@@ -213,7 +169,14 @@ const Storiess = () => {
 								<div className=' z-10  relative flex  justify-between h-full items-center flex-col pb-[100px] pt-[60px]'>
 									<div></div>
 									<p className='font-medium text-[17px] bg-white p-[15px] rounded-[10px]'>
-										Haqiqiy osoyishtalik qanday bo‘lishini ko‘rish uchun. Sukunat, tabiat, choy tepaliklari - nafas rostlash uchun zarur bo‘lgan barcha narsa.
+										{lan === 'ru' ? (
+											<>Чтобы увидеть, как выглядит настоящий покой. Тишина, природа, чайные склоны — всё, что нужно, чтобы выдохнуть.</>
+										) : (
+											<>
+												Haqiqiy osoyishtalik qanday bo‘lishini ko‘rish uchun. Sukunat, tabiat, choy tepaliklari - nafas rostlash uchun zarur bo‘lgan
+												barcha narsa.
+											</>
+										)}
 									</p>
 								</div>
 							</div>
@@ -228,7 +191,11 @@ const Storiess = () => {
 								<div className=' z-10  relative flex  justify-between h-full items-center flex-col pb-[100px] pt-[60px]'>
 									<div></div>
 									<p className='font-medium text-[17px] bg-white p-[15px] rounded-[10px]'>
-										Чтобы оказаться внутри облаков. Нет фильтров. Только ты, горы и дыхание природы.{' '}
+										{lan === 'ru' ? (
+											<>Чтобы оказаться внутри облаков. Нет фильтров. Только ты, горы и дыхание природы.</>
+										) : (
+											<>Bulutlar qo‘ynida bo‘lish uchun. Hech qanday sun’iylik yo‘q. Faqat sen, tog‘lar va tabiatning nafasi.</>
+										)}
 									</p>
 								</div>
 							</div>
@@ -243,7 +210,11 @@ const Storiess = () => {
 								<div className=' z-10  relative flex  justify-between h-full items-center flex-col pb-[100px] pt-[60px]'>
 									<div></div>
 									<p className='font-medium text-[17px] bg-white p-[15px] rounded-[10px]'>
-										Чтобы понять, что такое "ничего не делать" — и быть счастливым.  Озеро Узунгёль просто останавливает время.{' '}
+										{lan === 'ru' ? (
+											<>Чтобы понять, что такое "ничего не делать" — и быть счастливым. Озеро Узунгёль просто останавливает время. </>
+										) : (
+											<>"Hech narsa qilmaslik"ning mohiyatini anglash va baxtli bo‘lish uchun. Uzungo‘l vaqtni to‘xtatib qo‘yadi, xolos.</>
+										)}
 									</p>
 								</div>
 							</div>
@@ -253,12 +224,16 @@ const Storiess = () => {
 				{
 					content: () => {
 						return (
-							<div className=' w-full h-full  bg-[#70a015]  px-[15px] '>
+							<div className=' w-full h-full  bg-[#75a914]  px-[15px] '>
 								<img src='/images/trabzon-stories-5.jpg' alt='' className=' absolute left-0 top-0  w-full right-0 bottom-0 h-full object-cover' />
 								<div className=' z-10  relative flex  justify-between h-full items-center flex-col pb-[100px] pt-[60px]'>
 									<div></div>
 									<p className='font-medium text-[17px] bg-white p-[15px] rounded-[10px]'>
-										Чтобы почувствовать простую, тёплую радость  вдалеке от городского шума. Здесь живёт настоящий уют.{' '}
+										{lan === 'ru' ? (
+											<>Чтобы почувствовать простую, тёплую радость вдалеке от городского шума. Здесь живёт настоящий уют. </>
+										) : (
+											<>Shahar shovqinidan uzoqda oddiy, iliq quvonchni his qilish uchun. Bu yerda haqiqiy uyg‘unlikni topasiz.</>
+										)}
 									</p>
 								</div>
 							</div>
@@ -268,12 +243,19 @@ const Storiess = () => {
 				{
 					content: () => {
 						return (
-							<div className=' w-full h-full  bg-[#a5a167]  px-[15px] '>
+							<div className=' w-full h-full  bg-[#196e0c]  px-[15px] '>
 								<img src='/images/trabzon-stories-6.jpg' alt='' className=' absolute left-0 top-0  w-full right-0 bottom-0 h-full object-cover' />
 								<div className=' z-10  relative flex  justify-between h-full items-center flex-col pb-[100px] pt-[60px]'>
 									<div></div>
 									<p className='font-medium text-[17px] bg-white p-[15px] rounded-[10px]'>
-										Чтобы увидеть, как люди строили в невозможных местах  и почувствовать силу веры и времени — прямо в скале.{' '}
+										{lan === 'ru' ? (
+											<>Чтобы увидеть, как люди строили в невозможных местах и почувствовать силу веры и времени — прямо в скале. </>
+										) : (
+											<>
+												Odamlarning ilojsiz joylarda qanday qurilish olib borganini ko‘rish va ishonch hamda vaqtning kuchini his qilish uchun -
+												to‘g‘ridan-to‘g‘ri qoyada.
+											</>
+										)}
 									</p>
 								</div>
 							</div>
@@ -283,12 +265,16 @@ const Storiess = () => {
 				{
 					content: () => {
 						return (
-							<div className=' w-full h-full  bg-[#4eb31c]  px-[15px] '>
+							<div className=' w-full h-full  bg-[#196e0c]  px-[15px] '>
 								<img src='/images/trabzon-stories-7.jpg' alt='' className=' absolute left-0 top-0  w-full right-0 bottom-0 h-full object-cover' />
 								<div className=' z-10  relative flex  justify-between h-full items-center flex-col pb-[100px] pt-[60px]'>
 									<div></div>
 									<p className='font-medium text-[17px] bg-white p-[15px] rounded-[10px]'>
-										Чтобы встретить один из самых красивых закатов в жизни.  С чашкой чая и полным спокойствием внутри.{' '}
+										{lan === 'ru' ? (
+											<>Чтобы встретить один из самых красивых закатов в жизни. С чашкой чая и полным спокойствием внутри. </>
+										) : (
+											<>Hayotdagi eng go‘zal quyosh botishlaridan birini kuzatish uchun.  Bir piyola choy va qalbda to‘liq xotirjamlik bilan.</>
+										)}
 									</p>
 								</div>
 							</div>

@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { YMInitializer } from 'react-yandex-metrika';
 import InputDiv from '../components/form/InputDiv';
+import RixosHotel from '../components/main/RixosHotel';
 import Storiess from '../components/main/Stories';
 import MobileTab from '../components/mobiletab';
 import GraphicTour from '../components/pages/findtour/GraphicTour';
@@ -11,11 +12,11 @@ import HistorySearch from '../components/pages/findtour/HistorySearch';
 import ModalDeparture from '../components/pages/findtour/ModalDeparture';
 import ModalDepartureDate from '../components/pages/findtour/ModalDepartureDate';
 import ModalNumberOfDays from '../components/pages/findtour/ModalNumberOfDays';
+import ModalNumberOfTouristsRixos from '../components/pages/findtour/ModalNumberOfTouristRixos';
 import ModalNumberOfTourists from '../components/pages/findtour/ModalNumberOfTourists';
 import ModalWhere from '../components/pages/findtour/ModalWhere';
 import ButtonMain from '../components/ui/ButtonMain';
 import NavigationOne from '../components/ui/NavigationOne';
-import useTopHotelApi from '../hooks/api/useTopHotelApi';
 import PalmIcon from '../svg/PalmIcon';
 import { getSearchParams } from '../utils/function';
 import Axios from '../utils/httpsClinet';
@@ -23,7 +24,6 @@ import { trackEvent } from '../utils/mixpanel';
 const FindTour = ({ darkmode }) => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const { home_top } = useTopHotelApi();
 	const [showCity, setShowCity] = useState(false);
 	const paramsObject = getSearchParams();
 	const { t, i18n } = useTranslation();
@@ -35,6 +35,7 @@ const FindTour = ({ darkmode }) => {
 	const [numberOfDaysList, setNumberOfDaysList] = useState([]);
 	const [date, setDate] = useState(new Date());
 	const [ages, setAges] = useState([]);
+	const [ages2, setAges2] = useState([]);
 	const [addChild, setAddChild] = useState(false);
 	const [departure, Setdeparture] = useState({});
 
@@ -45,6 +46,8 @@ const FindTour = ({ darkmode }) => {
 		number_of_tourists: 2,
 		adultCounter: 2,
 		childrenCount: 0,
+		adultCounterRixos: 2,
+		childrenCountRixos: 0,
 	});
 	const [anotherObj, setAnotherObj] = useState({
 		town_from_inc: undefined,
@@ -63,14 +66,32 @@ const FindTour = ({ darkmode }) => {
 	const [modalWhere, setModalWhere] = useState(false);
 	const [modalDepartureDate, setModalDepartureDate] = useState(false);
 	const [modalNumberOfTourists, setModalNumberOfTourists] = useState(false);
+	const [modalNumberOfTourists2, setModalNumberOfTourists2] = useState(false);
 	const [modalNumberOfDays, setModalNumberOfDays] = useState(false);
-
 	const [departureDateObjParams, setDepartureDateObjParams] = useState({
 		somo_id: undefined,
 		tour_operator_id: undefined,
 		state_id: undefined,
 		checkin: undefined,
 	});
+
+	useEffect(() => {
+		const imageUrls = [
+			'/images/trabzon-stories-1.png',
+			'/images/trabzon-stories-2.jpg',
+			'/images/trabzon-stories-3.jpg',
+			'/images/trabzon-stories-4.jpg',
+			'/images/trabzon-stories-5.jpg',
+			'/images/trabzon-stories-6.jpg',
+			'/images/trabzon-stories-7.jpg',
+			'/images/lopez-banner.png',
+		];
+
+		imageUrls.forEach(url => {
+			const img = new Image();
+			img.src = url;
+		});
+	}, []);
 
 	useEffect(() => {
 		if (paramsObject?.town_from_inc) {
@@ -270,7 +291,7 @@ const FindTour = ({ darkmode }) => {
 							somo_id: el?.somo_id,
 							tour_operator_id: el?.tour_operator_id,
 							town_from_id: el?.town_from_id,
-							image: el?.image,
+							image: el?.image_thumb,
 							description: i18n?.language === 'uz' ? el?.description_uz : i18n?.language === 'ru' ? el?.description_ru : el?.description_en,
 						},
 					];
@@ -388,9 +409,6 @@ const FindTour = ({ darkmode }) => {
 					<div className=' pt-[80px]'>
 						<Storiess />
 						<div className='relative z-[1]'>
-							{/* <div className='mb-[20px]'>
-							<GetReviewWidget widgetId='ZsForSw5F1bAXXiz' />
-						</div> */}
 							<div className={`rounded-xl px-[15px]  py-[30px]   bg-white  dark:bg-[#272829]`}>
 								<div className='flex gap-[10px]  justify-center  text-sm items-center'>
 									<div className=' dark:text-white'>{t('home.departure_city')}</div>
@@ -471,6 +489,7 @@ const FindTour = ({ darkmode }) => {
 						</div>
 					</div>
 				</div>
+				<RixosHotel obj={obj} setModalNumberOfTourists2={setModalNumberOfTourists2} />
 				<GraphicTour
 					Setdeparture={Setdeparture}
 					getTowns={getTowns}
@@ -481,15 +500,9 @@ const FindTour = ({ darkmode }) => {
 					setObj={setObj}
 					townStates={townStates}
 				/>
-				{/* <TopHotel trackEvent_page={'home_page'} list={home_top?.slice(0, 6)} darkmode={darkmode} colorWhite={true} priceShow={true} listType='1' linktrue={true} /> */}
 				<HistorySearch darkmode={darkmode} />
-				{/* <div className='container_main pt-[20px]'>
-					<img src='/images/fukok-banner.svg' alt='' className='w-full' />
-				</div> */}
 			</section>
-
 			<MobileTab darkmode={darkmode} />
-
 			<ModalDeparture
 				modalDeparture={modalDeparture}
 				setModalDeparture={setModalDeparture}
@@ -560,6 +573,15 @@ const FindTour = ({ darkmode }) => {
 				addChild={addChild}
 				setAddChild={setAddChild}
 				setModalNumberOfDays={setModalNumberOfDays}
+			/>
+			<ModalNumberOfTouristsRixos
+				setObj={setObj}
+				obj={obj}
+				darkmode={darkmode}
+				modalNumberOfTourists={modalNumberOfTourists2}
+				setModalNumberOfTourists={setModalNumberOfTourists2}
+				ages={ages2}
+				setAges={setAges2}
 			/>
 			<ModalNumberOfDays
 				darkmode={darkmode}
