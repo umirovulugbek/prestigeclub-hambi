@@ -489,7 +489,7 @@ const FindTour = ({ darkmode }) => {
 						</div>
 					</div>
 				</div>
-				<RixosHotel obj={obj} setModalNumberOfTourists2={setModalNumberOfTourists2} />
+				<RixosHotel darkmode={darkmode} obj={obj} setModalNumberOfTourists2={setModalNumberOfTourists2} />
 				<GraphicTour
 					Setdeparture={Setdeparture}
 					getTowns={getTowns}
