@@ -85,6 +85,19 @@ const FindTour = ({ darkmode }) => {
 			'/images/trabzon-stories-6.jpg',
 			'/images/trabzon-stories-7.jpg',
 			'/images/lopez-banner.png',
+			'/images/danang-stories-4-1.jpg',
+			'/images/danang-stories-4-2.jpg',
+			'/images/danang-stories-4-3.jpg',
+			'/images/danang-stories-4-4.jpg',
+			'/images/danang-stories-3-1.png',
+			'/images/danang-stories-3-2.jpg',
+			'/images/danang-stories-3-3.png',
+			'/images/danang-stories-3-4.png',
+			'/images/danang-stories-2-1.jpg',
+			'/images/danang-stories-2-2.jpg',
+			'/images/danang-stories-2-3.png',
+			'/images/danang-stories-2-4.jpg',
+			'/images/danang-stories-1.jpg',
 		];
 
 		imageUrls.forEach(url => {
