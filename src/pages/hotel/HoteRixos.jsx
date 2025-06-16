@@ -65,13 +65,11 @@ const HoteRixos = ({ darkmode }) => {
 			.finally(() => setLoading(false));
 	};
 
-	// Qaysi tab aktiv bo‘lsa, o‘sha ma’lumotni chiqaramiz
 	const currentItems = activeTab === 1 ? items1 : items2;
 
 	return (
 		<div className='min-h-screen pb-[10px] bg-neutralSand dark:bg-[#141414]'>
 			<div className='container_main !px-0'>
-				{/* Header */}
 				<div className='fixed container_main z-999 w-full bg-white dark:bg-[#272829] rounded-bl-[20px] rounded-br-[20px] h-[75px] mb-3 p-[15px]'>
 					<div className='flex items-center w-full justify-between gap-[10px]'>
 						<div className='flex gap-[10px] items-center'>
@@ -104,18 +102,18 @@ const HoteRixos = ({ darkmode }) => {
 					</>
 				) : (
 					<StyleCom className='pt-[90px] flex flex-col gap-3'>
-						<div className='bg-white'>
+						<div className='bg-white dark:bg-[#272829]'>
 							<div className='container_main py-[10px] flex flex-col gap-[10px]'>
-								<div className='font-medium text-[#141414]'>Дата вылета на концерт</div>
+								<div className='font-medium text-[#141414] dark:text-white'>Дата вылета на концерт</div>
 								<div className='flex items-center gap-[10px]'>
 									<div
 										className={`w-full border-[0.5px] p-[10px] rounded-md flex justify-center cursor-pointer ${
-											activeTab === 1 ? 'border-[#235DFF] bg-[#EBF0F5]' : 'border-gray-300'
+											activeTab === 1 ? 'border-[#235DFF] bg-[#EBF0F5]  dark:bg-[#2d2e31]' : 'border-[#235DFF] '
 										}`}
 										onClick={() => setActiveTab(1)}
 									>
 										<div className='flex flex-col gap-2 items-center'>
-											<div className='text-[#141414] font-medium'>01.06 - {paramsObject?.nights} ночей</div>
+											<div className='text-[#141414] dark:text-white font-medium'>01.06 - {paramsObject?.nights} ночей</div>
 											<div className='text-[#235DFF] font-semibold text-lg'>
 												{items1
 													?.filter(i => [147, 146].includes(i?.hotel?.hotel_key))[0]
@@ -127,12 +125,12 @@ const HoteRixos = ({ darkmode }) => {
 									</div>
 									<div
 										className={`w-full border-[0.5px] p-[10px] rounded-md flex justify-center cursor-pointer ${
-											activeTab === 2 ? 'border-[#235DFF] bg-[#EBF0F5]' : 'border-gray-300'
+											activeTab === 2 ? 'border-[#235DFF] bg-[#EBF0F5]   dark:bg-[#2d2e31] ' : ' border-[#235DFF]'
 										}`}
 										onClick={() => setActiveTab(2)}
 									>
 										<div className='flex flex-col gap-2 items-center'>
-											<div className='text-[#141414] font-medium'>02.06 - {paramsObject?.nights} ночей</div>
+											<div className='text-[#141414] dark:text-white font-medium'>02.06 - {paramsObject?.nights} ночей</div>
 											<div className='text-[#235DFF] font-semibold text-lg'>
 												{' '}
 												{items2
@@ -147,7 +145,6 @@ const HoteRixos = ({ darkmode }) => {
 							</div>
 						</div>
 
-						{/* Hotel list */}
 						<InfiniteScroll
 							dataLength={currentItems.length}
 							className='flex flex-col gap-[15px] mx-[10px]'
