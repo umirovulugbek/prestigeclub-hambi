@@ -73,11 +73,11 @@ const RixosHotel = ({ darkmode, setModalNumberOfTourists2, obj }) => {
 					<div className=''>
 						{lang === 'uz' ? (
 							<>
-								2-aprelda jo‘nash <br /> Ultra hamma narsa kiritilgan ovqatlanish
+								2-iyuldan jo‘nash <br /> Ultra hamma narsa kiritilgan ovqatlanish
 							</>
 						) : (
 							<>
-								Вылет 2го апреля <br />
+								Вылет 2го июль <br />
 								Питание ультра все включено
 							</>
 						)}

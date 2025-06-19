@@ -105,7 +105,7 @@ const AppRouter = () => {
 	useEffect(() => {
 		const value = getCookie('click-web-session');
 		const theme = getCookie('click-theme');
-		setTheme(theme ? theme : 'dark');
+		setTheme(theme ? theme : 'white');
 		const language = getCookie('click-language');
 
 		localStorage.setItem('i18nextLng', language ? language : 'ru');
