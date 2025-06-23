@@ -20,7 +20,7 @@ const LastMinuteTours = () => {
 	};
 	return (
 		<div className='pt-[20px] container_main '>
-			<div className='text-[20px] flex gap-[5px] items-center mb-4'>
+			<div className='text-[20px] dark:text-white flex gap-[5px] items-center mb-4'>
 				<FireIcon />
 				Горящие туры
 			</div>

@@ -14,6 +14,7 @@ import 'swiper/css/pagination';
 import HotelCard from '../../components/card/HotelCard';
 import SelectDiv2 from '../../components/form/SelectDiv2';
 import HeaderDetailParams from '../../components/HeaderDetailParams';
+import ChooseDistrict from '../../components/main/ChooseDistrict';
 import ModalEdit from '../../components/modal/ModalEdit';
 import ModalFilter from '../../components/pages/searchresult/ModalFilter';
 import ModalRecommended from '../../components/pages/searchresult/ModalRecommended';
@@ -366,6 +367,7 @@ const HotelListBySearch = ({ darkmode }) => {
 										</Link>
 									</div>
 								</div>
+								<ChooseDistrict />
 								{stars?.length > 0 ? (
 									<div className='mx-[10px]'>
 										<div className='flex gap-2'>

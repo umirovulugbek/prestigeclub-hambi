@@ -1,9 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import FireIcon from '../../svg/FireIcon';
 import PalmIcon from '../../svg/PalmIcon';
 
 const LastMinuteTourHotel = ({ data }) => {
+	const navigate = useNavigate();
 	const { i18n } = useTranslation();
 	const formatDate = dateString => {
 		const monthNames_uz = {
@@ -44,15 +46,24 @@ const LastMinuteTourHotel = ({ data }) => {
 		return `${parseInt(day)} ${(i18n?.language === 'uz' ? monthNames_uz : monthNames)[parseInt(month)]}`;
 	};
 	return (
-		<div className=' bg-white w-full  rounded-xl'>
+		<div
+			onClick={() => {
+				navigate(
+					`/hotels/tour-info/?town_from_inc=${data?.tour?.town_from_id}&tour_operator_id=${data?.tour?.tour_operator_id}&state_id=${data?.tour?.state_id}&checkin=${data?.checkin_date}&nights=7&adult=${data?.adults_count}&childs=${data?.children_count}&tour_somo_id=${data?.tour?.samo_id}&towns[]=${data?.tour?.samo_id}`
+				);
+			}}
+			className='bg-white dark:bg-[#272829] w-full  rounded-xl cursor-pointer'
+		>
 			<div className='relative'>
 				<img src={data?.image_thumb} alt='' className='h-[115px] w-full  rounded-xl' />
-				<span className='bg-white top-2 px-[10px] absolute left-2 flex justify-center gap-1  items-center  rounded-xl h-[26px]'>
+				<span className='bg-white dark:bg-[#141414] dark:text-white top-2 px-[10px] absolute left-2 flex justify-center gap-1  items-center  rounded-xl h-[26px]'>
 					<PalmIcon width='12' height='12' color='#235DFF' />
 					{data?.town_name}
 				</span>
 				<div className='absolute bottom-2 px-2 flex justify-between w-full'>
-					<span className='bg-white px-[10px] text-sm  flex justify-center gap-1  items-center  rounded-xl h-[26px]'>{formatDate(data?.departure_date)}</span>
+					<span className='bg-white dark:bg-[#141414] dark:text-white px-[10px] text-sm  flex justify-center gap-1  items-center  rounded-xl h-[26px]'>
+						{formatDate(data?.departure_date)}
+					</span>
 					<span className='bg-[#FF6565] text-white px-[10px] text-sm  flex justify-center gap-1  items-center  rounded-xl h-[26px]'>
 						{data?.discount_percentage}%
 						<FireIcon color='#Ffff' width='16' height='16' />

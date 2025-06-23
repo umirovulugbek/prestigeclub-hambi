@@ -334,14 +334,25 @@ const Storiess = () => {
 								</div>
 								<div className='bg-white pt-[25px] px-[20px] flex-col rounded-t-[20px] h-full flex  gap-3'>
 									<div>
-										<div className=' text-lg font-semibold'>Ба На Хиллс — французская сказка во Вьетнаме</div>
+										<div className=' text-lg font-semibold'>
+											{lan === 'uz' ? 'Ba Na Hills - Vyetnamdagi fransuz ertagi' : 'Ба На Хиллс — французская сказка во Вьетнаме'}
+										</div>
 										<div className='text-[17px]  font-medium text-[#141414]'>
-											Пейзажи на высоте 1400 метров: <br /> — Знаменитый Золотой мост 🏗 <br /> — Канатная дорога с рекордной высотой 🚠 <br /> — Архитектура
-											как в Европе 🇫🇷 <br /> — Парк развлечений прямо в облаках 🎢
+											{lan === 'uz' ? (
+												<>
+													1400 metr balandlikda joylashgan manzaralar: <br /> - Mashhur Oltin ko‘prik 🏗 <br /> - Rekord balandlikdagi kanat yo‘li 🚠
+													<br /> - Yevropadagidek me’morchilik 🇫🇷 <br /> - Bulutlar orasidagi ko‘ngilochar bog‘ 🎢
+												</>
+											) : (
+												<>
+													Пейзажи на высоте 1400 метров: <br /> — Знаменитый Золотой мост 🏗 <br /> — Канатная дорога с рекордной высотой 🚠 <br /> —
+													Архитектура как в Европе 🇫🇷 <br /> — Парк развлечений прямо в облаках 🎢
+												</>
+											)}
 										</div>
 									</div>
 									<div className=' absolute bottom-9 bg-[#235DFF] w-[calc(100%_-_40px)] flex justify-center items-center  rounded-[30px] h-[57px] font-medium text-white text-[20px]'>
-										Далее
+										{lan === 'ru' ? 'Далее' : 'Keyingisi'}
 									</div>
 								</div>
 							</div>
@@ -360,14 +371,26 @@ const Storiess = () => {
 								</div>
 								<div className='bg-white pt-[25px] px-[20px] flex-col rounded-t-[20px] h-full flex  gap-3'>
 									<div>
-										<div className=' text-lg font-semibold'> Лучшие отели Дананга — прямо у пляжа</div>
+										<div className=' text-lg font-semibold'>
+											{lan === 'uz' ? 'Danangning eng sara mehmonxonalari - plyaj bo‘yida joylashgan' : 'Лучшие отели Дананга — прямо у пляжа'}
+										</div>
 										<div className='text-[17px]  font-medium text-[#141414]'>
-											Отдохни с комфортом: <br /> — Отели с халяль-концепцией <br /> — Прямой выход к пляжу <br /> — Бассейны, спа, кухня и идеальный сервис{' '}
-											<br /> — Выбор для семей, пар и релакса
+											{lan === 'uz' ? (
+												<>
+													Отдохни с комфортом: <br /> — Отели с халяль-концепцией <br /> — Прямой выход к пляжу <br /> — Бассейны, спа, кухня и
+													идеальный сервис <br /> — Выбор для семей, пар и релакса
+												</>
+											) : (
+												<>
+													Qulay dam oling: <br /> — Halol tamoyillariga mos mehmonxonalar <br /> — Plyajga bevosita chiqish imkoniyati <br /> —
+													Suzish havzalari, spa, oshxona va ajoyib xizmat ko‘rsatish <br /> — Oilalar, juftliklar va hordiq chiqarish uchun eng
+													maqbul tanlov
+												</>
+											)}
 										</div>
 									</div>
 									<div className=' absolute bottom-9 bg-[#235DFF] w-[calc(100%_-_40px)] flex justify-center items-center  rounded-[30px] h-[57px] font-medium text-white text-[20px]'>
-										Далее
+										{lan === 'ru' ? 'Далее' : 'Keyingisi'}
 									</div>
 								</div>
 							</div>
@@ -386,10 +409,19 @@ const Storiess = () => {
 								</div>
 								<div className='bg-white pt-[25px] px-[20px] flex-col rounded-t-[20px] h-full flex  gap-3'>
 									<div>
-										<div className=' text-lg font-semibold'>Песок, пальмы и идеальный пляж</div>
+										<div className=' text-lg font-semibold'>{lan === 'uz' ? 'Qum, palma daraxtlari va ajoyib sohil' : 'Песок, пальмы и идеальный пляж'}</div>
 										<div className='text-[17px]  font-medium text-[#141414]'>
-											Чистейшие пляжи Юго-Восточной Азии: <br /> — Белый песок и прозрачное море <br /> — Мало туристов и много уединения <br /> — Отлично
-											для фото, релакса и прогулок <br /> — Море в шаге от вашего отеля
+											{lan === 'uz' ? (
+												<>
+													Janubi-Sharqiy Osiyoning eng toza sohillari: <br /> — Oppoq qum va tiniq dengiz <br /> — Sayyohlar soni kam, xilvatlik ko‘p <br /> — Surat
+													olish, hordiq chiqarish va sayr qilish uchun ajoyib joy <br /> — Dengiz mehmonxonangizdan bir qadam narida joylashgan
+												</>
+											) : (
+												<>
+													Чистейшие пляжи Юго-Восточной Азии: <br /> — Белый песок и прозрачное море <br /> — Мало туристов и много уединения <br />{' '}
+													— Отлично для фото, релакса и прогулок <br /> — Море в шаге от вашего отеля
+												</>
+											)}
 										</div>
 									</div>
 									<div className=' absolute bottom-9 bg-[#235DFF] w-[calc(100%_-_40px)] flex justify-center items-center  rounded-[30px] h-[57px] font-medium text-white text-[20px]'>
@@ -421,7 +453,7 @@ const Storiess = () => {
 									<div>
 										<h2 className='text-white font-semibold text-[64px]'>{lan === 'ru' ? 'Нячанг' : 'Nyachang'}</h2>
 										<p className='font-semibold text-[26px] text-white mt-[35px]'>
-											{lan === 'ru' ? <>Курорт, который влюбляет с первого взгляда</> : <>Курорт, который влюбляет с первого взгляда</>}
+											{lan === 'ru' ? <>Курорт, который влюбляет с первого взгляда</> : <>Bir ko‘rishdayoq sevib qoladigan kurort</>}
 										</p>
 									</div>
 									<p className='font-medium text-[17px] bg-white p-[15px] rounded-[10px]'>
@@ -432,8 +464,9 @@ const Storiess = () => {
 											</>
 										) : (
 											<>
-												Где ещё за день можно: <br /> — Позагорать на белоснежном пляже <br /> — Поплавать у островов и кораллов <br /> — Прокатиться по
-												канатке прямо над морем <br /> — Окунуться в лечебные грязевые источники
+												Bir kunda yana qayerlarda quyidagilarni qilish mumkin: <br /> — Oppoq qumli sohilda quyoshda toblanish <br /> — Orollar va
+												marjon riflari atrofida suzish <br /> — Dengiz ustidan arqonli yo‘lda sayr qilish <br /> — Shifobaxsh balchiqli buloqlarga
+												cho‘milish
 											</>
 										)}
 									</p>
@@ -454,14 +487,26 @@ const Storiess = () => {
 								</div>
 								<div className='bg-white pt-[25px] px-[20px] flex-col rounded-t-[20px] h-full flex  gap-3'>
 									<div>
-										<div className=' text-lg font-semibold'>Острова и VinWonders — приключения для всех</div>
+										<div className=' text-lg font-semibold'>
+											{lan === 'ru' ? 'Острова и VinWonders — приключения для всех' : ' Orollar va VinWonders - barchaga mo‘ljallangan sarguzashtlar'}
+										</div>
 										<div className='text-[17px]  font-medium text-[#141414]'>
-											— Морские экскурсии и катера на острова Хон Мун, Хон Там, Хон Че 🛥 <br /> — VinWonders: канатка над морем, аквапарк, шоу, сафари 🎢{' '}
-											<br />— Дайвинг и снорклинг среди кораллов 🐠 <br /> — Рыбалка, SUP и катание на бананах 🚤
+											{lan === 'ru' ? (
+												<>
+													— Морские экскурсии и катера на острова Хон Мун, Хон Там, Хон Че 🛥 <br /> — VinWonders: канатка над морем, аквапарк, шоу,
+													сафари 🎢 <br />— Дайвинг и снорклинг среди кораллов 🐠 <br /> — Рыбалка, SUP и катание на бананах 🚤
+												</>
+											) : (
+												<>
+													— Xon Mun, Xon Tam, Xon Che orollariga dengiz sayohatlari va kater sayr🛥 <br /> — VinWonders: dengiz uzra kanat yo‘li,
+													akvapark, tomoshalar, safari 🎢 <br /> — Marjonlar orasida g‘avvoslik va snorkling 🐠 <br />— Baliq ovlash, SUP va banan
+													qayiqda uchish 🚤
+												</>
+											)}
 										</div>
 									</div>
 									<div className=' absolute bottom-9 bg-[#235DFF] w-[calc(100%_-_40px)] flex justify-center items-center  rounded-[30px] h-[57px] font-medium text-white text-[20px]'>
-										Далее
+										{lan === 'ru' ? 'Далее' : 'Keyingisi'}
 									</div>
 								</div>
 							</div>
@@ -480,14 +525,25 @@ const Storiess = () => {
 								</div>
 								<div className='bg-white pt-[25px] px-[20px] flex-col rounded-t-[20px] h-full flex  gap-3'>
 									<div>
-										<div className=' text-lg font-semibold'>Отели Нячанга с видом на море</div>
+										<div className=' text-lg font-semibold'>{lan === 'uz' ? 'Dengizga qaragan Nyachang mehmonxonalari' : 'Отели Нячанга с видом на море'}</div>
 										<div className='text-[17px]  font-medium text-[#141414]'>
-											— Прямо на первой линии: Vinpearl, Marriot, Amiana, Intercontinental <br /> — Халяль-концепции, семейные номера и романтические люксы{' '}
-											<br />— Панорамные бассейны, спа, кухни из морепродуктов <br /> — Подходит и для пар, и для отдыха с детьми
+											{lan === 'ru' ? (
+												<>
+													— Прямо на первой линии: Vinpearl, Marriot, Amiana, Intercontinental <br /> — Халяль-концепции, семейные номера и
+													романтические люксы <br />— Панорамные бассейны, спа, кухни из морепродуктов <br /> — Подходит и для пар, и для отдыха с
+													детьми
+												</>
+											) : (
+												<>
+													- Birinchi qatorda joylashgan: Vinpearl, Marriot, Amiana, Intercontinental <br /> - Halol konsepsiyali, oilaviy xonalar va
+													romantik lyukslar <br /> - Panoramali hovuzlar, spa markazlari, dengiz mahsulotlari oshxonalari <br /> - Juftliklar uchun
+													ham, bolalar bilan dam olish uchun ham qulay
+												</>
+											)}
 										</div>
 									</div>
 									<div className=' absolute bottom-9 bg-[#235DFF] w-[calc(100%_-_40px)] flex justify-center items-center  rounded-[30px] h-[57px] font-medium text-white text-[20px]'>
-										Далее
+										{lan === 'ru' ? 'Далее' : 'Keyingisi'}
 									</div>
 								</div>
 							</div>
@@ -506,14 +562,23 @@ const Storiess = () => {
 								</div>
 								<div className='bg-white pt-[25px] px-[20px] flex-col rounded-t-[20px] h-full flex  gap-3'>
 									<div>
-										<div className=' text-lg font-semibold'>Песок как пудра, море — как бирюза</div>
+										<div className=' text-lg font-semibold'>{lan === 'ru' ? 'Песок как пудра, море — как бирюза' : 'Maldiv orollaridagi kabi oppoq qum'}</div>
 										<div className='text-[17px]  font-medium text-[#141414]'>
-											— Центральный пляж, Бай Зай и дикие бухты <br /> — Идеально для прогулок, фотосессий и закатов <br /> — Мало людей, много тени и пальм
-											🌴 <br />— Чистота, комфорт и шаг до шезлонга
+											{lan === 'uz' ? (
+												<>
+													— Центральный пляж, Бай Зай и дикие бухты <br /> — Идеально для прогулок, фотосессий и закатов <br /> — Мало людей, много
+													тени и пальм 🌴 <br />— Чистота, комфорт и шаг до шезлонга
+												</>
+											) : (
+												<>
+													- Markaziy plyaj, Bay Zay va yovvoyi qo‘ltiqlar <br /> - sayr qilish, suratga tushish va quyosh botishini kuzatish uchun
+													ajoyib joylar <br /> - Odam kam, soya va palmalar ko‘p 🌴 <br /> - Tozalik, qulaylik va shezlongga bir qadam masofada
+												</>
+											)}
 										</div>
 									</div>
 									<div className=' absolute bottom-9 bg-[#235DFF] w-[calc(100%_-_40px)] flex justify-center items-center  rounded-[30px] h-[57px] font-medium text-white text-[20px]'>
-										Далее
+										{lan === 'ru' ? 'Далее' : 'Keyingisi'}
 									</div>
 								</div>
 							</div>
