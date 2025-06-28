@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { YMInitializer } from 'react-yandex-metrika';
 import InputDiv from '../components/form/InputDiv';
 import LastMinuteTours from '../components/main/LastMinuteTours';
-import RixosHotel from '../components/main/RixosHotel';
 import Storiess from '../components/main/Stories';
 import MobileTab from '../components/mobiletab';
 import GraphicTour from '../components/pages/findtour/GraphicTour';
@@ -503,7 +502,6 @@ const FindTour = ({ darkmode }) => {
 						</div>
 					</div>
 				</div>
-				<RixosHotel darkmode={darkmode} obj={obj} setModalNumberOfTourists2={setModalNumberOfTourists2} />
 				<LastMinuteTours />
 				<GraphicTour
 					Setdeparture={Setdeparture}

@@ -14,7 +14,6 @@ import 'swiper/css/pagination';
 import HotelCard from '../../components/card/HotelCard';
 import SelectDiv2 from '../../components/form/SelectDiv2';
 import HeaderDetailParams from '../../components/HeaderDetailParams';
-import ChooseDistrict from '../../components/main/ChooseDistrict';
 import ModalEdit from '../../components/modal/ModalEdit';
 import ModalFilter from '../../components/pages/searchresult/ModalFilter';
 import ModalRecommended from '../../components/pages/searchresult/ModalRecommended';
@@ -25,7 +24,7 @@ import { getSearchParams } from '../../utils/function';
 import { trackEvent } from '../../utils/mixpanel';
 import SearchMap from '../SearchMap';
 const fetchDataMap = async () => {
-	const { data } = await Axios().get(`/api/v1/somo-travel/tour-prices-content-map${window.location.search}`);
+	const { data } = await Axios().get(`/api/v1/somo-travel/tour-prices-content-map2${window.location.search}`);
 	return data?.data || [];
 };
 
@@ -367,7 +366,7 @@ const HotelListBySearch = ({ darkmode }) => {
 										</Link>
 									</div>
 								</div>
-								<ChooseDistrict />
+								{/* <ChooseDistrict /> */}
 								{stars?.length > 0 ? (
 									<div className='mx-[10px]'>
 										<div className='flex gap-2'>
@@ -437,7 +436,6 @@ const HotelListBySearch = ({ darkmode }) => {
 				/>
 
 				<ModalFilter setPage={setPage} modal={modalFiler} setModal={setModalFilter} filter_option={obj?.filters} />
-
 				{modalMap && (
 					<div className='fixed z-9999 inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center'>
 						<SearchMap

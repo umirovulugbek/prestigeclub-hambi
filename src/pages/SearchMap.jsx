@@ -20,8 +20,8 @@ const SearchMap = ({ darkmode, setModalMap, items, loading, isError }) => {
 	const { t } = useTranslation();
 	const center = items?.length
 		? {
-				lat: Number(items[0]?.hotel?.hotel_detail?.latitude) || defaultCenter.lat,
-				lng: Number(items[0]?.hotel?.hotel_detail?.longitude) || defaultCenter.lng,
+				lat: Number(items[0]?.hotel?.detail?.location?.latitude) || defaultCenter.lat,
+				lng: Number(items[0]?.hotel?.detail?.location?.longitude) || defaultCenter.lng,
 		  }
 		: defaultCenter;
 	const createCustomMarker = price => {
@@ -43,8 +43,8 @@ const SearchMap = ({ darkmode, setModalMap, items, loading, isError }) => {
 		items?.forEach(hotel => {
 			const marker = new maps.Marker({
 				position: {
-					lat: Number(hotel?.hotel?.hotel_detail?.latitude),
-					lng: Number(hotel?.hotel?.hotel_detail?.longitude),
+					lat: Number(hotel?.hotel?.detail?.location?.latitude),
+					lng: Number(hotel?.hotel?.detail?.location?.longitude),
 				},
 				map,
 				icon: createCustomMarker(hotel?.converted_price_number),
@@ -64,6 +64,7 @@ const SearchMap = ({ darkmode, setModalMap, items, loading, isError }) => {
 
 	return (
 		<div className='flex flex-col relative'>
+			{console.log(items, 'data_map')}
 			<button
 				onClick={() => {
 					setModalMap(false);
@@ -102,7 +103,7 @@ const SearchMap = ({ darkmode, setModalMap, items, loading, isError }) => {
 										e.target.src = 'https://cdn0.hitched.co.uk/vendor/4332/3_2/1280/png/frame-1_4_24332-169089063311545.webp';
 									}}
 									loading='lazy'
-									src={item?.hotel?.image_url}
+									src={item?.hotel?.hotel_url + item?.hotel?.main_photo}
 									className='w-full h-full object-cover  rounded-[18.07px]'
 									alt=''
 								/>
@@ -131,12 +132,12 @@ const SearchMap = ({ darkmode, setModalMap, items, loading, isError }) => {
 								/>
 
 								<p className=' text-base font-normal dark:text-white'>
-									{item?.hotel?.state?.name} {item?.hotel?.town?.name ? ', ' + item?.hotel?.town?.name : null}
+									{item?.hotel?.state?.name} {item?.town_name && item?.hotel?.state?.name ? ', ' : null} {item?.town_name}
 								</p>
-								{item?.rating?.[0]?.rating ? (
+								{item?.hotel?.detail?.ratings?.overall ? (
 									<div className=' inline-flex gap-10  items-center text-white bg-white dark:bg-[#272829] rounded-[10px] h-[30px] py-[10px]'>
 										<div className='flex gap-[5px] '>
-											<div className=' text-[#141414] dark:text-white text-[17px] font-normal'>{item?.rating?.[0]?.rating}</div>
+											<div className=' text-[#141414] dark:text-white text-[17px] font-normal'>{item?.hotel?.detail?.ratings?.overall}</div>
 											{darkmode ? <img className='pl-1' src='/images/tripadvisor-white.svg' alt='' /> : <img src='/images/tripadvisor.svg' alt='' />}{' '}
 										</div>
 									</div>

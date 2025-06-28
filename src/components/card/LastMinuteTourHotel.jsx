@@ -6,7 +6,7 @@ import PalmIcon from '../../svg/PalmIcon';
 
 const LastMinuteTourHotel = ({ data }) => {
 	const navigate = useNavigate();
-	const { i18n } = useTranslation();
+	const { i18n, t } = useTranslation();
 	const formatDate = dateString => {
 		const monthNames_uz = {
 			1: 'yanvar',
@@ -49,20 +49,20 @@ const LastMinuteTourHotel = ({ data }) => {
 		<div
 			onClick={() => {
 				navigate(
-					`/hotels/tour-info/?town_from_inc=${data?.tour?.town_from_id}&tour_operator_id=${data?.tour?.tour_operator_id}&state_id=${data?.tour?.state_id}&checkin=${data?.checkin_date}&nights=7&adult=${data?.adults_count}&childs=${data?.children_count}&tour_somo_id=${data?.tour?.samo_id}&towns[]=${data?.tour?.samo_id}`
+					`/hotels/tour-info/?town_from_inc=${data?.tour?.town_from_id}&tour_operator_id=${data?.tour?.tour_operator_id}&state_id=${data?.tour?.state_id}&checkin=${data?.checkin_date}&nights=${data?.nights}&adult=${data?.adults_count}&childs=${data?.children_count}&tour_somo_id=${data?.tour?.samo_id}&towns[]=${data?.tour?.samo_id}`
 				);
 			}}
 			className='bg-white dark:bg-[#272829] w-full  rounded-xl cursor-pointer'
 		>
 			<div className='relative'>
-				<img src={data?.image_thumb} alt='' className='h-[115px] w-full  rounded-xl' />
+				<img src={data?.image_medium} alt='' className='h-[150px] w-full  rounded-xl object-cover' />
 				<span className='bg-white dark:bg-[#141414] dark:text-white top-2 px-[10px] absolute left-2 flex justify-center gap-1  items-center  rounded-xl h-[26px]'>
 					<PalmIcon width='12' height='12' color='#235DFF' />
 					{data?.town_name}
 				</span>
 				<div className='absolute bottom-2 px-2 flex justify-between w-full'>
 					<span className='bg-white dark:bg-[#141414] dark:text-white px-[10px] text-sm  flex justify-center gap-1  items-center  rounded-xl h-[26px]'>
-						{formatDate(data?.departure_date)}
+						{formatDate(data?.checkin_date)}
 					</span>
 					<span className='bg-[#FF6565] text-white px-[10px] text-sm  flex justify-center gap-1  items-center  rounded-xl h-[26px]'>
 						{data?.discount_percentage}%
@@ -72,7 +72,14 @@ const LastMinuteTourHotel = ({ data }) => {
 			</div>
 			<div className='px-3 py-4 flex flex-col gap-2'>
 				<div className='text-[#141414] dark:text-white text-lg  leading-[22px] font-medium truncate'>{data?.tour?.name}</div>
-				<div className='text-[#132339] leading-[22px] dark:text-white'>За {data?.adults_count + data?.children_count}х взрослых</div>
+				<div className=''>
+					<div className='text-[#132339] leading-[22px] dark:text-white'>
+						{i18n.language === 'uz' ? <>{data?.adults_count + data?.children_count} ta sayyoh</> : <>За {data?.adults_count + data?.children_count}х взрослых</>}
+					</div>
+					<span>
+						{data?.nights} {t('home.nights')}
+					</span>
+				</div>
 				<div className='text-[#235DFF] leading-[22px] font-medium'>от {data?.price_discounted?.toLocaleString('en-US').replace(/,/g, ' ')} сум</div>
 			</div>
 		</div>
