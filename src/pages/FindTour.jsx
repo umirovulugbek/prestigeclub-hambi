@@ -443,43 +443,49 @@ const FindTour = ({ darkmode }) => {
 											icon={<PalmIcon />}
 										/>
 									</div>
-									<div className='col-span-2'>
-										<InputDiv
-											placeholder={t('home.number_of_tourists')}
-											title={t('home.number_of_tourists')}
-											error={objError?.number_of_tourists ? true : false}
-											value={obj?.number_of_tourists}
-											onClick={() => setModalNumberOfTourists(true)}
-											darkmode={darkmode}
-											className={obj?.where ? '' : ' opacity-35 '}
-											icon={<img src='/images/grouppeople.svg' />}
-										/>
-									</div>
+									{obj?.number_of_tourists && obj?.where ? (
+										<div className='col-span-2'>
+											<InputDiv
+												placeholder={t('home.number_of_tourists')}
+												title={t('home.number_of_tourists')}
+												error={objError?.number_of_tourists ? true : false}
+												value={obj?.number_of_tourists}
+												onClick={() => setModalNumberOfTourists(true)}
+												darkmode={darkmode}
+												className={obj?.where ? '' : ' opacity-35 '}
+												icon={<img src='/images/grouppeople.svg' />}
+											/>
+										</div>
+									) : null}
 
-									<div className='col-span-1'>
-										<InputDiv
-											placeholder={t('home.departure_date')}
-											title={t('home.departure_date')}
-											error={objError?.departure_date ? true : false}
-											value={obj?.departure_date}
-											onClick={() => setModalDepartureDate(true)}
-											darkmode={darkmode}
-											className={obj?.where || obj?.departure_date ? '' : ' opacity-35 '}
-											icon={<img src='/images/calendar.svg' />}
-										/>
-									</div>
-									<div className='col-span-1'>
-										<InputDiv
-											placeholder={t('home.number_of_days')}
-											title={t('home.number_of_days')}
-											error={objError?.number_of_days ? true : false}
-											value={obj?.number_of_days}
-											onClick={() => setModalNumberOfDays(true)}
-											darkmode={darkmode}
-											className={obj?.departure_date || obj?.number_of_days ? '' : ' opacity-35 '}
-											icon={<img src='/images/calendarday.svg' className='w-[20px] h-[20px] mt-[2px]' />}
-										/>
-									</div>
+									{obj?.departure_date ? (
+										<div className='col-span-1'>
+											<InputDiv
+												placeholder={t('home.departure_date')}
+												title={t('home.departure_date')}
+												error={objError?.departure_date ? true : false}
+												value={obj?.departure_date}
+												onClick={() => setModalDepartureDate(true)}
+												darkmode={darkmode}
+												className={obj?.where || obj?.departure_date ? '' : ' opacity-35 '}
+												icon={<img src='/images/calendar.svg' />}
+											/>
+										</div>
+									) : null}
+									{obj?.departure_date && obj?.number_of_days ? (
+										<div className='col-span-1'>
+											<InputDiv
+												placeholder={t('home.number_of_days')}
+												title={t('home.number_of_days')}
+												error={objError?.number_of_days ? true : false}
+												value={obj?.number_of_days}
+												onClick={() => setModalNumberOfDays(true)}
+												darkmode={darkmode}
+												className={obj?.departure_date || obj?.number_of_days ? '' : ' opacity-35 '}
+												icon={<img src='/images/calendarday.svg' className='w-[20px] h-[20px] mt-[2px]' />}
+											/>
+										</div>
+									) : null}
 
 									<div className='col-span-2'>
 										{obj?.where && obj?.number_of_tourists && obj?.departure_date && obj?.number_of_days ? (
