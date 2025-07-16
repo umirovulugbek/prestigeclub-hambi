@@ -5,6 +5,7 @@ import HeaderDetailParams from '../../components/HeaderDetailParams';
 import { Back } from '../../components/itemIcon';
 import PrestigeBanner from '../../components/PrestigeBanner';
 import AirplaneIcon from '../../svg/AirplaneIcon';
+import BedIcon from '../../svg/BedIcon';
 import EarphoneIcon from '../../svg/EarphoneIcon';
 import HotelIcon from '../../svg/HotelIcon';
 import HotelRoom from '../../svg/HotelRoomIcon';
@@ -57,6 +58,71 @@ const TourDetail = ({ darkmode }) => {
 					</div>
 					{paramsObject?.tour_somo_id === 7 ? <img src='/images/lopez-banner.png' alt='' className='rounded-xl' /> : null}
 					<h2 className=' font-medium text-lg dark:text-white'>Что входит в стоимость тура</h2>
+					{paramsObject?.tour_somo_id === 162 && (
+						<div className='py-[15px] px-[20px] rounded-[15px] border bg-white dark:bg-[#272829] dark:border-[#272829] border-[#EEEEEE] flex  flex-col gap-5'>
+							<div className=' flex  gap-3'>
+								<BedIcon />
+								<div className='flex flex-col justify-between'>
+									<div className='text-[#76787A] text-sm'>Подарок только в Click </div>
+									<div className='text-[#141414]  dark:text-white font-medium'>Индивидуальный Luxe трансфер </div>
+								</div>
+							</div>
+						</div>
+					)}
+					<div className='py-[15px] px-[20px] rounded-[15px] border bg-white dark:bg-[#272829] dark:border-[#272829] border-[#EEEEEE] flex  flex-col gap-5'>
+						<div className=' flex  gap-3'>
+							<AirplaneIcon />
+							<div className='flex flex-col justify-between'>
+								<div className='text-[#76787A] text-sm'>Перелет:</div>
+								<div className='text-[#141414]  dark:text-white font-medium'>В тур включен перелет туда и обратно</div>
+							</div>
+						</div>
+						<img src='/images/linedashed.svg' className='w-full object-cover h-[0.5px] ' alt='' />
+						<div className=' flex items-center justify-between'>
+							<div className='flex gap-[10px] items-center'>
+								{Number(paramsObject?.tour_operator_id) === 4 || [248].includes(Number(paramsObject?.tour_somo_id)) ? (
+									<img src='/images/centrum.svg' alt='' />
+								) : (
+									<img src='/images/uzairways.svg' alt='' />
+								)}
+								<div className='flex flex-col justify-between'>
+									<div className='text-[#132339] dark:text-white font-medium text-[20px] leading-[120%]'>
+										{Number(paramsObject?.tour_operator_id) === 4 || [248].includes(Number(paramsObject?.tour_somo_id)) ? 'Centrum Air' : 'Uzairways'}
+									</div>
+									<div className='text-[#76787A] text-sm '>
+										{[34, 223, 221, 220, 173, 194].includes(Number(paramsObject?.tour_somo_id))
+											? 'A320'
+											: [7, 248].includes(Number(paramsObject?.tour_somo_id))
+											? 'A321-NEO'
+											: 'A320'}
+									</div>
+								</div>
+							</div>
+							<div className='flex flex-col   text-sm font-medium text-end'>
+								<span className='text-[#132339] dark:text-white'>
+									{t('home.on_the_way')}{' '}
+									{[34, 7]?.includes(Number(paramsObject?.tour_somo_id))
+										? i18n?.language === 'uz'
+											? '5s 20m'
+											: '5ч 20м'
+										: [223, 221, 220]?.includes(Number(paramsObject?.tour_somo_id))
+										? i18n?.language === 'uz'
+											? '2s 55m'
+											: '2ч 55м'
+										: [248]?.includes(Number(paramsObject?.tour_somo_id))
+										? i18n?.language === 'uz'
+											? '7s 5m'
+											: '7ч 5м'
+										: [173, 194]?.includes(Number(paramsObject?.tour_somo_id))
+										? i18n?.language === 'uz'
+											? '3s 40m'
+											: '3ч 40м'
+										: ''}
+								</span>
+								<span className='text-[#34C759]'>{t('home.direct_flight')}</span>
+							</div>
+						</div>
+					</div>
 					<div className='bg-white dark:bg-[#272829]  flex flex-col p-[15px] rounded-xl gap-2'>
 						<h4 className=' font-medium  text-[#141414] dark:text-white flex items-center gap-2'>
 							<HotelIcon />
@@ -99,62 +165,6 @@ const TourDetail = ({ darkmode }) => {
 								);
 							})}
 
-							<div className='py-[15px] px-[20px] rounded-[15px] border bg-white dark:bg-[#272829] dark:border-[#272829] border-[#EEEEEE] flex  flex-col gap-5'>
-								<div className=' flex  gap-3'>
-									<AirplaneIcon />
-									<div className='flex flex-col justify-between'>
-										<div className='text-[#76787A] text-sm'>Перелет:</div>
-										<div className='text-[#141414]  dark:text-white font-medium'>В тур включен перелет туда и обратно</div>
-									</div>
-								</div>
-								<img src='/images/linedashed.svg' className='w-full object-cover h-[0.5px] ' alt='' />
-								<div className=' flex items-center justify-between'>
-									<div className='flex gap-[10px] items-center'>
-										{Number(paramsObject?.tour_operator_id) === 4 || [248].includes(Number(paramsObject?.tour_somo_id)) ? (
-											<img src='/images/centrum.svg' alt='' />
-										) : (
-											<img src='/images/uzairways.svg' alt='' />
-										)}
-										<div className='flex flex-col justify-between'>
-											<div className='text-[#132339] dark:text-white font-medium text-[20px] leading-[120%]'>
-												{Number(paramsObject?.tour_operator_id) === 4 || [248].includes(Number(paramsObject?.tour_somo_id))
-													? 'Centrum Air'
-													: 'Uzairways'}
-											</div>
-											<div className='text-[#76787A] text-sm '>
-												{[34, 223, 221, 220, 173, 194].includes(Number(paramsObject?.tour_somo_id))
-													? 'A320'
-													: [7, 248].includes(Number(paramsObject?.tour_somo_id))
-													? 'A321-NEO'
-													: 'A320'}
-											</div>
-										</div>
-									</div>
-									<div className='flex flex-col   text-sm font-medium text-end'>
-										<span className='text-[#132339] dark:text-white'>
-											{t('home.on_the_way')}{' '}
-											{[34, 7]?.includes(Number(paramsObject?.tour_somo_id))
-												? i18n?.language === 'uz'
-													? '5s 20m'
-													: '5ч 20м'
-												: [223, 221, 220]?.includes(Number(paramsObject?.tour_somo_id))
-												? i18n?.language === 'uz'
-													? '2s 55m'
-													: '2ч 55м'
-												: [248]?.includes(Number(paramsObject?.tour_somo_id))
-												? i18n?.language === 'uz'
-													? '7s 5m'
-													: '7ч 5м'
-												: [173, 194]?.includes(Number(paramsObject?.tour_somo_id))
-												? i18n?.language === 'uz'
-													? '3s 40m'
-													: '3ч 40м'
-												: ''}
-										</span>
-										<span className='text-[#34C759]'>{t('home.direct_flight')}</span>
-									</div>
-								</div>
-							</div>
 							{Number(paramsObject?.tour_operator_id) !== 4 ? (
 								<div className='py-[15px] px-[20px] rounded-[15px] border bg-white border-[#EEEEEE] dark:bg-[#272829] dark:border-[#272829] flex flex-col gap-[15px]'>
 									<div className='flex gap-2 items-center'>

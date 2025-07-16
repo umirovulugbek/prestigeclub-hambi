@@ -14,12 +14,14 @@ import 'swiper/css/pagination';
 import HotelCard from '../../components/card/HotelCard';
 import SelectDiv2 from '../../components/form/SelectDiv2';
 import HeaderDetailParams from '../../components/HeaderDetailParams';
+import ChooseDistrict from '../../components/main/ChooseDistrict';
 import ModalEdit from '../../components/modal/ModalEdit';
 import ModalFilter from '../../components/pages/searchresult/ModalFilter';
 import ModalRecommended from '../../components/pages/searchresult/ModalRecommended';
 import PrestigeBanner from '../../components/PrestigeBanner';
 import FilterPill from '../../components/ui/FilterPill';
 import { StyleCom } from '../../style/Styled';
+import PhoneSolid from '../../svg/PhoneSolid';
 import { getSearchParams } from '../../utils/function';
 import { trackEvent } from '../../utils/mixpanel';
 import SearchMap from '../SearchMap';
@@ -43,6 +45,7 @@ const HotelListBySearch = ({ darkmode }) => {
 	const [modalRec, setModalRec] = useState(false);
 	const [paramsObj, setParamsObj] = useState({});
 	const [modalMap, setModalMap] = useState(false);
+	const [selectedRegions, setSelectedRegions] = useState([]);
 	const [selectedSort, setSelectedSort] = useState('cheapest');
 	const [obj, setObj] = useState({
 		adultCounter: 2,
@@ -279,7 +282,9 @@ const HotelListBySearch = ({ darkmode }) => {
 										<img src='/images/chatgpt-user.svg' alt='' className='w-14 h-14' />
 										<div className='flex flex-col justify-between gap-1'>
 											<div className='text-[#141414] text-[15px] dark:text-white font-medium leading-[18.47px]  '>{t('home.trevel_managers_1')}</div>
-											<div className='text-sm leading-[18.47px] dark:text-white text-[#141414]'>{t('home.trevel_managers_2')}</div>
+											<div className='text-sm leading-[18.47px] font-semibold dark:text-[#00AA6C] text-[#00AA6C] flex items-center gap-[5px]'>
+												<PhoneSolid /> {t('home.trevel_managers_2')}
+											</div>{' '}
 										</div>
 									</Link>
 								</div>
@@ -354,19 +359,24 @@ const HotelListBySearch = ({ darkmode }) => {
 								<div className='mx-[10px]'>
 									<div className='container_main w-full !px-0 '>
 										<Link
-											to={'https://t.me/Prestigeagent_bot'}
+											to={'tel:+998781138333'}
 											target='blank'
 											className='bg-white dark:bg-[#272829] cursor-pointer  flex gap-[15px] items-center px-[15px] py-[18px] rounded-xl w-full'
 										>
 											<img src='/images/chatgpt-user.svg' alt='' className='w-14 h-14' />
+
 											<div className='flex flex-col gap-1 justify-between'>
 												<div className='text-[#141414] text-[15px] dark:text-white font-medium leading-[18.47px]'>{t('home.trevel_managers_1')}</div>
-												<div className='text-sm leading-[18.47px] dark:text-white text-[#141414]'>{t('home.trevel_managers_2')}</div>
+												<div className='text-sm leading-[18.47px] font-semibold dark:text-[#00AA6C] text-[#00AA6C] flex items-center gap-[5px]'>
+													<PhoneSolid /> {t('home.trevel_managers_2')}
+												</div>
 											</div>
 										</Link>
 									</div>
 								</div>
-								{/* <ChooseDistrict /> */}
+								{paramsObj?.tour_somo_id === 194 ? (
+									<ChooseDistrict darkmode={darkmode} selectedRegions={selectedRegions} setSelectedRegions={setSelectedRegions} />
+								) : null}
 								{stars?.length > 0 ? (
 									<div className='mx-[10px]'>
 										<div className='flex gap-2'>
@@ -393,13 +403,13 @@ const HotelListBySearch = ({ darkmode }) => {
 									endMessage={<p className='mb-0'></p>}
 								>
 									{items
-										?.filter(
-											item =>
-												(tags.length === 0 || item.hotel.tags.some(tag => tags.includes(tag.id))) &&
-												(stars.length === 0 || stars.includes(+item?.hotel?.star_alt)) &&
-												item?.converted_price_number >= minPrice &&
-												item?.converted_price_number <= maxPrice
-										)
+										?.filter(item => {
+											const byTags = tags.length === 0 || item.hotel.tags.some(tag => tags.includes(tag.id));
+											const byStars = stars.length === 0 || stars.includes(+item?.hotel?.star_alt);
+											const byPrice = item?.converted_price_number >= minPrice && item?.converted_price_number <= maxPrice;
+											const byRegion = selectedRegions.length === 0 || selectedRegions.includes(item?.town_name);
+											return byTags && byStars && byPrice && byRegion;
+										})
 										?.map((item, index) => {
 											return <HotelCard item={item} index={index} darkmode={darkmode} />;
 										})}

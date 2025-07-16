@@ -76,7 +76,7 @@ const LastMinuteTourHotel = ({ data }) => {
 					<div className='text-[#132339] leading-[22px] dark:text-white'>
 						{i18n.language === 'uz' ? <>{data?.adults_count + data?.children_count} ta sayyoh</> : <>За {data?.adults_count + data?.children_count}х взрослых</>}
 					</div>
-					<span>
+					<span className='text-[#132339] dark:text-white'>
 						{data?.nights} {t('home.nights')}
 					</span>
 				</div>
