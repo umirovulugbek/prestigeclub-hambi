@@ -9,7 +9,7 @@ const LastMinuteTourHotel = ({ data }) => {
 	const { i18n, t } = useTranslation();
 	const formatDate = dateString => {
 		const monthNames_uz = {
-			1: 'yanvar',
+			1: 'yanvar',	
 			2: 'fevral',
 			3: 'mart',
 			4: 'aprel',
