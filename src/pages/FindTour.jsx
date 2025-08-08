@@ -520,6 +520,30 @@ const FindTour = ({ darkmode }) => {
 						</div>
 					</div>
 				</div>
+				<div className='container_main pt-[20px]'>
+					<img
+						className='cursor-pointer'
+						onClick={() => {
+							setShowCity(true);
+							setModalWhere(true);
+							getTowns(1853, 4, 9);
+							Setdeparture({
+								somo_id: 1853,
+								tour_operator_id: 4,
+								state_id: 9,
+							});
+							setObj(pV => ({
+								...pV,
+								where: townStates?.find(i => i?.somo_id === 9)?.name,
+								departure_date: '',
+								number_of_days: '',
+							}));
+						}}
+						src={`/images/istanbul-banner-${i18n?.language}.jpg`}
+						alt=''
+					/>
+				</div>
+
 				<LastMinuteTours />
 				<GraphicTour
 					Setdeparture={Setdeparture}

@@ -73,7 +73,7 @@ const Storiess = () => {
 
 	const data = [...istanbul_story, ...brone_info, ...trabzon_story, ...nyachang_story];
 	return (
-		<div className='mb-4 flex gap-3'>
+		<div className='mb-4 flex gap-3 overflow-x-scroll'>
 			{data.map(item => (
 				<div key={item.id} onClick={() => setSelectStories(item.stories)} className={`min-w-[95px] h-[115px] relative cursor-pointer rounded-lg ${item?.bgColor}`}>
 					<PreloadImage

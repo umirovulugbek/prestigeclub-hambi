@@ -64,7 +64,6 @@ const SearchMap = ({ darkmode, setModalMap, items, loading, isError }) => {
 
 	return (
 		<div className='flex flex-col relative'>
-			{console.log(items, 'data_map')}
 			<button
 				onClick={() => {
 					setModalMap(false);
