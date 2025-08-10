@@ -199,6 +199,7 @@ const Services = ({ darkmode }) => {
 						</div>
 					</div>
 				</div>
+
 				<div className='bg-white dark:bg-[#272829] overflow-hidden mx-[15px] mt-[15px] shadow-shadow5 dark:shadow-none rounded-2xl'>
 					<div
 						onClick={() => {
