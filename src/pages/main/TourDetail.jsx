@@ -73,6 +73,7 @@ const TourDetail = ({ darkmode }) => {
 						<div className='py-[15px] px-[20px] rounded-[15px] border bg-white dark:bg-[#272829] dark:border-[#272829] border-[#EEEEEE] flex  flex-col gap-5'>
 							<div className=' flex  gap-3'>
 								<BedIcon />
+
 								<div className='flex flex-col justify-between'>
 									<div className='text-[#76787A] text-sm'>Подарок только в Click </div>
 									<div className='text-[#141414]  dark:text-white font-medium'>Бесплатная eSIM-карта в подарок</div>
