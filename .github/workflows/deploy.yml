@@ -16,7 +16,7 @@ jobs:
           node-version: '18'  # or your project’s required version
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --force 
 
       - name: Build project
         run: npm run build
