@@ -191,7 +191,7 @@ const Services = ({ darkmode }) => {
 						)}
 						<div className='flex flex-col'>
 							<div className='text-sm text-blueWood dark:text-white font-medium'>
-								{user?.user?.first_name} {user?.user?.last_name} usernamee 
+								{user?.user?.first_name} {user?.user?.last_name} username 
 							</div>
 							<div className='text-sm text-blueWood dark:text-white font-medium'>
 								{user?.user?.phone_number ? formatPhoneNumber(user?.user?.phone_number) : user?.user?.phone_number}
