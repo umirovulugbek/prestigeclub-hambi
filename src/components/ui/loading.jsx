@@ -1,7 +1,7 @@
 import Lottie from 'lottie-react';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Loader from '../assets/air-travel.json';
+import Loader from '../../assets/air-travel.json';
 
 const LoadingMain = ({ text }) => {
 	const { t } = useTranslation();

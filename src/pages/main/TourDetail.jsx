@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
-import HeaderDetailParams from '../../components/HeaderDetailParams';
 import { Back } from '../../components/itemIcon';
-import PrestigeBanner from '../../components/PrestigeBanner';
-import AirplaneIcon from '../../svg/AirplaneIcon';
-import BedIcon from '../../svg/BedIcon';
-import EarphoneIcon from '../../svg/EarphoneIcon';
-import HotelIcon from '../../svg/HotelIcon';
-import HotelRoom from '../../svg/HotelRoomIcon';
-import InsuranceIcon from '../../svg/InsuranceIcon';
-import MealIcon from '../../svg/MealIcon';
-import PlusIcon from '../../svg/PlusIcon';
-import TicketIcon from '../../svg/TicketIcon';
-import TransferIcon from '../../svg/TransferIcon';
+import HeaderDetailParams from '../../components/main/HeaderDetailParams';
+import PrestigeBanner from '../../components/main/PrestigeBanner';
+import AirplaneIcon from '../../icons/AirplaneIcon';
+import BedIcon from '../../icons/BedIcon';
+import EarphoneIcon from '../../icons/EarphoneIcon';
+import HotelIcon from '../../icons/HotelIcon';
+import HotelRoom from '../../icons/HotelRoomIcon';
+import InsuranceIcon from '../../icons/InsuranceIcon';
+import MealIcon from '../../icons/MealIcon';
+import PlusIcon from '../../icons/PlusIcon';
+import TicketIcon from '../../icons/TicketIcon';
+import TransferIcon from '../../icons/TransferIcon';
 import { getSearchParams } from '../../utils/function';
 
 const TourDetail = ({ darkmode }) => {

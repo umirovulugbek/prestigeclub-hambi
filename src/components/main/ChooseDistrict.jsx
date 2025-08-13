@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MapIcon from '../../svg/MapIcon';
+import MapIcon from '../../icons/MapIcon';
 import { ArrowRight } from '../itemIcon';
 import ModalBottom from '../modal/ModalBottom';
 const data = [

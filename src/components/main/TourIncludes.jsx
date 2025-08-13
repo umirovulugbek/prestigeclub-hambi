@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Hotel, Pitaniya, Samalyot, Straxofka, Transfer } from '../components/HotelSearchIcon.jsx';
+import { Hotel, Pitaniya, Samalyot, Straxofka, Transfer } from '../HotelSearchIcon.jsx';
 const TourIncludes = () => {
 	const { t } = useTranslation();
 	return (

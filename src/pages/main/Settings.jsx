@@ -2,15 +2,15 @@ import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import LightGallery from 'lightgallery/react';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import MobileTab from '../components/mobiletab';
-import NavigationOne from '../components/ui/NavigationOne';
+import MobileTab from '../../components/main/mobiletab';
+import NavigationOne from '../../components/ui/NavigationOne';
 
 // Styles
 import 'lightgallery/css/lg-thumbnail.css';
 import 'lightgallery/css/lg-zoom.css';
 import 'lightgallery/css/lightgallery.css';
 import { useTranslation } from 'react-i18next';
-import InputDiv from '../components/form/InputDiv';
+import InputDiv from '../../components/ui/InputDiv';
 
 const Settings = ({ darkmode }) => {
 	const { user } = useSelector(s => s);

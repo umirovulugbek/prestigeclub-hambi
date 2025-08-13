@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Back } from './itemIcon';
+import { Back } from '../itemIcon';
 
 const NavigationThree = ({ darkmode, title, centerShow = false }) => {
 	const navigate = useNavigate();

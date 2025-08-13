@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import TopHotel from '../components/pages/home/TopHotel';
-import NavigationOne from '../components/ui/NavigationOne';
-import GetReviewWidget from '../components/widget';
+import GetReviewWidget from '../../components/main/widget';
+import TopHotel from '../../components/pages/home/TopHotel';
+import NavigationOne from '../../components/ui/NavigationOne';
 
 const ClickUrlPage = ({ darkmode }) => {
 	const navigate = useNavigate();

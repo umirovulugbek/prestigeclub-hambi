@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import FireIcon from '../../svg/FireIcon';
+import FireIcon from '../../icons/FireIcon';
 import Axios from '../../utils/httpsClinet';
 import LastMinuteTourHotel from '../card/LastMinuteTourHotel';
 

@@ -360,3 +360,6 @@ button {
 .stories-img div {
 	border-radius: 8px;
 }
+.custom-hotel-card .swiper-wrapper {
+	height: 195px !important;
+}

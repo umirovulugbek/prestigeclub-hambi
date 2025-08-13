@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Skeleton from 'react-loading-skeleton';
-import MobileTab from '../components/mobiletab';
-import TourCard from '../components/pages/MyBooking/TourCard';
-import Axios from '../utils/httpsClinet';
+import MobileTab from '../../components/main/mobiletab';
+import TourCard from '../../components/pages/MyBooking/TourCard';
+import Axios from '../../utils/httpsClinet';
 const MyBooking = ({ darkmode }) => {
 	const { t } = useTranslation();
 	const [brone, setBrone] = useState([]);

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Axios from '../../utils/httpsClinet';
 import BasicDatePicker from '../ui/BasicDatePicker';
+import GenderSelector from '../ui/GenderSelector';
 import RSelect from '../ui/RSelect';
-import GenderSelector from './GenderSelector';
-import InputUi from './inputUi';
+import InputUi from '../ui/inputUi';
 const HotelTourBookingForm = ({ people, onSubmitt, formsData }) => {
 	const [formData, setFormData] = useState({});
 	const [errors, setErrors] = useState({});

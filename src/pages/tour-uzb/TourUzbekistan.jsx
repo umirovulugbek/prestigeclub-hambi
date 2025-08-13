@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowRight, Back } from '../../components/itemIcon';
 import ButtonMain from '../../components/ui/ButtonMain';
-import ArrowBroneIcon from '../../svg/ArrowBroneIcon';
+import ArrowBroneIcon from '../../icons/ArrowBroneIcon';
 import { API_URL } from '../../utils/api';
 import Axios from '../../utils/httpsClinet';
 import { PriceFormat } from '../../utils/PriceFormat';

@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { useTranslation } from 'react-i18next';
-import { CalendarStyle } from '../../../style/Styled';
+import '../../../style/calendar.css';
 import { trackEvent } from '../../../utils/mixpanel';
 import ModalBottom from '../../modal/ModalBottom';
-
 const ModalDepartureDate = ({
 	modalDepartureDate,
 	setModalDepartureDate,
@@ -148,16 +147,14 @@ const ModalDepartureDate = ({
 						</div>
 						<div className=' pt-[20px]  w-full pb-[25px]  '>
 							<div className='dark:bg-[#272829] bg-white flex flex-col rounded-[13.1px]  gap-4 justify-center'>
-								<CalendarStyle theme={darkmode ? 'dark' : 'light'}>
-									<Calendar
-										onChange={onChange}
-										value={date}
-										tileClassName={tileClassName}
-										tileDisabled={tileDisabled}
-										activeStartDate={activeStartDate} // Faol oy
-										onActiveStartDateChange={({ activeStartDate }) => setActiveStartDate(activeStartDate)} // Aktiv oyning o'zgarishini kuzatish
-									/>
-								</CalendarStyle>
+								<Calendar
+									onChange={onChange}
+									value={date}
+									tileClassName={tileClassName}
+									tileDisabled={tileDisabled}
+									activeStartDate={activeStartDate}
+									onActiveStartDateChange={({ activeStartDate }) => setActiveStartDate(activeStartDate)} // Aktiv oyning o'zgarishini kuzatish
+								/>
 								<img src='/images/linedashed-calendar.svg' className='w-full object-cover h-[0.5px] px-[5px]' alt='' />
 								<div className='text-white dark:bg-[#272829] px-[8px] pb-4  rounded-b-[13px] '>
 									<div className='flex flex-wrap gap-4'>

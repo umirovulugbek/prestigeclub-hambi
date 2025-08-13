@@ -6,9 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import HotelCard from '../../components/card/HotelCard';
-import HeaderDetailParams from '../../components/HeaderDetailParams';
 import { Back } from '../../components/itemIcon';
-import { StyleCom } from '../../style/Styled';
+import HeaderDetailParams from '../../components/main/HeaderDetailParams';
 import { getSearchParams } from '../../utils/function';
 import Axios from '../../utils/httpsClinet';
 
@@ -101,7 +100,7 @@ const HoteRixos = ({ darkmode }) => {
 						</div>
 					</>
 				) : (
-					<StyleCom className='pt-[90px] flex flex-col gap-3'>
+					<div className='pt-[90px] flex flex-col gap-3'>
 						<div className='bg-white dark:bg-[#272829]'>
 							<div className='container_main py-[10px] flex flex-col gap-[10px]'>
 								<div className='font-medium text-[#141414] dark:text-white'>Дата вылета на концерт</div>
@@ -157,7 +156,7 @@ const HoteRixos = ({ darkmode }) => {
 									<HotelCard key={index} item={item} index={index} darkmode={darkmode} />
 								))}
 						</InfiniteScroll>
-					</StyleCom>
+					</div>
 				)}
 			</div>
 		</div>

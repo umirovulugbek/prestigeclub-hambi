@@ -4,12 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Back } from '../../components/itemIcon';
-import LoadingMain from '../../components/loading';
+import PrestigeBanner from '../../components/main/PrestigeBanner';
 import ModalBottom from '../../components/modal/ModalBottom';
-import PrestigeBanner from '../../components/PrestigeBanner';
 import ButtonMain from '../../components/ui/ButtonMain';
-import ArrowBroneIcon from '../../svg/ArrowBroneIcon';
-import SubtractIcon from '../../svg/SubtractIcon';
+import LoadingMain from '../../components/ui/loading';
+import ArrowBroneIcon from '../../icons/ArrowBroneIcon';
+import SubtractIcon from '../../icons/SubtractIcon';
 import { IMG_URL } from '../../utils/api';
 import { getSearchParams } from '../../utils/function';
 import Axios from '../../utils/httpsClinet';
@@ -468,7 +468,6 @@ const HotelTourBookingBrone = ({ darkmode }) => {
 									className='w-full'
 									text={loading_bron ? '...loading' : t('home.book_tour_online')}
 								/>
-								{/* <JivoChat /> */}
 							</div>
 						</div>
 					</section>

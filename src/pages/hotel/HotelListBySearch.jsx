@@ -4,7 +4,7 @@ import Skeleton from 'react-loading-skeleton';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ClipLoader } from 'react-spinners';
 import { Back } from '../../components/itemIcon';
-import GetReviewWidget from '../../components/widget';
+import GetReviewWidget from '../../components/main/widget';
 import Axios from '../../utils/httpsClinet';
 
 import { useQuery } from '@tanstack/react-query';
@@ -12,19 +12,18 @@ import { useTranslation } from 'react-i18next';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import HotelCard from '../../components/card/HotelCard';
-import SelectDiv2 from '../../components/form/SelectDiv2';
-import HeaderDetailParams from '../../components/HeaderDetailParams';
 import ChooseDistrict from '../../components/main/ChooseDistrict';
+import HeaderDetailParams from '../../components/main/HeaderDetailParams';
+import PrestigeBanner from '../../components/main/PrestigeBanner';
+import SearchMap from '../../components/main/SearchMap';
 import ModalEdit from '../../components/modal/ModalEdit';
 import ModalFilter from '../../components/pages/searchresult/ModalFilter';
 import ModalRecommended from '../../components/pages/searchresult/ModalRecommended';
-import PrestigeBanner from '../../components/PrestigeBanner';
 import FilterPill from '../../components/ui/FilterPill';
-import { StyleCom } from '../../style/Styled';
-import PhoneSolid from '../../svg/PhoneSolid';
+import SelectDiv2 from '../../components/ui/SelectDiv2';
+import PhoneSolid from '../../icons/PhoneSolid';
 import { getSearchParams } from '../../utils/function';
 import { trackEvent } from '../../utils/mixpanel';
-import SearchMap from '../SearchMap';
 const fetchDataMap = async () => {
 	const { data } = await Axios().get(`/api/v1/somo-travel/tour-prices-content-map2${window.location.search}`);
 	return data?.data || [];
@@ -297,7 +296,7 @@ const HotelListBySearch = ({ darkmode }) => {
 						</>
 					) : (
 						<>
-							<StyleCom className='pt-[75px] flex flex-col gap-3'>
+							<div className='pt-[75px] flex flex-col gap-3'>
 								<GetReviewWidget
 									widgetId={
 										paramsObj?.town_names?.[0] === 'Фукуок'
@@ -415,7 +414,7 @@ const HotelListBySearch = ({ darkmode }) => {
 										})}
 								</InfiniteScroll>
 								<div className='flex  justify-center mb-3'>{loading_inf ? <ClipLoader size={24} color={darkmode ? 'white' : 'black'} /> : null}</div>
-							</StyleCom>
+							</div>
 						</>
 					)}
 				</div>

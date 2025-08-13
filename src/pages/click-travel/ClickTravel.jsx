@@ -1,11 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
-import BestCards from '../../components/card/BestCards';
-import SyncScroll from '../../components/SyncScroll';
+import GetReviewWidget from '../../components/main/widget';
 import ButtonMain from '../../components/ui/ButtonMain';
 import NavigationOne from '../../components/ui/NavigationOne';
-import GetReviewWidget from '../../components/widget';
+import SyncScroll from '../../components/ui/SyncScroll';
 import useTopHotelApi from '../../hooks/api/useTopHotelApi';
 import { trackEvent } from '../../utils/mixpanel';
 
@@ -175,14 +174,7 @@ const ClickTravel = ({ darkmode }) => {
 							/>
 						</div>
 					</div>
-					{/* <BestCards
-						trackEvent_page={'click_tophotel'}
-						list={home_top?.filter(item => item?.top_hotel_price?.tour_key === currentData?.tour_somo_id)}
-						title={currentData.bestHotelsTitle}
-					/> */}
-					{/* <div className='!mt-4 container_main !px-0'>
-						<AccardionClickTravel data={currentData?.accardion_data} darkmode={darkmode} />
-					</div> */}
+
 					<div className=' pl-[15px] flex flex-col gap-3 '>
 						<h2 className=' font-medium text-base  text-[#141414] dark:text-white'>{t('home.reviews_direction_nyachang')}</h2>
 						<div

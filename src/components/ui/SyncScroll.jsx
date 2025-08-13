@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { trackEvent } from '../utils/mixpanel';
+import { trackEvent } from '../../utils/mixpanel';
 
 export default function SyncScroll({ data }) {
 	const topScrollRef = useRef(null);

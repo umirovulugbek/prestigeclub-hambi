@@ -2,17 +2,17 @@ import LightGallery from 'lightgallery/react';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { getSearchParams } from '../utils/function';
-import Axios from '../utils/httpsClinet';
-import { PriceFormat } from '../utils/PriceFormat';
-import { ArrowRight } from './itemIcon';
+import { getSearchParams } from '../../utils/function';
+import Axios from '../../utils/httpsClinet';
+import { PriceFormat } from '../../utils/PriceFormat';
+import { ArrowRight } from '../itemIcon';
 
 // Styles
 import 'lightgallery/css/lg-thumbnail.css';
 import 'lightgallery/css/lg-zoom.css';
 import 'lightgallery/css/lightgallery.css';
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
-import LazyImage from './ui/LazyImage';
+import LazyImage from '../ui/LazyImage';
 
 const MealIcon = () => {
 	return (
@@ -35,7 +35,7 @@ const MealIcon = () => {
 		</svg>
 	);
 };
-const InfoSelectingNumber2 = ({ index, room, items, darkmode }) => {
+const InfoSelectingNumber = ({ index, room, items, darkmode }) => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const paramsObject = getSearchParams();
@@ -136,4 +136,4 @@ const InfoSelectingNumber2 = ({ index, room, items, darkmode }) => {
 	);
 };
 
-export default InfoSelectingNumber2;
+export default InfoSelectingNumber;

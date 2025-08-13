@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion';
 import mixpanel from 'mixpanel-browser';
 import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -5,10 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom';
 import { YMInitializer } from 'react-yandex-metrika';
 import useDarkSide from '../hooks/useDarkSide';
-// import JivoChat from '../pages/Jivochat';
-import { AnimatePresence } from 'framer-motion';
 
-import JivoChat from '../jivochat';
 import BroneForm from '../pages/hotel/BroneForm';
 import HotelListByGraphicTour from '../pages/hotel/HotelListByGraphicTour';
 import HotelTourBookingBrone from '../pages/hotel/HotelTourBookingBrone';
@@ -18,24 +16,20 @@ import TourUzbekistanBrone from '../pages/tour-uzb/TourUzbekistanBrone';
 import Axios from '../utils/httpsClinet';
 import { setToken } from '../utils/tokenStorge';
 import TrackPageViews from '../utils/TrackPageViews';
-const Home = lazy(() => import('../pages/Home'));
 const HotelDetail = lazy(() => import('../pages/hotel/HotelDetail'));
 const HotelDetailComment = lazy(() => import('../pages/hotel/HotelDetailComment'));
 const HotelGalleryFromDetail = lazy(() => import('../pages/hotel/HotelGalleryFromDetail'));
 const HotelSelectingNumber = lazy(() => import('../pages/hotel/HotelSelectingNumber'));
 const HotelTourBooking = lazy(() => import('../pages/hotel/HotelTourBooking'));
 const HotelListBySearch = lazy(() => import('../pages/hotel/HotelListBySearch'));
-const Services = lazy(() => import('../pages/Services'));
-const Settings = lazy(() => import('../pages/Settings'));
-const MyBooking = lazy(() => import('../pages/MyBooking'));
-const MyBookingDetail = lazy(() => import('../pages/MyBookingDetail'));
-const FindTour = lazy(() => import('../pages/FindTour'));
-const NotFound = lazy(() => import('../pages/NotFound'));
+const Services = lazy(() => import('../pages/main/Services'));
+const Settings = lazy(() => import('../pages/main/Settings'));
+const MyBooking = lazy(() => import('../pages/main/MyBooking'));
+const MyBookingDetail = lazy(() => import('../pages/main/MyBookingDetail'));
+const FindTour = lazy(() => import('../pages/main/FindTour'));
+const NotFound = lazy(() => import('../pages/main/NotFound'));
 const Basket = lazy(() => import('../pages/main/Basket'));
 const ClickTravel = lazy(() => import('../pages/click-travel/ClickTravel'));
-const ClickUrlItemPage = lazy(() => import('../pages/ClickUrItemlPage'));
-const ClickUrlPage = lazy(() => import('../pages/ClickUrlPage'));
-const Test = lazy(() => import('../pages/Test'));
 const HotelDetailAmenities = lazy(() => import('../pages/hotel/HotelDetailAmenities'));
 const HotelListByHotel = lazy(() => import('../pages/hotel/HotelListByHotel'));
 const ProgramTour = lazy(() => import('../pages/tour-uzb/ProgramTour'));
@@ -128,8 +122,6 @@ const AppRouter = () => {
 			<AnimatePresence mode='wait'>
 				<Routes location={location} key={location.pathname}>
 					{[
-						{ path: '/jivochat', element: <JivoChat darkmode={darkSide} /> },
-						{ path: '/test', element: <Test darkmode={darkSide} /> },
 						{ path: '/hotels/detail/', element: <HotelDetail darkmode={darkSide} /> },
 						{ path: '/hotels/detail/home/', element: <HotelDetail darkmode={darkSide} /> },
 						{ path: '/hotels/detail/comment', element: <HotelDetailComment darkmode={darkSide} /> },
@@ -149,9 +141,6 @@ const AppRouter = () => {
 						{ path: '/mybooking/detail/:id', element: <MyBookingDetail darkmode={darkSide} /> },
 						{ path: '/basket', element: <Basket darkmode={darkSide} /> },
 						{ path: '/', element: <FindTour darkmode={darkSide} /> },
-						{ path: '/home', element: <Home darkmode={darkSide} /> },
-						{ path: '/click-url', element: <ClickUrlPage darkmode={darkSide} /> },
-						{ path: '/click-url/:id', element: <ClickUrlItemPage darkmode={darkSide} /> },
 						{ path: '/click-travel/:slug', element: <ClickTravel darkmode={darkSide} /> },
 						{ path: '/tour-uzbekistan/:id', element: <TourUzbekistan darkmode={darkSide} /> },
 						{ path: '/tour-uzbekistan/:id/brone', element: <TourUzbekistanBrone darkmode={darkSide} /> },
@@ -159,7 +148,6 @@ const AppRouter = () => {
 						{ path: '/tour-uzbekistan/faqs/:id', element: <FaqsTourUzb darkmode={darkSide} /> },
 						{ path: '/brone-form', element: <BroneForm darkmode={darkSide} /> },
 						{ path: '*', element: <NotFound darkmode={darkSide} /> },
-						{ path: '/test', element: <Test /> },
 					].map(({ path, element }) => (
 						<Route
 							key={path}

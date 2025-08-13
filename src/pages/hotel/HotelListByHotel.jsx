@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 
 import { useNavigate } from 'react-router-dom';
-import HeaderDetailParams from '../../components/HeaderDetailParams';
-import TourIncludes from '../../components/TourIncludes';
 import { Back } from '../../components/itemIcon';
-import GetReviewWidget from '../../components/widget';
+import HeaderDetailParams from '../../components/main/HeaderDetailParams';
+import TourIncludes from '../../components/main/TourIncludes';
+import GetReviewWidget from '../../components/main/widget';
 import Axios from '../../utils/httpsClinet';
 
 // Import Swiper styles

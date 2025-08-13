@@ -2,9 +2,9 @@ import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import LightGallery from 'lightgallery/react';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { ArrowRight } from '../components/itemIcon';
-import MobileTab from '../components/mobiletab';
-import NavigationOne from '../components/ui/NavigationOne';
+import { ArrowRight } from '../../components/itemIcon';
+import MobileTab from '../../components/main/mobiletab';
+import NavigationOne from '../../components/ui/NavigationOne';
 
 // Styles
 import 'lightgallery/css/lg-thumbnail.css';
@@ -12,7 +12,7 @@ import 'lightgallery/css/lg-zoom.css';
 import 'lightgallery/css/lightgallery.css';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { NaushnukIcon, Settings2ServiseIcon } from '../components/homeS3Icon';
+import { NaushnukIcon, Settings2ServiseIcon } from '../../components/homeS3Icon';
 
 export const UserServisIcon = () => {
 	return (
@@ -191,7 +191,7 @@ const Services = ({ darkmode }) => {
 						)}
 						<div className='flex flex-col'>
 							<div className='text-sm text-blueWood dark:text-white font-medium'>
-								{user?.user?.first_name} {user?.user?.last_name} username 
+								{user?.user?.first_name} {user?.user?.last_name} username
 							</div>
 							<div className='text-sm text-blueWood dark:text-white font-medium'>
 								{user?.user?.phone_number ? formatPhoneNumber(user?.user?.phone_number) : user?.user?.phone_number}

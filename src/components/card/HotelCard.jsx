@@ -6,11 +6,11 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import LazyImage from '../../components/ui/LazyImage';
-import TourIncludesDarkIcon from '../../svg/TourIncludesDarkIcon';
-import TourIncludesIcon from '../../svg/TourIncludesIcon';
+import TourIncludesDarkIcon from '../../icons/TourIncludesDarkIcon';
+import TourIncludesIcon from '../../icons/TourIncludesIcon';
 import Axios from '../../utils/httpsClinet';
 import { trackEvent } from '../../utils/mixpanel';
-import Title from '../Title';
+import Title from '../ui/Title';
 
 const HotelCard = ({ index, item, darkmode }) => {
 	const { t } = useTranslation();
@@ -74,7 +74,7 @@ const HotelCard = ({ index, item, darkmode }) => {
 	return (
 		<React.Fragment key={index}>
 			<div className='min-h-[271px]  overflow-hidden rounded-[8px] bg-white dark:bg-[#272829]'>
-				<div className='relative h-[193px] overflow-hidden'>
+				<div className='relative h-[193px] overflow-hidden custom-hotel-card'>
 					{item?.hotel?.photos?.length > 0 ? (
 						<Swiper
 							pagination={{
@@ -114,39 +114,6 @@ const HotelCard = ({ index, item, darkmode }) => {
 							</div>
 						</div>
 					) : null}
-					{/* <div className='absolute top-[16.5px] right-[16.5px] z-30'>
-						<AddFav className='fav bg-[#FFFFFFBF] rounded-[10px] p-[10px] w-[35px] h-[35px] flex justify-center items-center'>
-							<button onClick={() => changeFavourite(item?.id)} className={!isAddedToFavourite ? 'fixed-svg' : 'like fixed-svg'}>
-								<>
-									{loading_f && favouriteId === item?.id ? (
-										<ClipLoader size={24} />
-									) : (
-										<>
-											{isAddedToFavourite ? (
-												<svg xmlns='http://www.w3.org/2000/svg' width='28' height='26' viewBox='0 0 28 26' fill='none'>
-													<path
-														d='M24.069 3.05825L24.0683 3.05765C21.214 0.501861 17.0517 1.03082 14.4771 3.78138L14.4771 3.78133L14.4707 3.78836L14.0122 4.29406L13.5228 3.7813C10.9911 1.02672 6.78223 0.505279 3.93168 3.05765L3.93101 3.05825C0.727822 5.93508 0.579672 11.0279 3.42259 14.1131L3.42353 14.1141L12.5035 23.9224C13.3024 24.8222 14.6976 24.8222 15.4965 23.9224L24.5765 14.1141L24.5774 14.1131C27.4203 11.0279 27.2722 5.93508 24.069 3.05825Z'
-														fill='#235DFF'
-														stroke='#235DFF'
-														strokeWidth='1.19444'
-													/>
-												</svg>
-											) : (
-												<svg xmlns='http://www.w3.org/2000/svg' width='28' height='26' viewBox='0 0 28 26' fill='none'>
-													<path
-														d='M24.069 3.05825L24.0683 3.05765C21.214 0.501861 17.0517 1.03082 14.4771 3.78138L14.4771 3.78133L14.4707 3.78836L14.0122 4.29406L13.5228 3.7813C10.9911 1.02672 6.78223 0.505279 3.93168 3.05765L3.93101 3.05825C0.727822 5.93508 0.579672 11.0279 3.42259 14.1131L3.42353 14.1141L12.5035 23.9224C13.3024 24.8222 14.6976 24.8222 15.4965 23.9224L24.5765 14.1141L24.5774 14.1131C27.4203 11.0279 27.2722 5.93508 24.069 3.05825Z'
-														fill='white'
-														stroke='#235DFF'
-														strokeWidth='1.19444'
-													/>
-												</svg>
-											)}
-										</>
-									)}
-								</>
-							</button>
-						</AddFav>
-					</div> */}
 				</div>
 				<div className=' my-[10px] flex flex-col px-[14px] '>
 					<Title

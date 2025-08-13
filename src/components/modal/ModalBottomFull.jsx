@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import OverflowHidden from '../OverflowHidden';
+import OverflowHidden from '../main/OverflowHidden';
 import ButtonMain from '../ui/ButtonMain';
 
 const ModalBottomFull = ({ close, modal, btnShow = true, textBtn, translateY, heightModal, linkTo, content, clickFunction }) => {

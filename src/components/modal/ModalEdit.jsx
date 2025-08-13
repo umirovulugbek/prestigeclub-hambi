@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getSearchParams } from '../../utils/function';
 import Axios from '../../utils/httpsClinet';
-import InputDiv2 from '../form/InputDiv2';
+import InputDiv2 from '../ui/InputDiv2';
 import { CloseIcon } from '../homeS3Icon';
 import ModalDepartureDate from '../pages/findtour/ModalDepartureDate';
 import ModalNumberOfDays from '../pages/findtour/ModalNumberOfDays';

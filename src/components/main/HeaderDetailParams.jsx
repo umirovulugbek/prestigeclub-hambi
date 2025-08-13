@@ -2,9 +2,9 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Skeleton from 'react-loading-skeleton';
-import { months_ru, months_uz } from '../utils/constants';
-import Axios from '../utils/httpsClinet';
-import { planIcon } from './homeS3Icon';
+import { months_ru, months_uz } from '../../utils/constants';
+import Axios from '../../utils/httpsClinet';
+import { planIcon } from '../homeS3Icon';
 
 const fetchTownFrom = async town_from_inc => {
 	const { data } = await Axios().get('api/v1/search/town-from');

@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Skeleton from 'react-loading-skeleton';
 import { useNavigate } from 'react-router-dom';
-import SelectDiv from '../../components/form/SelectDiv';
-import InfoSelectingNumber2 from '../../components/InfoSelectingNumber2';
 import { Back3 } from '../../components/itemIcon';
+import InfoSelectingNumber from '../../components/main/InfoSelectingNumber';
 import ModalEdit from '../../components/modal/ModalEdit';
 import ModalNutrition from '../../components/pages/searchresult/ModalNutrition';
 import ModalPopular from '../../components/pages/searchresult/ModalPopular';
 import FilterPill from '../../components/ui/FilterPill';
+import SelectDiv from '../../components/ui/SelectDiv';
 import { month_ru } from '../../utils/constants';
 import { getSearchParams } from '../../utils/function';
 import Axios from '../../utils/httpsClinet';
@@ -330,7 +330,7 @@ const HotelSelectingNumber = ({ darkmode }) => {
 									endMessage={<p className='mb-0'></p>}
 								>
 									{Object.entries(groupedRooms).map(([room, items], index) => {
-										return <InfoSelectingNumber2 index={index} room={room} items={items} darkmode={darkmode} />;
+										return <InfoSelectingNumber index={index} room={room} items={items} darkmode={darkmode} />;
 									})}
 								</InfiniteScroll>
 							) : (

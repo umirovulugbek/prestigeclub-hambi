@@ -1,15 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import FireIcon from '../../svg/FireIcon';
-import PalmIcon from '../../svg/PalmIcon';
+import FireIcon from '../../icons/FireIcon';
+import PalmIcon from '../../icons/PalmIcon';
 
 const LastMinuteTourHotel = ({ data }) => {
 	const navigate = useNavigate();
 	const { i18n, t } = useTranslation();
 	const formatDate = dateString => {
 		const monthNames_uz = {
-			1: 'yanvar',	
+			1: 'yanvar',
 			2: 'fevral',
 			3: 'mart',
 			4: 'aprel',

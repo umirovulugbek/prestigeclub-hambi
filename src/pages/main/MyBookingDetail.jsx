@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import PrestigeBanner from '../components/PrestigeBanner';
-import { Back, MapIcon } from '../components/itemIcon';
-import Accordion from '../components/ui/Accardion';
-import Axios from '../utils/httpsClinet';
+import { Back, MapIcon } from '../../components/itemIcon';
+import PrestigeBanner from '../../components/main/PrestigeBanner';
+import Accordion from '../../components/ui/Accardion';
+import Axios from '../../utils/httpsClinet';
 
 const MyBookingDetail = ({ darkmode, hotel_detail = {} }) => {
 	const navigate = useNavigate();

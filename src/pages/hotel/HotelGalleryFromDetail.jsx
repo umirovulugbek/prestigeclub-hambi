@@ -1,7 +1,7 @@
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import LightGallery from 'lightgallery/react';
 import React, { useEffect, useState } from 'react';
-import NavigationThree from '../../components/NavigationThree';
+import NavigationThree from '../../components/main/NavigationThree';
 
 // Styles
 import 'lightgallery/css/lg-thumbnail.css';

@@ -2,39 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Skeleton from 'react-loading-skeleton';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 import HotelCard from '../../components/card/HotelCard';
-import MobileTab from '../../components/mobiletab';
+import MobileTab from '../../components/main/mobiletab';
 import Axios from '../../utils/httpsClinet';
-const AddFav = styled.div`
-	position: relative;
-	& .add-favorites {
-		border-radius: 50%;
-		height: 36px;
-		right: 18px;
-		top: 16px;
-		width: 36px;
-		& svg {
-			transition: 0.3s;
-		}
-		& .fixed-svg {
-			left: -0.5px;
-			position: absolute;
-			top: 8.8px;
-		}
-		& .like {
-			transform: scale(0);
-		}
-		&:active {
-			& svg {
-				transform: scale(1.3);
-			}
-		}
-	}
-	& .liked {
-		background: transparent;
-	}
-`;
 
 const Basket = ({ darkmode }) => {
 	const [data, setData] = useState([]);

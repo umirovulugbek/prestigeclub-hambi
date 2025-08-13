@@ -11,8 +11,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import { TranslateIcon } from '../../components/headIcons';
 import { Back } from '../../components/itemIcon';
-import LoadingMain from '../../components/loading';
 import LazyImage from '../../components/ui/LazyImage';
+import LoadingMain from '../../components/ui/loading';
 import { IMG_URL } from '../../utils/api';
 import Axios from '../../utils/httpsClinet';
 const HotelDetailComment = ({ darkmode }) => {

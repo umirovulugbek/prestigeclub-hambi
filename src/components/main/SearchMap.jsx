@@ -3,10 +3,10 @@ import GoogleMapReact from 'google-map-react';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { Back } from '../components/itemIcon';
-import ModalBottom from '../components/modal/ModalBottom';
-import Title from '../components/Title';
-import { formatCompactNumber } from '../utils/function';
+import { formatCompactNumber } from '../../utils/function';
+import { Back } from '../itemIcon';
+import ModalBottom from '../modal/ModalBottom';
+import Title from '../ui/Title';
 const defaultCenter = {
 	lat: 41.2995,
 	lng: 69.2401,

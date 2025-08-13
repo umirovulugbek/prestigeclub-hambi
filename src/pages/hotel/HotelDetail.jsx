@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import HeaderDetailParams from '../../components/HeaderDetailParams';
-import Title from '../../components/Title';
 import { Back } from '../../components/itemIcon';
-import LoadingMain from '../../components/loading';
+import HeaderDetailParams from '../../components/main/HeaderDetailParams';
+import GetReviewWidget from '../../components/main/widget';
 import MapModal from '../../components/pages/findtour/MapModal';
 import ButtonMain from '../../components/ui/ButtonMain';
-import GetReviewWidget from '../../components/widget';
+import Title from '../../components/ui/Title';
+import LoadingMain from '../../components/ui/loading';
 import { PriceFormat } from '../../utils/PriceFormat';
 import Axios from '../../utils/httpsClinet';
 // Import Swiper styles
@@ -22,9 +22,8 @@ import 'lightgallery/css/lg-zoom.css';
 import 'lightgallery/css/lightgallery.css';
 import { useTranslation } from 'react-i18next';
 import Skeleton from 'react-loading-skeleton';
-import TourIncludes from '../../components/TourIncludes';
+import TourIncludes from '../../components/main/TourIncludes';
 import LazyImage from '../../components/ui/LazyImage';
-import { MobileTabStyle } from '../../style/Styled';
 import { IMG_URL } from '../../utils/api';
 import { getSearchParams } from '../../utils/function';
 import { trackEvent } from '../../utils/mixpanel';
@@ -196,39 +195,6 @@ const HotelDetail = ({ darkmode }) => {
 									)}
 								</>
 
-								{/* <div className='absolute top-[16.5px] right-[16.5px]'>
-							<AddFav className='fav bg-[#FFFFFFBF] rounded-[10px] p-[10px] w-[35px] h-[35px] flex justify-center items-center'>
-								<button onClick={() => changeFavourite(itemObj?.id)} className={!isAddedToFavourite ? 'fixed-svg' : 'like fixed-svg'}>
-									<>
-										{loading_f && favouriteId === itemObj?.id ? (
-											<ClipLoader size={24} />
-										) : (
-											<>
-												{isAddedToFavourite ? (
-													<svg xmlns='http://www.w3.org/2000/svg' width='28' height='26' viewBox='0 0 28 26' fill='none'>
-														<path
-															d='M24.069 3.05825L24.0683 3.05765C21.214 0.501861 17.0517 1.03082 14.4771 3.78138L14.4771 3.78133L14.4707 3.78836L14.0122 4.29406L13.5228 3.7813C10.9911 1.02672 6.78223 0.505279 3.93168 3.05765L3.93101 3.05825C0.727822 5.93508 0.579672 11.0279 3.42259 14.1131L3.42353 14.1141L12.5035 23.9224C13.3024 24.8222 14.6976 24.8222 15.4965 23.9224L24.5765 14.1141L24.5774 14.1131C27.4203 11.0279 27.2722 5.93508 24.069 3.05825Z'
-															fill='#235DFF'
-															stroke='#235DFF'
-															strokeWidth='1.19444'
-														/>
-													</svg>
-												) : (
-													<svg xmlns='http://www.w3.org/2000/svg' width='28' height='26' viewBox='0 0 28 26' fill='none'>
-														<path
-															d='M24.069 3.05825L24.0683 3.05765C21.214 0.501861 17.0517 1.03082 14.4771 3.78138L14.4771 3.78133L14.4707 3.78836L14.0122 4.29406L13.5228 3.7813C10.9911 1.02672 6.78223 0.505279 3.93168 3.05765L3.93101 3.05825C0.727822 5.93508 0.579672 11.0279 3.42259 14.1131L3.42353 14.1141L12.5035 23.9224C13.3024 24.8222 14.6976 24.8222 15.4965 23.9224L24.5765 14.1141L24.5774 14.1131C27.4203 11.0279 27.2722 5.93508 24.069 3.05825Z'
-															fill='white'
-															stroke='#235DFF'
-															strokeWidth='1.19444'
-														/>
-													</svg>
-												)}
-											</>
-										)}
-									</>
-								</button>
-							</AddFav>
-						</div> */}
 								<div className='absolute z-20 top-[16.5px] left-[16.5px] inline-flex gap-1 items-center bg-white rounded-[10px] px-[8.5px] py-[5.5px]'>
 									<img src='/images/star.svg' alt='' />
 									<p className='font-medium text-sm'>{itemObj?.star_alt}</p>
@@ -392,14 +358,14 @@ const HotelDetail = ({ darkmode }) => {
 						<MapModal map_modal={map_modal} setMapModal={setMapModal} location={`${itemObj?.detail?.location?.latitude},${itemObj?.detail?.location?.longitude}`} />
 					) : null}
 					<>
-						<MobileTabStyle>
+						<div className='h-[60px] fixed bottom-0 left-0 z-[1030] w-full flex justify-center'>
 							<div className={`container_main w-full flex items-center !px-0 ${darkmode ? '!bg-tuna' : ''}`}>
-								<div className={`flex justify-between items-center w-full  px-4 pb-8  pt-[15px]   ${darkmode ? '!bg-tuna' : 'bg-white border-t border-[#dee7ff]'}`}>
-									<div className='flex flex-col w-full gap-[5px] '>
+								<div className={`flex justify-between items-center w-full px-4 pb-8 pt-[15px] ${darkmode ? '!bg-tuna' : 'bg-white border-t border-[#dee7ff]'}`}>
+									<div className='flex flex-col w-full gap-[5px]'>
 										<Title
 											darkmode={darkmode}
 											color='blueRibbon'
-											className='!my-[0px]  text-[20px]  !font-normal text-blueRibbon'
+											className='!my-0 text-[20px] !font-normal text-blueRibbon'
 											text={`${PriceFormat(itemObj?.converted_price)} ${t('home.uzs')}`}
 										/>
 									</div>
@@ -411,11 +377,11 @@ const HotelDetail = ({ darkmode }) => {
 										type='button'
 										type_color='t_blue'
 										text={t('home.select_numbers')}
-										className=' min-w-[170px] max-w-[170px] whitespace-nowrap  !text-base '
+										className='min-w-[170px] max-w-[170px] whitespace-nowrap !text-base'
 									/>
 								</div>
 							</div>
-						</MobileTabStyle>
+						</div>
 					</>
 				</div>
 			)}

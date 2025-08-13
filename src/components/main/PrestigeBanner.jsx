@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import CheckIcon from '../svg/CheckIcon';
-import { getSearchParams } from '../utils/function';
+import CheckIcon from '../../icons/CheckIcon';
+import { getSearchParams } from '../../utils/function';
 
 const PrestigeBanner = ({ darkmode, guarantee = true }) => {
 	const { t } = useTranslation();
