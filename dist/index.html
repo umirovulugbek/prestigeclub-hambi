@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(), event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l !== 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MMGZBZP3');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <script src="https://app.getreview.io/tags/5cCK0j4i5EnJJwrG/sdk.js" async></script>
+  <script src="https://selfservice.robinhq.com/external/robin/5cCK0j4i5EnJJwrG.js" async></script>
+  <script src="https://getreview.io/widget.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const widgetElement = document.querySelector(".getreview-widget");
+      if (widgetElement) {
+        const widgetId = widgetElement.getAttribute("data-widget-id");
+
+        function initializeWidget(id) {
+          // Add your widget initialization logic here
+        }
+
+        function resetWidget(id) {
+          if (window.GetReview?.API?.reset) {
+            window.GetReview.API.reset();
+          } else {
+            console.error("Reset method not found.");
+          }
+        }
+
+        initializeWidget(widgetId);
+
+        document.getElementById("resetButton")?.addEventListener("click", function () {
+          resetWidget(widgetId);
+        });
+      } else {
+        console.error('Element with class "getreview-widget" not found.');
+      }
+    });
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G7NBSG3RMV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-G7NBSG3RMV');
+  </script>
+
+  <title>Tripusk</title>
+  <script type="module" crossorigin src="/assets/index-DAOtpb3C.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-btZM4zCs.css">
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMGZBZP3" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Yandex.Metrika (noscript) -->
+  <noscript>
+    <div>
+      <img src="https://mc.yandex.ru/watch/98339232" style="position:absolute; left:-9999px;" alt="" />
+    </div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <div id="root"></div>
+
+  <script>
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  </script>
+  <script>
+    window.jivo_onLoad = function () {
+      window.jivo_api.setOptions({ visible: false });
+    };
+  </script>
+  <script src="//code.jivo.ru/widget/vW9P7I0KLP" async></script>
+</body>
+
+</html>

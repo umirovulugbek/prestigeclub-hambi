@@ -31,7 +31,7 @@ jobs:
           
       - name: Deploy files to server
         run: |
-          rsync -avz --delete ./build/ root@213.148.21.83:/home/mdev/travel_front
+          rsync -avz --delete ./dist/ root@213.148.21.83:/home/mdev/travel_front
           
           
 
