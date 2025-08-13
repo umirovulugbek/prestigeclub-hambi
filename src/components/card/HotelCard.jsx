@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import 'swiper/css';
@@ -8,57 +8,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import LazyImage from '../../components/ui/LazyImage';
 import TourIncludesDarkIcon from '../../icons/TourIncludesDarkIcon';
 import TourIncludesIcon from '../../icons/TourIncludesIcon';
-import Axios from '../../utils/httpsClinet';
 import { trackEvent } from '../../utils/mixpanel';
 import Title from '../ui/Title';
 
 const HotelCard = ({ index, item, darkmode }) => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
-	const [favouriteId, setFavouriteId] = useState(0);
-	const [loading_f, setLoadingF] = useState(false);
-	const [favourites, setFavourites] = useState([]);
 	useEffect(() => {
 		// getFavourites();
 	}, []);
-	const changeFavourite = id => {
-		setLoadingF(true);
-		setFavouriteId(id);
-		Axios()
-			.post(`api/v1/search-v2/like-prices`, { price_id: id })
-			.then(res => {
-				const isFavorited = favourites?.some(fav => fav.price_id === id);
-				if (isFavorited) {
-					setFavourites(favourites.filter(favid => favid?.price_id !== id));
-				} else {
-					setFavourites([...favourites, { price_id: id }]);
-				}
-			})
-			.catch(err => {
-				console.log(err);
-			})
-			.finally(() => {
-				setLoadingF(false);
-			});
-	};
-
-	const getFavourites = () => {
-		Axios()
-			.get(`api/v1/search-v2/get-like-prices`)
-			.then(res => {
-				let data = res?.data?.data;
-				let newD = [];
-				data?.forEach(el => {
-					newD = [
-						...newD,
-						{
-							price_id: el?.id,
-						},
-					];
-				});
-				setFavourites(newD);
-			});
-	};
 
 	let clickTag = [];
 	item?.hotel?.nearbyItems?.forEach(el => {
@@ -70,7 +28,6 @@ const HotelCard = ({ index, item, darkmode }) => {
 			},
 		];
 	});
-	const isAddedToFavourite = favourites?.some(d => d.price_id === item?.id);
 	return (
 		<React.Fragment key={index}>
 			<div className='min-h-[271px]  overflow-hidden rounded-[8px] bg-white dark:bg-[#272829]'>

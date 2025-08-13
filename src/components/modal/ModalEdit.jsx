@@ -41,9 +41,9 @@ const ModalEdit = ({ setEditModal, editModal, setObjError, darkmode, obj, objErr
 		}
 
 		if (paramsObject?.adult || paramsObject?.childs) {
-			if (paramsObject?.childs != undefined) {
+			if (paramsObject?.childs !== undefined) {
 				setAddChild(true);
-				setAges(paramsObject?.ages?.length > 0 || paramsObject?.ages != undefined ? paramsObject?.ages : []);
+				setAges(paramsObject?.ages?.length > 0 || paramsObject?.ages !== undefined ? paramsObject?.ages : []);
 			}
 		}
 	}, []);
@@ -63,7 +63,7 @@ const ModalEdit = ({ setEditModal, editModal, setObjError, darkmode, obj, objErr
 					setNumberOfDaysList(data);
 				}
 
-				if (nights != undefined) {
+				if (nights !== undefined) {
 					setObj(pV => ({
 						...pV,
 						number_of_days: findObj,

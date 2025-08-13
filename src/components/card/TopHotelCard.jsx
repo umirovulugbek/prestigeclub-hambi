@@ -55,7 +55,7 @@ const TopHotelCard = ({ list, trackEvent_page }) => {
 							<div className='flex flex-col gap-[15px]'>
 								<div className='min-h-[117px] max-h-[117px] relative'>
 									<LazyImage
-										src={item?.image_url != null ? item?.image_url : '/images/default.png'}
+										src={item?.image_url !== null ? item?.image_url : '/images/default.png'}
 										alt=''
 										className='min-h-[117px] max-h-[117px]  object-cover rounded-lg w-full'
 									/>

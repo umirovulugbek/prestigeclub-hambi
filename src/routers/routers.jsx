@@ -2,7 +2,7 @@ import { AnimatePresence } from 'framer-motion';
 import mixpanel from 'mixpanel-browser';
 import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom';
 import { YMInitializer } from 'react-yandex-metrika';
 import useDarkSide from '../hooks/useDarkSide';
@@ -40,7 +40,6 @@ const AppRouter = () => {
 	const location = useLocation();
 	const { i18n } = useTranslation();
 	const [colorTheme, setTheme] = useDarkSide();
-	const { user } = useSelector(s => s);
 	const [darkSide, setDarkSide] = useState(colorTheme === 'dark' ? false : true);
 
 	useEffect(() => {
@@ -54,10 +53,10 @@ const AppRouter = () => {
 		let ca = decodedCookie.split(';');
 		for (let i = 0; i < ca.length; i++) {
 			let c = ca[i];
-			while (c.charAt(0) == ' ') {
+			while (c.charAt(0) === ' ') {
 				c = c.substring(1);
 			}
-			if (c.indexOf(name) == 0) {
+			if (c.indexOf(name) === 0) {
 				return c.substring(name.length, c.length);
 			}
 		}

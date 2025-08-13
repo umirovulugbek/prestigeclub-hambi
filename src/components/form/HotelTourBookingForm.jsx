@@ -158,7 +158,6 @@ const HotelTourBookingForm = ({ people, onSubmitt, formsData }) => {
 				}));
 			}
 		} else if (name === 'validUntil') {
-			const validDatePattern = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.(\d{4})$/;
 			const dvalue = new Date(value);
 			if (dvalue.getFullYear() < 9999) {
 				setFormData(prev => ({
@@ -171,7 +170,6 @@ const HotelTourBookingForm = ({ people, onSubmitt, formsData }) => {
 				}));
 			}
 		} else if (name === 'docIssued') {
-			const validDatePattern = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.(\d{4})$/;
 			const dvalue = new Date(value);
 			if (dvalue.getFullYear() < 9999) {
 				setFormData(prev => ({
