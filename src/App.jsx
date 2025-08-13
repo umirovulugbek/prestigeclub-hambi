@@ -54,9 +54,7 @@ const App = () => {
 		checkVersion();
 	}, []);
 
-	return (
-			<Router />
-	);
+	return <Router />;
 };
 
 export default App;

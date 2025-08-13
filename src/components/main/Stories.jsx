@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Stories from 'react-insta-stories';
-import PreloadImage from 'react-preload-image';
 import { useDispatch, useSelector } from 'react-redux';
 import useBroneInfoStory from '../../hooks/stories/useBroneInfoStory';
 import useDanangStory from '../../hooks/stories/useDanangStory';
@@ -70,13 +69,12 @@ const Storiess = () => {
 	const danang_story = useDanangStory();
 	const nyachang_story = useNyachangStory();
 	const istanbul_story = useIstanbulStory();
-
 	const data = [...istanbul_story, ...brone_info, ...trabzon_story, ...nyachang_story];
 	return (
 		<div className='mb-4 flex gap-3 overflow-x-scroll'>
 			{data.map(item => (
 				<div key={item.id} onClick={() => setSelectStories(item.stories)} className={`min-w-[95px] h-[115px] relative cursor-pointer rounded-lg ${item?.bgColor}`}>
-					<PreloadImage
+					<img
 						duration='300ms'
 						lazy
 						src={item.image}

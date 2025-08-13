@@ -161,9 +161,9 @@ const FindTour = ({ darkmode }) => {
 				adultCounter: Number(paramsObject?.adult === undefined ? 2 : paramsObject?.adult),
 			}));
 
-			if (paramsObject?.childs != undefined) {
+			if (paramsObject?.childs !== undefined) {
 				setAddChild(true);
-				setAges(paramsObject?.ages?.length > 0 || paramsObject?.ages != undefined ? paramsObject?.ages : []);
+				setAges(paramsObject?.ages?.length > 0 || paramsObject?.ages !== undefined ? paramsObject?.ages : []);
 			}
 		}
 
@@ -258,7 +258,7 @@ const FindTour = ({ darkmode }) => {
 				let data = r?.data?.data;
 
 				let findObj = data?.find(el => el?.somo_id === town_from_inc);
-				if (town_from_inc != undefined) {
+				if (town_from_inc !== undefined) {
 					setObj(pV => ({
 						...pV,
 						departure: findObj?.name,
@@ -329,7 +329,7 @@ const FindTour = ({ darkmode }) => {
 				}));
 				setTowns(newD);
 
-				if (town != undefined) {
+				if (town !== undefined) {
 					const filteredData = data.filter(item => town.includes(item.somo_id));
 					const transformedData = filteredData.map(item => ({
 						label: item.name,
@@ -404,7 +404,7 @@ const FindTour = ({ darkmode }) => {
 					setNumberOfDaysList(data);
 				}
 
-				if (nights != undefined) {
+				if (nights !== undefined) {
 					setObj(pV => ({
 						...pV,
 						number_of_days: findObj,

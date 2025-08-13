@@ -19,7 +19,7 @@ export default {
 				shadow2: '4px 8px 24px 0px rgba(35, 93, 255, 0.05)',
 				shadow3: '4px -1px 15px 0px rgba(35, 93, 255, 0.1)',
 				shadow4: '0px 5px 10px 0px rgba(3, 99, 248, 0.15)',
-				shadow5: ' 0px 6px 16px 0px rgba(189, 198, 211, 0.12)',
+				shadow5: '0px 6px 16px 0px rgba(189, 198, 211, 0.12)',
 			},
 			colors: {
 				red: 'red',
@@ -59,5 +59,3 @@ export default {
 		},
 	],
 };
-
-const { colors: defaultColors } = require('tailwindcss/defaultTheme');
