@@ -1,7 +1,6 @@
 import React from 'react';
 
 const SelectDiv2 = props => {
-	<div className=''>Город</div>;
 
 	return (
 		<div

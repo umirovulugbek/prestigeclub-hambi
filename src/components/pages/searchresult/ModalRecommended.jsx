@@ -45,7 +45,7 @@ const ModalRecommended = ({ modal, setModal, list, setItems, setSelectedSort, se
 				content={
 					<div className='w-full'>
 						<div className='flex items-center justify-between w-full gap-3'>
-							<p className='font-medium text-lg dark:text-white'>Сортировка</p>
+							<p className='font-medium text-lg dark:text-white'>{t('home.sorting')}</p>
 						</div>
 						<div className='mt-[20px] gap-3 flex flex-col'>
 							{list?.map((item, index) => (

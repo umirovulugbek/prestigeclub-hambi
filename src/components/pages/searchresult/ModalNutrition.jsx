@@ -37,7 +37,7 @@ const ModalNutrition = ({ modal, setModal, list, obj, setObj, fetchData, darkmod
 				content={
 					<div className='w-full '>
 						<div className='flex items-center justify-between w-full gap-3'>
-							<p className='font-medium text-xl dark:text-white'>Питание</p>
+							<p className='font-medium text-xl dark:text-white'>{t('home.nutrition2')}</p>
 							<CloseIcon fill={darkmode ? '#fff' : '#141414'} className='cursor-pointer' onClick={() => setModal(false)} />
 						</div>
 						<div className='mt-[20px] flex flex-col gap-3   pb-20'>

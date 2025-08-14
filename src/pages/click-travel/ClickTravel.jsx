@@ -147,7 +147,7 @@ const ClickTravel = ({ darkmode }) => {
 							</div>
 							<img src='/images/linedashed.svg' alt='' className='py-2' />
 							<p className=' text-center dark:text-white text-[#141414] font-medium text-base '>
-								{t('home.prestige_team1')} <span className='!text-[#235DFF] cursor-pointer'>Prestige DMC</span>, {t('home.prestige_team2')}
+								{t('home.prestige_team1')} <span className='!text-[#235DFF] cursor-pointer'>{t('home.prestigeDMC')}</span>, {t('home.prestige_team2')}
 							</p>
 							<div className='flex  gap-[10px]  items-center'>
 								<div

@@ -2,11 +2,14 @@ import React from 'react';
 import { CloseIcon } from '../../homeS3Icon';
 import { ArrowRight } from '../../itemIcon';
 import ModalBottom from '../../modal/ModalBottom';
+import { useTranslation } from 'react-i18next';
 
 const ModalPopular = ({ modal, setModal, list, obj, setObj, fetchData, setPage, darkmode }) => {
+	const { t } = useTranslation()
 	const handleSet = () => {
 		setModal(false);
 	};
+
 	return (
 		<div className='w-full'>
 			<ModalBottom
@@ -18,7 +21,7 @@ const ModalPopular = ({ modal, setModal, list, obj, setObj, fetchData, setPage, 
 				content={
 					<div className='w-full'>
 						<div className='flex items-center justify-between w-full gap-3'>
-							<p className='font-medium text-xl dark:text-white'>Номер</p>
+							<p className='font-medium text-xl dark:text-white'>{t('home.number')}</p>
 							<CloseIcon fill={darkmode ? '#fff' : '#141414'} className='cursor-pointer' onClick={() => setModal(false)} />
 						</div>
 						<div className='mt-[20px] flex flex-col gap-3 pb-5'>

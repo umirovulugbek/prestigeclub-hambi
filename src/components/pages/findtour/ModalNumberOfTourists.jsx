@@ -102,9 +102,8 @@ const ModalNumberOfTourists = ({ modalNumberOfTourists, setModalNumberOfTourists
 								<div className='flex items-center gap-1 bg-[#EBF0F5] dark:bg-[#141414] rounded-full p-1'>
 									<button
 										onClick={() => handleAdultCounter(-1)}
-										className={`select-none w-[27px] h-[27px] ${
-											obj?.adultCounter > 1 ? 'bg-[#0077FF]' : 'bg-[#D7DBE0] !cursor-no-drop'
-										} flex justify-center items-center text-white font-normal text-base rounded-full`}
+										className={`select-none w-[27px] h-[27px] ${obj?.adultCounter > 1 ? 'bg-[#0077FF]' : 'bg-[#D7DBE0] !cursor-no-drop'
+											} flex justify-center items-center text-white font-normal text-base rounded-full`}
 										disabled={obj?.adultCounter <= 1}
 									>
 										-
@@ -136,9 +135,8 @@ const ModalNumberOfTourists = ({ modalNumberOfTourists, setModalNumberOfTourists
 										<div className='flex items-center gap-1 bg-[#EBF0F5] dark:bg-[#141414]  rounded-full p-1'>
 											<button
 												onClick={() => handleChildrenChange(-1)}
-												className={`select-none w-[27px] h-[27px] ${
-													obj?.childrenCount > 0 ? 'bg-[#0077FF] ' : 'bg-[#D7DBE0] !cursor-no-drop'
-												} flex justify-center items-center text-white font-normal text-base rounded-full`}
+												className={`select-none w-[27px] h-[27px] ${obj?.childrenCount > 0 ? 'bg-[#0077FF] ' : 'bg-[#D7DBE0] !cursor-no-drop'
+													} flex justify-center items-center text-white font-normal text-base rounded-full`}
 											>
 												-
 											</button>

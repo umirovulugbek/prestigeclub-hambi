@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import FireIcon from '../../icons/FireIcon';
 import Axios from '../../utils/httpsClinet';
 import LastMinuteTourHotel from '../card/LastMinuteTourHotel';
+import { useTranslation } from 'react-i18next';
 
 const LastMinuteTours = () => {
 	const [data, setData] = useState([]);
+	const { t } = useTranslation()
 	useEffect(() => {
 		getHotTour();
 	}, []);
@@ -22,7 +24,7 @@ const LastMinuteTours = () => {
 		<div className='pt-[20px] container_main '>
 			<div className='text-[20px] dark:text-white flex gap-[5px] items-center mb-4'>
 				<FireIcon />
-				Горящие туры
+				{t('home.hotTours')}
 			</div>
 			<div className='grid grid-cols-2 gap-3'>
 				{data?.data?.map((item, index) => {

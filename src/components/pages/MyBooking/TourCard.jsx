@@ -69,7 +69,7 @@ const TourCard = ({ status, darkmode, data }) => {
 							</span>
 						</div>
 						<div className='inline-flex gap-2'>
-							<span className='font-normal text-base text-blueRibbon'>Даты туры:</span>
+							<span className='font-normal text-base text-blueRibbon'>{t('home.tour_dates')}:</span>
 							<div className='font-normal text-lg'>
 								{' '}
 								{t('home.departure')} {formattedCheckInDate2} , {daysDifference} {t('home.nights')}

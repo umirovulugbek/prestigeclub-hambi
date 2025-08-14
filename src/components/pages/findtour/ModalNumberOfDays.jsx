@@ -51,7 +51,7 @@ const ModalNumberOfDays = ({ modalNumberOfDays, setModalNumberOfDays, list, setO
 							</div>
 						) : (
 							<div className='flex flex-col gap-3 pt-[20px] pb-[30px]'>
-								
+
 								{list?.map((item, index) => {
 									return (
 										<div

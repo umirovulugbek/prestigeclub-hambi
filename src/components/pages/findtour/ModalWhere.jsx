@@ -147,7 +147,7 @@ const ModalWhere = ({
 					) : showUzb ? (
 						<div className='w-full  flex flex-col gap-3` '>
 							<div className=' flex flex-col gap-3 '>
-								<p className='font-medium  text-lg dark:text-white'>Выберите страну отправки</p>
+								<p className='font-medium  text-lg dark:text-white'>{t('home.selectDepartureCountry')}</p>
 								{obj?.tour_uzb?.map((item, index) => (
 									<div
 										key={index}
@@ -174,7 +174,7 @@ const ModalWhere = ({
 					) : (
 						<div className='w-full  flex flex-col gap-3` '>
 							<div className=' flex flex-col gap-3 '>
-								<p className='font-medium  text-lg dark:text-white'>Активные туры</p>
+								<p className='font-medium  text-lg dark:text-white'>{t('home.activeTours')}</p>
 								{loading ? (
 									<div className='flex flex-col gap-3'>
 										<div className='flex items-center justify-between gap-3 px-3 bg-white  dark:bg-[#272829]  rounded-xl dark:border-[#4B4B59] py-[15px] last:border-none cursor-pointer'>
@@ -218,18 +218,18 @@ const ModalWhere = ({
 																item?.somo_id === 43
 																	? '/images/vietnam.svg'
 																	: item?.somo_id === 10
-																	? '/images/egypt.svg'
-																	: item?.somo_id === 36
-																	? '/images/azerbaijan.svg'
-																	: item?.somo_id === 13
-																	? '/images/oae.svg'
-																	: item?.somo_id === 9
-																	? '/images/turkey.svg'
-																	: item?.somo_id === 29
-																	? '/images/gruziya.svg'
-																	: item?.somo_id === 66
-																	? '/images/montenegro.svg'
-																	: ''
+																		? '/images/egypt.svg'
+																		: item?.somo_id === 36
+																			? '/images/azerbaijan.svg'
+																			: item?.somo_id === 13
+																				? '/images/oae.svg'
+																				: item?.somo_id === 9
+																					? '/images/turkey.svg'
+																					: item?.somo_id === 29
+																						? '/images/gruziya.svg'
+																						: item?.somo_id === 66
+																							? '/images/montenegro.svg'
+																							: ''
 															}
 															alt=''
 														/>
@@ -237,7 +237,7 @@ const ModalWhere = ({
 													</div>
 
 													{item?.soon ? (
-														<div className='bg-[#235DFF4D] px-[15px] py-[5px] rounded-[10px] text-[#1E2344] text-sm dark:text-white'>скоро</div>
+														<div className='bg-[#235DFF4D] px-[15px] py-[5px] rounded-[10px] text-[#1E2344] text-sm dark:text-white'>{t('home.comingSoon')}</div>
 													) : (
 														<ArrowRight fill={darkmode ? '#B3B7CE' : '#141414'} />
 													)}
@@ -247,7 +247,7 @@ const ModalWhere = ({
 								)}
 							</div>
 							<div className='flex flex-col gap-3'>
-								<p className='font-medium  text-lg dark:text-white mt-2'>Скоро появятся</p>
+								<p className='font-medium  text-lg dark:text-white mt-2'>{t('home.comingSoonAvailable')}</p>
 								<div className=' opacity-60 flex flex-col  gap-3  pb-[20px]	'>
 									{[
 										{

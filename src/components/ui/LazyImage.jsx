@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
-const LazyImage = ({ src, alt, className, classNameF = '', onError = () => {} }) => {
+const LazyImage = ({ src, alt, className, classNameF = '', onError = () => { } }) => {
 	const [isVisible, setIsVisible] = useState(false);
 	const imgRef = useRef(null);
 

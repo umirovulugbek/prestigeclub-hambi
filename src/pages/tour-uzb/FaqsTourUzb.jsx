@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import NavigationOne from '../../components/ui/NavigationOne';
 import Axios from '../../utils/httpsClinet';
+import { useTranslation } from 'react-i18next';
 
 const FaqsTourUzb = () => {
 	const { id } = useParams();
 	const [data, setData] = useState();
+	const { t } = useTranslation()
 	useEffect(() => {
 		getTourUzb();
 	}, []);
@@ -20,7 +22,7 @@ const FaqsTourUzb = () => {
 
 	return (
 		<div>
-			<NavigationOne darkmode={false} text={'Ответы на частые вопросы'} />
+			<NavigationOne darkmode={false} text={t('home.faq')} />
 			<div className='pt-[65px]  container_main  !px-0 '>
 				<div className=' px-[15px] flex flex-col gap-3  pt-[15px]'>
 					{data?.faqs?.map((item, index) => {

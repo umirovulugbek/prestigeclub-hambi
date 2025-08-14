@@ -36,7 +36,7 @@ const GraphicTour = ({ darkmode, setShowCity, setModalWhere, getTowns, Setdepart
 	};
 	return (
 		<div className='flex flex-col  py-4 '>
-			<h2 className=' font-medium text-lg text-[#141414] dark:text-white container_main w-full !mb-1'>График туров</h2>
+			<h2 className=' font-medium text-lg text-[#141414] dark:text-white container_main w-full !mb-1'>{t('home.tourSchedule')}</h2>
 			<div className='relative w-full  container_main flex flex-col gap-3'>
 				<div className='flex gap-[10px] relative overflow-x-auto'>
 					{loading ? (
@@ -137,7 +137,7 @@ const GraphicTour = ({ darkmode, setShowCity, setModalWhere, getTowns, Setdepart
 												<span className='top-0  bottom-0 right-0 left-0 absolute bg-[#00000040] rounded-lg  w-full' />
 												<div className=' absolute  left-[15px] bottom-[15px] text-white flex flex-col font-semibold'>
 													<div className=' text-[18px] leading-[22px] line-clamp-1'>{item?.name}</div>
-													<div className=' text-base leading-[22px] '>от {item?.price_mln} млн</div>
+													<div className=' text-base leading-[22px] '>{t('home.from')} {item?.price_mln} {t('home.million')}</div>
 												</div>
 											</div>
 										))}

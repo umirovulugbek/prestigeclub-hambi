@@ -2,9 +2,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { trackEvent } from '../../utils/mixpanel';
 import LazyImage from '../ui/LazyImage';
+import { useTranslation } from 'react-i18next';
 
 const TopHotelCard = ({ list, trackEvent_page }) => {
 	const navigate = useNavigate();
+	const { t } = useTranslation()
 	return (
 		<>
 			{list?.map((item, index) => {
@@ -71,7 +73,7 @@ const TopHotelCard = ({ list, trackEvent_page }) => {
 										<span className='text-[#76787A] text-sm'>{item?.town?.name}</span>
 									</div>
 									<p className=' text-[#76787A] text-[17px]'>
-										от <span className='text-[#235DFF]'>{(item?.top_hotel_price?.converted_price_number_half / 1e6)?.toFixed(1)} млн</span> сум
+										{t('home.from')} <span className='text-[#235DFF]'>{(item?.top_hotel_price?.converted_price_number_half / 1e6)?.toFixed(1)} {t('home.million')}</span> {t('home.uzs')}
 									</p>
 								</div>
 							</div>

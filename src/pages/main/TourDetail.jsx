@@ -53,18 +53,18 @@ const TourDetail = ({ darkmode }) => {
 					<div className='px-[15px] py-[15px] rounded-xl bg-white border border-[#EEEEEE] dark:bg-[#272829] dark:border-[#272829]'>
 						<div className='text-[#76787A] font-medium text-sm leading-6'>Всё просто</div>
 						<div className='text-[#141414] font-medium leading-6 dark:text-white text-[14px]'>
-							Выберите отель, тип номера и питание, заполните свои данные и забронируйте тур!
+							{t('home.selectHotelRoomMealAndBook')}
 						</div>
 					</div>
 					{paramsObject?.tour_somo_id === 7 ? <img src='/images/lopez-banner.png' alt='' className='rounded-xl' /> : null}
-					<h2 className=' font-medium text-lg dark:text-white'>Что входит в стоимость тура</h2>
+					<h2 className=' font-medium text-lg dark:text-white'>{t('home.whatIsIncludedInTourPrice')}</h2>
 					{paramsObject?.tour_somo_id === 162 && (
 						<div className='py-[15px] px-[20px] rounded-[15px] border bg-white dark:bg-[#272829] dark:border-[#272829] border-[#EEEEEE] flex  flex-col gap-5'>
 							<div className=' flex  gap-3'>
 								<BedIcon />
 								<div className='flex flex-col justify-between'>
-									<div className='text-[#76787A] text-sm'>Подарок только в Click </div>
-									<div className='text-[#141414]  dark:text-white font-medium'>Индивидуальный Luxe трансфер </div>
+									<div className='text-[#76787A] text-sm'>{t('home.giftOnlyInClick')}</div>
+									<div className='text-[#141414]  dark:text-white font-medium'>{t('home.individualLuxeTransfer')}</div>
 								</div>
 							</div>
 						</div>
@@ -75,8 +75,8 @@ const TourDetail = ({ darkmode }) => {
 								<BedIcon />
 
 								<div className='flex flex-col justify-between'>
-									<div className='text-[#76787A] text-sm'>Подарок только в Click </div>
-									<div className='text-[#141414]  dark:text-white font-medium'>Бесплатная eSIM-карта в подарок</div>
+									<div className='text-[#76787A] text-sm'>{t('home.giftOnlyInClick')}</div>
+									<div className='text-[#141414]  dark:text-white font-medium'>{t('home.freeEsimCardGift')}</div>
 								</div>
 							</div>
 						</div>
@@ -85,8 +85,8 @@ const TourDetail = ({ darkmode }) => {
 						<div className=' flex  gap-3'>
 							<AirplaneIcon />
 							<div className='flex flex-col justify-between'>
-								<div className='text-[#76787A] text-sm'>Перелет:</div>
-								<div className='text-[#141414]  dark:text-white font-medium'>В тур включен перелет туда и обратно</div>
+								<div className='text-[#76787A] text-sm'>{t('home.flight')}:</div>
+								<div className='text-[#141414]  dark:text-white font-medium'>{t('home.roundTripFlightIncluded')}</div>
 							</div>
 						</div>
 						<img src='/images/linedashed.svg' className='w-full object-cover h-[0.5px] ' alt='' />
@@ -105,8 +105,8 @@ const TourDetail = ({ darkmode }) => {
 										{[34, 223, 221, 220, 173, 194].includes(Number(paramsObject?.tour_somo_id))
 											? 'A320'
 											: [7, 248].includes(Number(paramsObject?.tour_somo_id))
-											? 'A321-NEO'
-											: 'A320'}
+												? 'A321-NEO'
+												: 'A320'}
 									</div>
 								</div>
 							</div>
@@ -118,18 +118,18 @@ const TourDetail = ({ darkmode }) => {
 											? '5s 20m'
 											: '5ч 20м'
 										: [223, 221, 220]?.includes(Number(paramsObject?.tour_somo_id))
-										? i18n?.language === 'uz'
-											? '2s 55m'
-											: '2ч 55м'
-										: [248]?.includes(Number(paramsObject?.tour_somo_id))
-										? i18n?.language === 'uz'
-											? '7s 5m'
-											: '7ч 5м'
-										: [173, 194]?.includes(Number(paramsObject?.tour_somo_id))
-										? i18n?.language === 'uz'
-											? '3s 40m'
-											: '3ч 40м'
-										: ''}
+											? i18n?.language === 'uz'
+												? '2s 55m'
+												: '2ч 55м'
+											: [248]?.includes(Number(paramsObject?.tour_somo_id))
+												? i18n?.language === 'uz'
+													? '7s 5m'
+													: '7ч 5м'
+												: [173, 194]?.includes(Number(paramsObject?.tour_somo_id))
+													? i18n?.language === 'uz'
+														? '3s 40m'
+														: '3ч 40м'
+													: ''}
 								</span>
 								<span className='text-[#34C759]'>{t('home.direct_flight')}</span>
 							</div>
@@ -138,7 +138,7 @@ const TourDetail = ({ darkmode }) => {
 					<div className='bg-white dark:bg-[#272829]  flex flex-col p-[15px] rounded-xl gap-2'>
 						<h4 className=' font-medium  text-[#141414] dark:text-white flex items-center gap-2'>
 							<HotelIcon />
-							Отель
+							{t('home.hotel')}
 						</h4>
 						<div
 							onClick={() => {
@@ -151,15 +151,15 @@ const TourDetail = ({ darkmode }) => {
 							className='bg-[#EBF0F5] dark:text-white dark:bg-[#36393E] cursor-pointer h-[100px] rounded-lg flex justify-center items-center gap-2'
 						>
 							<PlusIcon />
-							Добавить отель
+							{t('home.addHotel')}
 						</div>
 					</div>
 					<div>
 						<div className='flex flex-col gap-[10px]'>
 							{[
 								...(paramsObject?.tour_somo_id === 7 ? [{ icon: <TicketIcon />, desc: 'Бесплатный билет на концерт ', title: t('home.number') }] : []),
-								{ icon: <HotelRoom />, desc: 'Выбранный тип номера в отеле', title: t('home.number') },
-								{ icon: <MealIcon />, desc: 'Выбранный тип питания', title: t('home.nutrition2') },
+								{ icon: <HotelRoom />, desc: t('home.selectedRoomTypeInHotel'), title: t('home.number') },
+								{ icon: <MealIcon />, desc: t('home.selectedMealType'), title: t('home.nutrition2') },
 								{ icon: <TransferIcon />, desc: t('home.transfet_group_title'), title: t('home.transfet_group') },
 								{ icon: <InsuranceIcon />, desc: t('home.standart_medical'), title: t('home.insurance') },
 							]?.map((item, index) => {
@@ -188,7 +188,7 @@ const TourDetail = ({ darkmode }) => {
 									</div>
 									<img src='/images/linedashed.svg' className='w-full object-cover h-[0.5px] ' alt='' />
 									<p className=' text-center dark:text-white text-[#141414] text-base '>
-										{t('home.prestige_team1')} <span className='!text-[#235DFF] cursor-pointer leading-4'>Prestige DMC</span>, {t('home.prestige_team2')}
+										{t('home.prestige_team1')} <span className='!text-[#235DFF] cursor-pointer leading-4'>{t('home.prestigeDMC')}</span>, {t('home.prestige_team2')}
 									</p>
 									<div className='flex  gap-[10px]  items-center'>
 										<img src='/images/team_prstg.svg' alt='' className='w-full' />

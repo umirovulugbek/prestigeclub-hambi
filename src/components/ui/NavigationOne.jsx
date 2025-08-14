@@ -24,14 +24,14 @@ const NavigationOne = ({ is_trackEvent = false, trackEvent_link = '', darkmode, 
 						<a href='clickup://actions/close_screen'>
 							<Back
 								fill={darkmode ? '#fff' : '#141414'}
-								// className='-translate-x-[15px]'
+							// className='-translate-x-[15px]'
 							/>{' '}
 						</a>
 					) : (
 						<Back
 							fill={darkmode ? '#fff' : '#141414'}
 							onClick={handleBackClick}
-							// className='-translate-x-[15px]'
+						// className='-translate-x-[15px]'
 						/>
 					)}
 					<div className='text-[#141414] w-full flex justify-center text-lg font-normal  dark:text-white'>{text}</div>

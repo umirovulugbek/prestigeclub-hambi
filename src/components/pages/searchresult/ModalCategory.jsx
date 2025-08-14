@@ -2,8 +2,10 @@ import React from 'react';
 import { CloseIcon } from '../../homeS3Icon';
 import { ArrowRight } from '../../itemIcon';
 import ModalBottom from '../../modal/ModalBottom';
+import { useTranslation } from 'react-i18next';
 
 const ModalCategory = ({ modal, setModal, list, obj, setObj, fetchData }) => {
+	const { t } = useTranslation()
 	const handleSet = () => {
 		setModal(false);
 	};
@@ -19,7 +21,7 @@ const ModalCategory = ({ modal, setModal, list, obj, setObj, fetchData }) => {
 				content={
 					<div className='w-full'>
 						<div className='flex items-center justify-between w-full gap-3'>
-							<p className='font-semibold text-xl'>Категории</p>
+							<p className='font-semibold text-xl'>{t('home.categories')}</p>
 							<CloseIcon className='cursor-pointer' onClick={() => setModal(false)} />
 						</div>
 						<div className='mt-[20px]'>

@@ -37,7 +37,7 @@ const BroneForm = ({ darkmode, setModal }) => {
 						}}
 						fill={darkmode ? '#fff' : '#141414'}
 					/>
-					<div>Данные туриста</div>
+					<div>{t('home.touristData')}</div>
 					<div className='w-[45px] h-[45px]'></div>
 				</div>
 

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import MapIcon from '../../icons/MapIcon';
 import { ArrowRight } from '../itemIcon';
 import ModalBottom from '../modal/ModalBottom';
-const data = [
+import { useTranslation } from 'react-i18next';
+const data = (t) => ([
 	{
 		region_id: 1,
 		label: '🏙️ Центр и Даунтаун',
@@ -66,12 +67,13 @@ const data = [
 		selected: false,
 		regions: ['Парк Дубаи'],
 	},
-];
+])
 const ChooseDistrict = ({ darkmode, setSelectedRegions, selectedRegions }) => {
 	const [isOpen, setIsOpen] = useState(false);
+	const { t } = useTranslation()
 	const [selectedIds, setSelectedIds] = useState(() => {
 		// Dastlab selected true bo‘lgan itemlar idsi
-		return data.filter(item => item.selected).map(item => item.region_id);
+		return data(t).filter(item => item.selected).map(item => item.region_id);
 	});
 	const toggleRegion = region_id => {
 		let newSelectedIds;
@@ -83,7 +85,7 @@ const ChooseDistrict = ({ darkmode, setSelectedRegions, selectedRegions }) => {
 		setSelectedIds(newSelectedIds);
 
 		// Shu yerda name'larni yig'amiz
-		const selectedNames = data.filter(item => newSelectedIds.includes(item.region_id)).flatMap(item => item.regions);
+		const selectedNames = data(t).filter(item => newSelectedIds.includes(item.region_id)).flatMap(item => item.regions);
 
 		// Parentga faqat name'lar yuboriladi
 		setSelectedRegions(selectedNames);
@@ -111,7 +113,7 @@ const ChooseDistrict = ({ darkmode, setSelectedRegions, selectedRegions }) => {
 				translateY='translate-y-[80vh]'
 				content={
 					<div className='flex flex-col gap-3  w-full  py-2 '>
-						{data?.map((item, index) => {
+						{data(t).map((item, index) => {
 							const checked = selectedIds.includes(item.region_id);
 
 							return (

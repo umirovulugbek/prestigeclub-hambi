@@ -73,13 +73,13 @@ const LastMinuteTourHotel = ({ data }) => {
 				<div className='text-[#141414] dark:text-white text-lg  leading-[22px] font-medium truncate'>{data?.tour?.name}</div>
 				<div className=''>
 					<div className='text-[#132339] leading-[22px] dark:text-white'>
-						{i18n.language === 'uz' ? <>{data?.adults_count + data?.children_count} ta sayyoh</> : <>За {data?.adults_count + data?.children_count}х взрослых</>}
+						{i18n.language === 'uz' ? <>{data?.adults_count + data?.children_count} {t('home.tourists_2')}</> : <>За {data?.adults_count + data?.children_count}х {t('home.adult2')}</>}
 					</div>
 					<span className='text-[#132339] dark:text-white'>
 						{data?.nights} {t('home.nights')}
 					</span>
 				</div>
-				<div className='text-[#235DFF] leading-[22px] font-medium'>от {data?.price_discounted?.toLocaleString('en-US').replace(/,/g, ' ')} сум</div>
+				<div className='text-[#235DFF] leading-[22px] font-medium'>от {data?.price_discounted?.toLocaleString('en-US').replace(/,/g, ' ')} {t('home.uzs')}</div>
 			</div>
 		</div>
 	);

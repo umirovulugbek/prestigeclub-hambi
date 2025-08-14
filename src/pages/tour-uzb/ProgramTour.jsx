@@ -8,10 +8,12 @@ import LazyImage from '../../components/ui/LazyImage';
 import NavigationOne from '../../components/ui/NavigationOne';
 import { API_URL } from '../../utils/api';
 import Axios from '../../utils/httpsClinet';
+import { useTranslation } from 'react-i18next';
 const ProgramTour = () => {
 	const [activeTab, setActiveTab] = useState(0);
 	const { id } = useParams();
 	const [data, setData] = useState();
+	const { t } = useTranslation()
 
 	useEffect(() => {
 		getTourUzb();
@@ -30,7 +32,7 @@ const ProgramTour = () => {
 	}, []);
 	return (
 		<div>
-			<NavigationOne darkmode={false} text={'Программа тура'} />
+			<NavigationOne darkmode={false} text={t('translations.home.tourPrograms')} />
 			<div className='flex flex-col py-[15px] gap-[15px]'>
 				<div className='mt-[65px]   '>
 					<div className='container_main flex'>
@@ -41,9 +43,8 @@ const ProgramTour = () => {
 									<div
 										key={index}
 										onClick={() => setActiveTab(item)}
-										className={`h-[44px] flex justify-center items-center w-full cursor-pointer ${
-											activeTab === item ? 'bg-[#0077FF] text-white' : ' bg-white'
-										} ${index === 0 ? 'rounded-l-[12px]' : item === data?.days?.length ? 'rounded-r-[12px]' : ''} `}
+										className={`h-[44px] flex justify-center items-center w-full cursor-pointer ${activeTab === item ? 'bg-[#0077FF] text-white' : ' bg-white'
+											} ${index === 0 ? 'rounded-l-[12px]' : item === data?.days?.length ? 'rounded-r-[12px]' : ''} `}
 									>
 										{item} kun
 									</div>

@@ -142,7 +142,7 @@ const HotelDetailComment = ({ darkmode }) => {
 												<div className='flex justify-between items-center w-full'>
 													<div>
 														<p className='font-medium text-base ml-[14px]'>
-															{item?.owner_response?.author ? item?.owner_response?.author : 'Anonim'}
+															{item?.owner_response?.author ? item?.owner_response?.author : t('home.anonymous')}
 														</p>
 														<p className='font-normal text-sm flex'>
 															<img src={IMG_URL + item?.rating_image_url} alt='' />
@@ -158,7 +158,7 @@ const HotelDetailComment = ({ darkmode }) => {
 											{isExpanded ? item?.review_text : item?.review_text?.slice(0, 400)}
 											{item?.review_text?.length > 400 ? (
 												<span className='text-[#235DFF] font-medium cursor-pointer ' onClick={() => toggleExpandReview(index)}>
-													{isExpanded ? 'Свернуть' : 'Еще'}
+													{isExpanded ? t('home.collapse') : t('home.more')}
 												</span>
 											) : null}
 										</p>

@@ -302,12 +302,12 @@ const HotelListBySearch = ({ darkmode }) => {
 										paramsObj?.town_names?.[0] === 'Фукуок'
 											? 'vcD1qbpHzwIKPr7L'
 											: paramsObj?.town_names?.[0] === 'Китайские Гавайи - Хайнань ( Китай )'
-											? 'bXVAxiJkj6x1fdws'
-											: paramsObj?.town_names?.[0] === 'Шарм эль Шейх'
-											? 'HFPX5xD7UjHFiRLb'
-											: Number(paramsObj?.tour_somo_id) === 248
-											? '4WXrqVI8RvFJ5HVG'
-											: obj?.widget
+												? 'bXVAxiJkj6x1fdws'
+												: paramsObj?.town_names?.[0] === 'Шарм эль Шейх'
+													? 'HFPX5xD7UjHFiRLb'
+													: Number(paramsObj?.tour_somo_id) === 248
+														? '4WXrqVI8RvFJ5HVG'
+														: obj?.widget
 									}
 								/>
 								<div className='container_main '>
@@ -323,8 +323,8 @@ const HotelListBySearch = ({ darkmode }) => {
 										icon={<img src='/images/union.svg' alt='' />}
 									/>
 									<SelectDiv2
-										placeholder='Сортировка'
-										title='Сортировка'
+										placeholder={t('home.sorting')}
+										title={t('home.sorting')}
 										onClick={() => setModalRec(true)}
 										darkmode={darkmode}
 										icon={
@@ -437,10 +437,10 @@ const HotelListBySearch = ({ darkmode }) => {
 					setSelectedSort={setSelectedSort}
 					modal={modalRec}
 					list={[
-						{ name: 'Рекомендуемые', value: 'recommended', icon: 'huge-icon.svg' },
-						{ name: 'Самые дешевые', value: 'cheapest', icon: 'huge-icon-2.svg' },
-						{ name: 'Самые дорогие', value: 'expensive', icon: 'huge-icon-3.svg' },
-						{ name: 'Лучший рейтинг и низкая цена', value: 'best-rating-low-price', icon: 'huge-icon-4.svg' },
+						{ name: t('home.recommended'), value: 'recommended', icon: 'huge-icon.svg' },
+						{ name: t('home.cheapest'), value: 'cheapest', icon: 'huge-icon-2.svg' },
+						{ name: t('home.mostExpensive'), value: 'expensive', icon: 'huge-icon-3.svg' },
+						{ name: t('home.bestRatingAndLowPrice'), value: 'best-rating-low-price', icon: 'huge-icon-4.svg' },
 					]}
 				/>
 

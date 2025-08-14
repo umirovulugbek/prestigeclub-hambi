@@ -32,10 +32,10 @@ const PrestigeBanner = ({ darkmode, guarantee = true }) => {
 							<CheckIcon />
 						</span>
 
-						<p className='font-medium dark:text-white leading-[125%] text-sm'>100% гарантия тура: все организовано надежным туроператором.</p>
+						<p className='font-medium dark:text-white leading-[125%] text-sm'>{t('home.tour100PercentGuarantee')}</p>
 					</>
 				) : (
-					<p className='font-medium dark:text-white text-[15px] '>Мы подобрали для вас только лучшие отели</p>
+					<p className='font-medium dark:text-white text-[15px] '>{t('home.wePickedOnlyTheBestHotelsForYou')}</p>
 				)}
 			</div>
 		</div>

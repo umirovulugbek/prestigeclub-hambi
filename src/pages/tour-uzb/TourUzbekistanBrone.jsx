@@ -70,7 +70,7 @@ const TourUzbekistanBrone = ({ darkmode }) => {
 				<section className={`py-[10px] container_main  rounded-bl-[20px] z-40 fixed w-full rounded-br-[20px]  ${darkmode ? 'bg-[#272829]' : 'bg-white'}`}>
 					<div className='flex items-center w-full'>
 						<Back fill={darkmode ? '#fff' : '#141414'} onClick={() => navigate(-1)} />
-						<div className={`text-lg font-normal flex w-full justify-center ${darkmode ? 'text-white' : 'text-blueWood'}`}>Туры по Узбекситану</div>
+						<div className={`text-lg font-normal flex w-full justify-center ${darkmode ? 'text-white' : 'text-blueWood'}`}>{t('home.toursInUzbekistan')}</div>
 						<div className='w-[45px]'></div>
 					</div>
 					<div className='flex justify-center my-[15px] items-center'>
@@ -107,9 +107,8 @@ const TourUzbekistanBrone = ({ darkmode }) => {
 											setActiveDate(item?.start_date);
 											setObj(pV => ({ ...pV, adultCounter: 0, childrenCount: 0, available_seats: item?.available_seats }));
 										}}
-										className={`bg-[#EBF0F5] rounded-lg  cursor-pointer h-[70px] flex justify-center items-center border min-w-[160px] ${
-											item?.start_date === activeDate ? 'border-[#0077FF] text-[#0077FF]' : ''
-										}`}
+										className={`bg-[#EBF0F5] rounded-lg  cursor-pointer h-[70px] flex justify-center items-center border min-w-[160px] ${item?.start_date === activeDate ? 'border-[#0077FF] text-[#0077FF]' : ''
+											}`}
 									>
 										<div>
 											<div className='flex flex-col'>
@@ -130,9 +129,8 @@ const TourUzbekistanBrone = ({ darkmode }) => {
 							<div className='flex items-center gap-1  bg-white dark:bg-[#141414] rounded-full p-1'>
 								<button
 									onClick={() => handleAdultCounter(-1)}
-									className={`select-none  w-[27px] h-[27px] ${
-										obj?.adultCounter > 0 ? 'bg-[#0077FF] ' : 'bg-[#D7DBE0] !cursor-no-drop'
-									}  flex justify-center items-center text-white	 font-normal text-base rounded-full`}
+									className={`select-none  w-[27px] h-[27px] ${obj?.adultCounter > 0 ? 'bg-[#0077FF] ' : 'bg-[#D7DBE0] !cursor-no-drop'
+										}  flex justify-center items-center text-white	 font-normal text-base rounded-full`}
 								>
 									-
 								</button>
@@ -140,9 +138,8 @@ const TourUzbekistanBrone = ({ darkmode }) => {
 								<span className='select-none mx-2 font-normal text-lg dark:text-white'>{obj?.adultCounter}</span>
 								<button
 									onClick={() => handleAdultCounter(1)}
-									className={` ${
-										obj?.childrenCount + obj?.adultCounter < obj?.available_seats ? 'bg-[#0077FF]' : 'bg-[#D7DBE0] !cursor-no-drop'
-									}  select-none w-[27px] h-[27px]  flex justify-center items-center text-white font-normal text-base rounded-full`}
+									className={` ${obj?.childrenCount + obj?.adultCounter < obj?.available_seats ? 'bg-[#0077FF]' : 'bg-[#D7DBE0] !cursor-no-drop'
+										}  select-none w-[27px] h-[27px]  flex justify-center items-center text-white font-normal text-base rounded-full`}
 								>
 									+
 								</button>
@@ -157,18 +154,16 @@ const TourUzbekistanBrone = ({ darkmode }) => {
 								<div className='flex items-center gap-1 bg-white dark:bg-[#141414]  rounded-full p-1'>
 									<button
 										onClick={() => handleChildrenChange(-1)}
-										className={`select-none w-[27px] h-[27px] ${
-											obj?.childrenCount > 0 ? 'bg-[#0077FF] ' : 'bg-[#D7DBE0] !cursor-no-drop'
-										} flex justify-center items-center text-white font-normal text-base rounded-full`}
+										className={`select-none w-[27px] h-[27px] ${obj?.childrenCount > 0 ? 'bg-[#0077FF] ' : 'bg-[#D7DBE0] !cursor-no-drop'
+											} flex justify-center items-center text-white font-normal text-base rounded-full`}
 									>
 										-
 									</button>
 									<span className='select-none mx-2 font-normal text-lg dark:text-white'>{obj?.childrenCount}</span>
 									<button
 										onClick={() => handleChildrenChange(1)}
-										className={` ${
-											obj?.childrenCount + obj?.adultCounter < obj?.available_seats ? 'bg-[#0077FF]' : 'bg-[#D7DBE0] !cursor-no-drop'
-										}  select-none w-[27px] h-[27px]  flex justify-center items-center text-white font-normal text-base rounded-full`}
+										className={` ${obj?.childrenCount + obj?.adultCounter < obj?.available_seats ? 'bg-[#0077FF]' : 'bg-[#D7DBE0] !cursor-no-drop'
+											}  select-none w-[27px] h-[27px]  flex justify-center items-center text-white font-normal text-base rounded-full`}
 									>
 										+
 									</button>

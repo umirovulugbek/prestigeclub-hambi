@@ -460,7 +460,7 @@ const HotelTourBooking = ({ darkmode }) => {
 					</div>
 					<img src='/images/linedashed.svg' className='w-full object-cover h-[0.5px] ' alt='' />
 					<p className=' text-center dark:text-white text-[#141414] text-base '>
-						{t('home.prestige_team1')} <span className='!text-[#235DFF] cursor-pointer leading-4'>Prestige DMC</span>, {t('home.prestige_team2')}
+						{t('home.prestige_team1')} <span className='!text-[#235DFF] cursor-pointer leading-4'>{t('home.prestigeDMC')}</span>, {t('home.prestige_team2')}
 					</p>
 					<div className='flex  gap-[10px]  items-center'>
 						{/* <div className='bg-[#00000033]  rounded-xl w-[100px] h-[142px]' /> */}

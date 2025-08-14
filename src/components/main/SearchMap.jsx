@@ -20,9 +20,9 @@ const SearchMap = ({ darkmode, setModalMap, items, loading, isError }) => {
 	const { t } = useTranslation();
 	const center = items?.length
 		? {
-				lat: Number(items[0]?.hotel?.detail?.location?.latitude) || defaultCenter.lat,
-				lng: Number(items[0]?.hotel?.detail?.location?.longitude) || defaultCenter.lng,
-		  }
+			lat: Number(items[0]?.hotel?.detail?.location?.latitude) || defaultCenter.lat,
+			lng: Number(items[0]?.hotel?.detail?.location?.longitude) || defaultCenter.lng,
+		}
 		: defaultCenter;
 	const createCustomMarker = price => {
 		return {
@@ -59,7 +59,7 @@ const SearchMap = ({ darkmode, setModalMap, items, loading, isError }) => {
 	};
 
 	if (loading) {
-		return <div className='absolute left-0 bottom-0 top-0 right-0 bg-[#09101D99] flex justify-center items-center z-9999 text-white'>...loading</div>;
+		return <div className='absolute left-0 bottom-0 top-0 right-0 bg-[#09101D99] flex justify-center items-center z-9999 text-white'>...{t('home.loading')}</div>;
 	}
 
 	return (

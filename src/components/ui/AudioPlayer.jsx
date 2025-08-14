@@ -1,7 +1,9 @@
 import React, { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const AudioPlayer = () => {
 	const audioRef = useRef(null);
+	const { t } = useTranslation()
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [progress, setProgress] = useState(0);
 	const [duration, setDuration] = useState(0);

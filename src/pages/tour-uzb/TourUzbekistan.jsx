@@ -66,7 +66,7 @@ const TourUzbekistan = ({ darkmode }) => {
 				<section className={`py-[10px] container_main  rounded-bl-[20px] z-40 fixed w-full rounded-br-[20px]  ${darkmode ? 'bg-[#272829]' : 'bg-white'}`}>
 					<div className='flex items-center w-full'>
 						<Back fill={darkmode ? '#fff' : '#141414'} onClick={() => navigate(-1)} />
-						<div className={`text-lg font-normal flex w-full justify-center ${darkmode ? 'text-white' : 'text-blueWood'}`}>Туры по Узбекситану</div>
+						<div className={`text-lg font-normal flex w-full justify-center ${darkmode ? 'text-white' : 'text-blueWood'}`}>{t('home.toursInUzbekistan')}</div>
 						<div className='w-[45px]'></div>
 					</div>
 					<div className='flex justify-center my-[15px] items-center'>
@@ -87,7 +87,7 @@ const TourUzbekistan = ({ darkmode }) => {
 			</div>
 			<div className=' !px-0  top-[100px] relative'>
 				{loading ? (
-					<div className='container_main mt-10'>...loading</div>
+					<div className='container_main mt-10'>...{t('home.loading')}</div>
 				) : (
 					<>
 						<div className=' relative container_main !px-0'>
@@ -105,7 +105,7 @@ const TourUzbekistan = ({ darkmode }) => {
 										}}
 										className='bg-[#C5D2E0] h-[60px] flex  justify-between items-center rounded-lg px-[13px]  cursor-pointer'
 									>
-										Посмотреть всю программу тура
+										{t('home.viewFullTourProgram')}
 										<ArrowRight />
 									</button>
 									<div className='p-[15px] border-[#235DFF] border rounded-xl  bg-[#F2F8FF]'>
@@ -131,7 +131,7 @@ const TourUzbekistan = ({ darkmode }) => {
 													<div className='flex justify-between'>
 														<div className='flex flex-col'>
 															<div className=' font-medium'>{item?.user_name}</div>
-															<div className=' text-xs'>Uzbekistan</div>
+															<div className=' text-xs'>{t('home.uzbekistan')}</div>
 														</div>
 														<div className='flex items-center gap-1'>
 															{[...Array(item?.rating)].map((_, i) => {
@@ -152,7 +152,7 @@ const TourUzbekistan = ({ darkmode }) => {
 										}}
 										className='bg-[#FFFFFF]  container_main w-full border border-[#EEEEEE] h-[60px] font-medium text-base flex  justify-between items-center rounded-lg px-[13px]  cursor-pointer'
 									>
-										Ответы на частые вопросы
+										{t('home.faq')}
 										<ArrowRight />
 									</button>
 								</div>
@@ -168,9 +168,8 @@ const TourUzbekistan = ({ darkmode }) => {
 														setActiveDate(item?.start_date);
 														setObj(pV => ({ ...pV, adultCounter: 0, childrenCount: 0, available_seats: item?.available_seats }));
 													}}
-													className={`bg-[#EBF0F5] rounded-lg  cursor-pointer h-[70px] flex justify-center items-center border min-w-[160px] ${
-														item?.start_date === activeDate ? 'border-[#0077FF] text-[#0077FF]' : ''
-													}`}
+													className={`bg-[#EBF0F5] rounded-lg  cursor-pointer h-[70px] flex justify-center items-center border min-w-[160px] ${item?.start_date === activeDate ? 'border-[#0077FF] text-[#0077FF]' : ''
+														}`}
 												>
 													<div>
 														<div className='flex flex-col'>
@@ -191,9 +190,8 @@ const TourUzbekistan = ({ darkmode }) => {
 										<div className='flex items-center gap-1  bg-white dark:bg-[#141414] rounded-full p-1'>
 											<button
 												onClick={() => handleAdultCounter(-1)}
-												className={`select-none  w-[27px] h-[27px] ${
-													obj?.adultCounter > 0 ? 'bg-[#0077FF] ' : 'bg-[#D7DBE0] !cursor-no-drop'
-												}  flex justify-center items-center text-white	 font-normal text-base rounded-full`}
+												className={`select-none  w-[27px] h-[27px] ${obj?.adultCounter > 0 ? 'bg-[#0077FF] ' : 'bg-[#D7DBE0] !cursor-no-drop'
+													}  flex justify-center items-center text-white	 font-normal text-base rounded-full`}
 											>
 												-
 											</button>
@@ -201,9 +199,8 @@ const TourUzbekistan = ({ darkmode }) => {
 											<span className='select-none mx-2 font-normal text-lg dark:text-white'>{obj?.adultCounter}</span>
 											<button
 												onClick={() => handleAdultCounter(1)}
-												className={` ${
-													obj?.childrenCount + obj?.adultCounter < obj?.available_seats ? 'bg-[#0077FF]' : 'bg-[#D7DBE0] !cursor-no-drop'
-												}  select-none w-[27px] h-[27px]  flex justify-center items-center text-white font-normal text-base rounded-full`}
+												className={` ${obj?.childrenCount + obj?.adultCounter < obj?.available_seats ? 'bg-[#0077FF]' : 'bg-[#D7DBE0] !cursor-no-drop'
+													}  select-none w-[27px] h-[27px]  flex justify-center items-center text-white font-normal text-base rounded-full`}
 											>
 												+
 											</button>
@@ -218,18 +215,16 @@ const TourUzbekistan = ({ darkmode }) => {
 											<div className='flex items-center gap-1 bg-white dark:bg-[#141414]  rounded-full p-1'>
 												<button
 													onClick={() => handleChildrenChange(-1)}
-													className={`select-none w-[27px] h-[27px] ${
-														obj?.childrenCount > 0 ? 'bg-[#0077FF] ' : 'bg-[#D7DBE0] !cursor-no-drop'
-													} flex justify-center items-center text-white font-normal text-base rounded-full`}
+													className={`select-none w-[27px] h-[27px] ${obj?.childrenCount > 0 ? 'bg-[#0077FF] ' : 'bg-[#D7DBE0] !cursor-no-drop'
+														} flex justify-center items-center text-white font-normal text-base rounded-full`}
 												>
 													-
 												</button>
 												<span className='select-none mx-2 font-normal text-lg dark:text-white'>{obj?.childrenCount}</span>
 												<button
 													onClick={() => handleChildrenChange(1)}
-													className={` ${
-														obj?.childrenCount + obj?.adultCounter < obj?.available_seats ? 'bg-[#0077FF]' : 'bg-[#D7DBE0] !cursor-no-drop'
-													}  select-none w-[27px] h-[27px]  flex justify-center items-center text-white font-normal text-base rounded-full`}
+													className={` ${obj?.childrenCount + obj?.adultCounter < obj?.available_seats ? 'bg-[#0077FF]' : 'bg-[#D7DBE0] !cursor-no-drop'
+														}  select-none w-[27px] h-[27px]  flex justify-center items-center text-white font-normal text-base rounded-full`}
 												>
 													+
 												</button>

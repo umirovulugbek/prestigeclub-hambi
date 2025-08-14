@@ -4,12 +4,14 @@ import { Back, MapIcon } from '../../components/itemIcon';
 import PrestigeBanner from '../../components/main/PrestigeBanner';
 import Accordion from '../../components/ui/Accardion';
 import Axios from '../../utils/httpsClinet';
+import { useTranslation } from 'react-i18next';
 
 const MyBookingDetail = ({ darkmode, hotel_detail = {} }) => {
 	const navigate = useNavigate();
 	const { id } = useParams();
 	const [loading, setLoading] = useState(false);
 	const [data, setData] = useState([]);
+	const { t } = useTranslation()
 
 	useEffect(() => {
 		getHotelTourBookin();
@@ -35,7 +37,7 @@ const MyBookingDetail = ({ darkmode, hotel_detail = {} }) => {
 	};
 	const accordionData = [
 		{
-			title: 'Детали тура',
+			title: t("home.tourDetails"),
 			content: (
 				<>
 					{data?.slice(0, 1)?.map((item, index) => {
@@ -90,25 +92,25 @@ const MyBookingDetail = ({ darkmode, hotel_detail = {} }) => {
 								</div>
 								<div className='flex flex-col gap-1.5'>
 									<div className='inline-flex gap-2'>
-										<span className='font-normal text-base text-blueRibbon'>Туристы:</span>
+										<span className='font-normal text-base text-blueRibbon'>{t('home.tourists')}:</span>
 										<span className='font-normal text-lg'>
-											{item?.price?.adult} взрослых, {item?.price?.child} детей
+											{item?.price?.adult} {t('home.numberOfAdults')}, {item?.price?.child} {t('home.child2')}
 										</span>
 									</div>
 									<div className='inline-flex gap-2'>
-										<span className='font-normal text-base text-blueRibbon'>Даты туры:</span>
+										<span className='font-normal text-base text-blueRibbon'>{t('home.tour_dates')}:</span>
 										<div className='font-normal text-lg'>
 											<span>
-												Вылет {formattedCheckInDate2}, {daysDifference} ночей
+												{t('home.departure')} {formattedCheckInDate2}, {daysDifference} {t('home.nights')}
 											</span>
 										</div>
 									</div>
 									<div className='inline-flex gap-2'>
-										<span className='font-normal text-base text-blueRibbon'>Номер:</span>
+										<span className='font-normal text-base text-blueRibbon'>{t('home.number')}:</span>
 										<span className='font-normal text-lg'>{item?.price?.room}</span>
 									</div>
 									<div className='inline-flex gap-2'>
-										<span className='font-normal text-base text-blueRibbon'>Питаие:</span>
+										<span className='font-normal text-base text-blueRibbon'>{t('home.nutrition2')}:</span>
 										<span className='font-normal text-lg'>{item?.price?.meal}</span>
 									</div>
 								</div>
@@ -125,7 +127,7 @@ const MyBookingDetail = ({ darkmode, hotel_detail = {} }) => {
 				<section className={`py-[10px] container_main  rounded-bl-[20px] z-40 fixed w-full rounded-br-[20px] h-[65px] ${darkmode ? 'bg-[#272829]' : 'bg-white'}`}>
 					<div className='flex items-center w-full'>
 						<Back fill={darkmode ? '#fff' : '#141414'} onClick={() => navigate(-1)} />
-						<div className={`text-lg font-semibold flex w-full justify-center ${darkmode ? 'text-white' : 'text-blueWood'}`}>Бронирование тура</div>
+						<div className={`text-lg font-semibold flex w-full justify-center ${darkmode ? 'text-white' : 'text-blueWood'}`}>{t('home.tour_booking')}</div>
 						<div className='w-[45px]'></div>
 					</div>
 				</section>

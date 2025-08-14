@@ -1,7 +1,9 @@
 // InputUi.jsx
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
-const InputUi = ({ is_label = true, err, onChange = () => {}, name = '', type = '', w = '', label = '', placeholder = '', disabled = false, value, options = [], id }) => {
+const InputUi = ({ is_label = true, err, onChange = () => { }, name = '', type = '', w = '', label = '', placeholder = '', disabled = false, value, options = [], id }) => {
+	const { t } = useTranslation()
 	useEffect(() => {
 		// const validUntil = document.getElementById('date3');
 		const firstDateInput = document.querySelector('input[type="date"]');
@@ -17,9 +19,8 @@ const InputUi = ({ is_label = true, err, onChange = () => {}, name = '', type = 
 			{is_label === true ? <span className={`text-sm font-normal px-2  mb-[1px] text-[#141414]  dark:text-white`}>{label}</span> : null}
 			{type === 'date' ? (
 				<div
-					className={`${disabled ? 'bg-[#EFEFEF4D] dark:bg-[#141414]  dark:text-white' : ''}  ${
-						err?.[name] ? 'border-red border dark:border-red' : ''
-					}  h-[45px] inline-flex gap-[16px] cursor-pointer relative   px-[20px] rounded-xl duration-200  dark:!bg-[#272829] !bg-[#EBF0F5]  dark:border-[#4B4B59]`}
+					className={`${disabled ? 'bg-[#EFEFEF4D] dark:bg-[#141414]  dark:text-white' : ''}  ${err?.[name] ? 'border-red border dark:border-red' : ''
+						}  h-[45px] inline-flex gap-[16px] cursor-pointer relative   px-[20px] rounded-xl duration-200  dark:!bg-[#272829] !bg-[#EBF0F5]  dark:border-[#4B4B59]`}
 				>
 					<input
 						onChange={onChange}
@@ -35,12 +36,11 @@ const InputUi = ({ is_label = true, err, onChange = () => {}, name = '', type = 
 			) : type === 'select' ? (
 				<>
 					<div
-						className={`${disabled ? 'bg-[#EFEFEF4D] dark:bg-[#141414] dark:text-white w-full' : ''}  ${
-							err?.[name] ? 'border-red border dark:border-red' : ''
-						}  h-[45px] inline-flex gap-[16px] cursor-pointer relative   px-[20px] rounded-xl duration-200  dark:!bg-[#272829] !bg-[#EBF0F5] dark:border-[#4B4B59]`}
+						className={`${disabled ? 'bg-[#EFEFEF4D] dark:bg-[#141414] dark:text-white w-full' : ''}  ${err?.[name] ? 'border-red border dark:border-red' : ''
+							}  h-[45px] inline-flex gap-[16px] cursor-pointer relative   px-[20px] rounded-xl duration-200  dark:!bg-[#272829] !bg-[#EBF0F5] dark:border-[#4B4B59]`}
 					>
 						<select onChange={onChange} name={name} value={value} className='w-full focus:outline-none dark:!bg-[#272829] !bg-[#EBF0F5] dark:text-white'>
-							<option value=''>Tanlang</option>
+							<option value=''>{t('home.select')}</option>
 							{options.map((option, index) => (
 								<option key={index} value={option.value}>
 									{option.label}
@@ -58,9 +58,8 @@ const InputUi = ({ is_label = true, err, onChange = () => {}, name = '', type = 
 				// 	<RSelect error={err?.[name]} onChange={onChange} name={name} value={value} options={options} />
 				// </div>
 				<div
-					className={`${disabled ? 'bg-[#EFEFEF4D] dark:bg-[#141414]  dark:text-white' : ''}  ${
-						err?.[name] ? 'border-red border dark:border-red' : ''
-					}  h-[45px] inline-flex gap-[16px] cursor-pointer relative   px-[20px] rounded-xl duration-200  dark:!bg-[#272829] !bg-[#EBF0F5]  dark:border-[#4B4B59]`}
+					className={`${disabled ? 'bg-[#EFEFEF4D] dark:bg-[#141414]  dark:text-white' : ''}  ${err?.[name] ? 'border-red border dark:border-red' : ''
+						}  h-[45px] inline-flex gap-[16px] cursor-pointer relative   px-[20px] rounded-xl duration-200  dark:!bg-[#272829] !bg-[#EBF0F5]  dark:border-[#4B4B59]`}
 				>
 					<input
 						onChange={onChange}

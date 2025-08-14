@@ -168,7 +168,7 @@ const Services = ({ darkmode }) => {
 
 	return (
 		<div className={`min-h-screen pb-[65px] ${darkmode ? 'bg-[#141414]' : 'bg-neutralSand'}`}>
-			<NavigationOne darkmode={darkmode} text='Сервисы' />
+			<NavigationOne darkmode={darkmode} text={t('home.service')} />
 			<div className='container_main flex flex-col gap-[8px] !px-0 pt-[65px]'>
 				<div className='bg-white dark:bg-[#272829] pl-[15px] pr-[30px] py-[20px] mx-[15px] mt-[15px] shadow-shadow5 dark:shadow-none rounded-2xl flex justify-between items-center'>
 					<div className='flex gap-[14px] items-center'>

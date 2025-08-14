@@ -340,10 +340,9 @@ const HotelSelectingNumber = ({ darkmode }) => {
 										<img src='/images/soon-towns.svg' alt='' className='h-[144px]' />
 									</div>
 									<div className='flex flex-col gap-[10px] text-center text-[#141414] text-lg'>
-										<h4 className=' font-semibold dark:text-white'>Похоже, этот тур уже распродан!</h4>
+										<h4 className=' font-semibold dark:text-white'>{t('home.tourSoldOut')}</h4>
 										<p className='font-medium dark:text-white text-lg leading-[20px]'>
-											К сожалению, места закончились. Но не расстраивайтесь! У нас есть много других чудесных предложений, которые только и ждут, чтобы вас
-											удивить!
+											{t('home.sorryNoSeatsButOtherOffers')}
 										</p>
 									</div>
 									<button
@@ -352,7 +351,7 @@ const HotelSelectingNumber = ({ darkmode }) => {
 										}}
 										className='cursor-pointer text-base bg-[#235DFF] rounded-xl p-4 w-full text-center text-white'
 									>
-										Вернуться к поиску
+										{t('home.backToSearch')}
 									</button>
 								</div>
 							)}

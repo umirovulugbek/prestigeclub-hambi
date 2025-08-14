@@ -5,11 +5,13 @@ import BasicDatePicker from '../ui/BasicDatePicker';
 import GenderSelector from '../ui/GenderSelector';
 import RSelect from '../ui/RSelect';
 import InputUi from '../ui/inputUi';
+import { useTranslation } from 'react-i18next';
 const HotelTourBookingForm = ({ people, onSubmitt, formsData }) => {
 	const [formData, setFormData] = useState({});
 	const [errors, setErrors] = useState({});
 	const [selectedGender, setSelectedGender] = useState(null);
 	const [country_list, setCountryList] = useState([]);
+	const { t } = useTranslation()
 	const navigate = useNavigate();
 	useEffect(() => {
 		if (people?.key) {
@@ -279,13 +281,13 @@ const HotelTourBookingForm = ({ people, onSubmitt, formsData }) => {
 							err={errors}
 							onChange={handleChange}
 							name='lastName'
-							placeholder='Введите фамилию на Латинице'
-							label={'Фамилия'}
+							placeholder={t('home.enterLastNameInLatin')}
+							label={t('home.surname')}
 						/>
-						<InputUi label={'Имя'} value={formData.firstName} err={errors} onChange={handleChange} name='firstName' is_label={true} placeholder='Введите имя на Латинице' />
+						<InputUi label={'Имя'} value={formData.firstName} err={errors} onChange={handleChange} name='firstName' is_label={true} placeholder={t('home.enterFirstNameInLatin')} />
 						<div className='flex gap-[10px]'>
 							<BasicDatePicker
-								custrom_label={'Дата рождения'}
+								custrom_label={t('home.dateOfBirth')}
 								value={formData.birthDate || null}
 								error={errors}
 								name='birthDate'
@@ -297,29 +299,30 @@ const HotelTourBookingForm = ({ people, onSubmitt, formsData }) => {
 								<RSelect
 									value={formData.citizenship}
 									err={errors}
-									label={'Граждаствно'}
+									label={t('home.citizenship')}
 									onChange={handleSelectChange}
 									name='citizenship'
 									is_label={true}
-									placeholder={'Выберите'}
+									placeholder={t('home.chooseOption')}
 									options={country_list}
+
 								/>
 							</div>
 						</div>
 						<InputUi
-							label={'Тип документа'}
+							label={t('home.documentType')}
 							value={formData.docType}
 							err={errors}
-							onChange={() => {}}
+							onChange={() => { }}
 							name='docType'
 							is_label={true}
 							disabled={true}
-							placeholder='Заграничный паспорт'
+							placeholder={t('home.foreignPassport')}
 						/>
 						<div className='flex gap-[10px]'>
-							<InputUi label={'Серия'} value={formData.seria} err={errors} onChange={handleChange} name='seria' w='w-1/4' is_label={true} placeholder='AA' />
+							<InputUi label={t('home.series')} value={formData.seria} err={errors} onChange={handleChange} name='seria' w='w-1/4' is_label={true} placeholder='AA' />
 							<InputUi
-								label={'Номер паспорта или ID-карты'}
+								label={t('home.passportOrIDNumber')}
 								value={formData.documentNumber}
 								err={errors}
 								onChange={handleChange}
@@ -331,14 +334,14 @@ const HotelTourBookingForm = ({ people, onSubmitt, formsData }) => {
 						</div>
 						<div className='flex gap-[10px]'>
 							<BasicDatePicker
-								custrom_label={'Документ выдан'}
+								custrom_label={t('home.documentIssuedBy')}
 								value={formData.docIssued || null}
 								error={errors}
 								name='docIssued'
 								onChange={v => handleChangeDate(v, 'docIssued')}
 							/>
 							<BasicDatePicker
-								custrom_label={'Действителен до'}
+								custrom_label={t('home.validUntil')}
 								value={formData.validUntil || null}
 								error={errors}
 								name='validUntil'
@@ -356,7 +359,7 @@ const HotelTourBookingForm = ({ people, onSubmitt, formsData }) => {
 									/>
 								</svg>
 							</div>
-							<p className='  text-sm !leading-[18px]'> Срок истечения документа должен быть не менее 6 месяцев после окончания тура</p>{' '}
+							<p className='  text-sm !leading-[18px]'>{t('home.documentExpiryAtLeastSixMonthsAfterTour')}</p>{' '}
 						</div>
 					</div>
 				</div>
@@ -367,7 +370,7 @@ const HotelTourBookingForm = ({ people, onSubmitt, formsData }) => {
 						className={`mb-[10px] w-full  h-[50px] flex items-center justify-center gap-2 md:font-semibold font-medium md:text-base text-sm md:px-4 px-1.5 py-3 rounded-xl duration-150 cursor-pointer mt-4 border border-blueRibbon bg-blueRibbon text-white`}
 						type='submit'
 					>
-						Сохранить данные
+						{t('home.save_date')}
 					</button>
 				</div>
 			</div>

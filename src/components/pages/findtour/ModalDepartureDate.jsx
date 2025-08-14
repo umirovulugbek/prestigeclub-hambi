@@ -160,15 +160,15 @@ const ModalDepartureDate = ({
 									<div className='flex flex-wrap gap-4'>
 										<div className='flex items-center gap-2'>
 											<div className='dark:bg-[#608AFF] bg-[#9CB6FF] w-[25px] h-[25px] rounded-[5px]' />
-											<span className=' text-[17px] dark:text-white text-[#141414]'>Есть места</span>
+											<span className=' text-[17px] dark:text-white text-[#141414]'>{t('home.availableSeats')}</span>
 										</div>
 										<div className='flex items-center gap-2'>
 											<div className='dark:bg-[#E3B786] bg-[#FFE1BF] w-[25px] h-[25px] rounded-[5px]' />
-											<span className=' text-[17px] dark:text-white text-[#141414]'>Мало мест</span>
+											<span className=' text-[17px] dark:text-white text-[#141414]'>{t('home.fewSeatsLeft')}</span>
 										</div>
 										<div className='flex items-center gap-2'>
 											<div className='dark:bg-[#757575] bg-[#C5D2E0] w-[25px] h-[25px] rounded-[5px]' />
-											<span className=' text-[17px] dark:text-white text-[#141414]'>Места закончились</span>
+											<span className=' text-[17px] dark:text-white text-[#141414]'>{t('home.noSeatsLeft')}</span>
 										</div>
 									</div>
 								</div>

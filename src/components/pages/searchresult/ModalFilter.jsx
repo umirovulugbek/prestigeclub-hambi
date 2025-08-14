@@ -93,7 +93,7 @@ const ModalFilter = ({ modal, setModal, filter_option }) => {
 							<p className='font-semibold text-[20px] text-[#141414] dark:text-white'>{t('home.filters')}</p>
 						</div>
 						<div className='mb-6 bg-white dark:bg-[#272829] rounded-xl pt-[15px] py-[25px] px-[10px]'>
-							<label className='block text-[17px] font-medium mb-2 dark:text-white '>Ваш бюджет</label>
+							<label className='block text-[17px] font-medium mb-2 dark:text-white '>{t('home.yourBudget')}</label>
 							<div className='flex gap-3 mb-6'>
 								<div className='flex flex-col w-full'>
 									<label htmlFor='' className='text-[#76787A] text-sm'>
@@ -134,17 +134,15 @@ const ModalFilter = ({ modal, setModal, filter_option }) => {
 												style={{
 													position: 'absolute',
 													top: 0,
-													left: `${
-														((values[0] - filter_option?.price_range?.min) /
+													left: `${((values[0] - filter_option?.price_range?.min) /
 															(filter_option?.price_range?.max - filter_option?.price_range?.min)) *
 														100
-													}%`,
-													right: `${
-														100 -
+														}%`,
+													right: `${100 -
 														((values[1] - filter_option?.price_range?.min) /
 															(filter_option?.price_range?.max - filter_option?.price_range?.min)) *
-															100
-													}%`,
+														100
+														}%`,
 													height: '6px',
 													backgroundColor: '#4A90E2',
 												}}
@@ -177,9 +175,8 @@ const ModalFilter = ({ modal, setModal, filter_option }) => {
 									<button
 										key={index}
 										onClick={() => handleStarSelection(Number(star))}
-										className={`px-8 py-2 bg-[#EBF0F5] dark:bg-[#141414] dark:text-[#76787A] rounded-3xl gap-1 flex items-center justify-center text-sm ${
-											selectedStars.includes(Number(star)) ? '!bg-[#235DFF] text-white dark:!text-white' : ''
-										}`}
+										className={`px-8 py-2 bg-[#EBF0F5] dark:bg-[#141414] dark:text-[#76787A] rounded-3xl gap-1 flex items-center justify-center text-sm ${selectedStars.includes(Number(star)) ? '!bg-[#235DFF] text-white dark:!text-white' : ''
+											}`}
 									>
 										<img src='/images/star.svg' alt='' /> {star}
 									</button>

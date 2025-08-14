@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from '../itemIcon';
+import { useTranslation } from 'react-i18next';
 
 const Accordion = ({ list = [], darkmode, lineShow, hotel_id }) => {
 	const navigate = useNavigate();
+	const { t } = useTranslation()
 	const [openIndexes, setOpenIndexes] = useState(list.map(() => true));
 
 	const toggleAccordion = index => {
@@ -17,9 +19,8 @@ const Accordion = ({ list = [], darkmode, lineShow, hotel_id }) => {
 					<div className='container_main'>
 						<button
 							onClick={() => toggleAccordion(index)}
-							className={`w-full flex justify-between items-center gap-3 py-4 focus:outline-none ${
-								openIndexes[index] ? 'border-b border-[#EEEEEE]  dark:border-[#4B4B59]' : ''
-							}`}
+							className={`w-full flex justify-between items-center gap-3 py-4 focus:outline-none ${openIndexes[index] ? 'border-b border-[#EEEEEE]  dark:border-[#4B4B59]' : ''
+								}`}
 						>
 							<p className='text-base font-semibold'>{item.title}</p>
 							<ArrowRight fill={darkmode ? '#fff' : '#042B50'} className={openIndexes[index] ? 'rotate-90 duration-200' : 'rotate-0 duration-200'} />
@@ -35,7 +36,7 @@ const Accordion = ({ list = [], darkmode, lineShow, hotel_id }) => {
 											onClick={() => navigate(`/hotels/detail/comment/${hotel_id}`)}
 											className='cursor-pointer w-full text-blueRibbon text-base font-semibold'
 										>
-											Посмотреть все отзывы
+											{t('home.view_all_comment')}
 										</button>
 									</>
 								) : (

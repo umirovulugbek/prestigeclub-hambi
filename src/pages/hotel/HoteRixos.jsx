@@ -76,10 +76,8 @@ const HoteRixos = ({ darkmode }) => {
 								fill={darkmode ? '#fff' : '#141414'}
 								onClick={() => {
 									navigate(
-										`/hotels/tour-info/?town_from_inc=${paramsObject?.town_from_inc}&tour_operator_id=${paramsObject?.tour_operator_id}&state_id=${
-											paramsObject?.state_id
-										}&checkin=${paramsObject?.checkin}&nights=${paramsObject?.nights}&adult=${paramsObject?.adult}&childs=${
-											paramsObject?.childs
+										`/hotels/tour-info/?town_from_inc=${paramsObject?.town_from_inc}&tour_operator_id=${paramsObject?.tour_operator_id}&state_id=${paramsObject?.state_id
+										}&checkin=${paramsObject?.checkin}&nights=${paramsObject?.nights}&adult=${paramsObject?.adult}&childs=${paramsObject?.childs
 										}&tour_somo_id=${paramsObject?.tour_somo_id}&towns[]=${paramsObject?.towns}${paramsObject?.rixos ? '&rixos=true' : ''}`
 									);
 								}}
@@ -103,40 +101,38 @@ const HoteRixos = ({ darkmode }) => {
 					<div className='pt-[90px] flex flex-col gap-3'>
 						<div className='bg-white dark:bg-[#272829]'>
 							<div className='container_main py-[10px] flex flex-col gap-[10px]'>
-								<div className='font-medium text-[#141414] dark:text-white'>Дата вылета на концерт</div>
+								<div className='font-medium text-[#141414] dark:text-white'>{t('home.concertDepartureDate')}</div>
 								<div className='flex items-center gap-[10px]'>
 									<div
-										className={`w-full border-[0.5px] p-[10px] rounded-md flex justify-center cursor-pointer ${
-											activeTab === 1 ? 'border-[#235DFF] bg-[#EBF0F5]  dark:bg-[#2d2e31]' : 'border-[#235DFF] '
-										}`}
+										className={`w-full border-[0.5px] p-[10px] rounded-md flex justify-center cursor-pointer ${activeTab === 1 ? 'border-[#235DFF] bg-[#EBF0F5]  dark:bg-[#2d2e31]' : 'border-[#235DFF] '
+											}`}
 										onClick={() => setActiveTab(1)}
 									>
 										<div className='flex flex-col gap-2 items-center'>
-											<div className='text-[#141414] dark:text-white font-medium'>01.06 - {paramsObject?.nights} ночей</div>
+											<div className='text-[#141414] dark:text-white font-medium'>01.06 - {paramsObject?.nights} {t('home.nights')}</div>
 											<div className='text-[#235DFF] font-semibold text-lg'>
 												{items1
 													?.filter(i => [147, 146].includes(i?.hotel?.hotel_key))[0]
 													?.converted_price_number.toLocaleString('en-US')
 													.replace(/,/g, ' ')}{' '}
-												сум
+												{t('home.uzs')}
 											</div>
 										</div>
 									</div>
 									<div
-										className={`w-full border-[0.5px] p-[10px] rounded-md flex justify-center cursor-pointer ${
-											activeTab === 2 ? 'border-[#235DFF] bg-[#EBF0F5]   dark:bg-[#2d2e31] ' : ' border-[#235DFF]'
-										}`}
+										className={`w-full border-[0.5px] p-[10px] rounded-md flex justify-center cursor-pointer ${activeTab === 2 ? 'border-[#235DFF] bg-[#EBF0F5]   dark:bg-[#2d2e31] ' : ' border-[#235DFF]'
+											}`}
 										onClick={() => setActiveTab(2)}
 									>
 										<div className='flex flex-col gap-2 items-center'>
-											<div className='text-[#141414] dark:text-white font-medium'>02.06 - {paramsObject?.nights} ночей</div>
+											<div className='text-[#141414] dark:text-white font-medium'>02.06 - {paramsObject?.nights} {t('home.nights')}</div>
 											<div className='text-[#235DFF] font-semibold text-lg'>
 												{' '}
 												{items2
 													?.filter(i => [147, 146].includes(i?.hotel?.hotel_key))[0]
 													?.converted_price_number.toLocaleString('en-US')
 													.replace(/,/g, ' ')}{' '}
-												сум
+												{t('home.uzs')}
 											</div>
 										</div>
 									</div>

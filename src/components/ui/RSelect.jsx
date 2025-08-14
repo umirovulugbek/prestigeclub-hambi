@@ -14,8 +14,8 @@ const RSelect = props => {
 			{...props}
 			isDisabled={props?.disabled}
 			options={props?.options}
-			// menuPlacement="auto"
-			// menuPosition="fixed"
+		// menuPlacement="auto"
+		// menuPosition="fixed"
 		/>
 	);
 };

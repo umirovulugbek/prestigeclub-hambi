@@ -6,16 +6,16 @@ const InputDiv = React.memo(props => {
 			? 'text-starDust'
 			: 'font-normal text-[#0077FF]'
 		: props?.placeholder && (props?.value === '' || props?.value === undefined)
-		? 'text-starDust'
-		: 'font-normal text-[#0077FF]';
+			? 'text-starDust'
+			: 'font-normal text-[#0077FF]';
 
 	const darkModeError = props?.darkmode
 		? props?.error
 			? 'border-red hover:border-red'
 			: 'border-[#141414] hover:border-blueRibbon'
 		: props?.error
-		? 'border-red hover:border-red'
-		: 'border-[#EBF0F5] hover:border-blueRibbon';
+			? 'border-red hover:border-red'
+			: 'border-[#EBF0F5] hover:border-blueRibbon';
 
 	return (
 		<div
