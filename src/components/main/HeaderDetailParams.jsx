@@ -33,16 +33,16 @@ const HeaderDetailParams = ({ darkmode }) => {
 	};
 
 	const { data: departureData, isLoading: loadingDeparture } = useQuery({
-		queryKey: ['townFrom', town_from_inc],
+		queryKey: ['townFrom', town_from_inc, i18n.language],
 		queryFn: () => fetchTownFrom(town_from_inc),
-		enabled: !!town_from_inc,
+		enabled: !!(town_from_inc, i18n.language),
 		staleTime: 1000 * 60 * 5,
 	});
 
 	const { data: townData, isLoading: loadingTown } = useQuery({
 		queryKey: ['towns', town_from_inc, tour_operator_id, state_id, tour_somo_id],
 		queryFn: () => fetchTowns(town_from_inc, tour_operator_id, state_id, tour_somo_id),
-		enabled: !!(town_from_inc && tour_operator_id && state_id && tour_somo_id),
+		enabled: !!(town_from_inc && tour_operator_id && state_id && tour_somo_id && i18n.language),
 		staleTime: 1000 * 60 * 5,
 	});
 
