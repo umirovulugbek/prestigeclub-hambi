@@ -102,7 +102,7 @@ const AppRouter = () => {
 		const language = getCookie('click-language');
 
 		localStorage.setItem('i18nextLng', language ? language : 'ru');
-		i18n.changeLanguage(language ? language : 'uz');
+		i18n.changeLanguage(language ? language : 'ru');
 		postClickOneTime(value ? value : 'dc251856-5a4a-4fab-a183-f448ca8a5df0');
 	}, []);
 

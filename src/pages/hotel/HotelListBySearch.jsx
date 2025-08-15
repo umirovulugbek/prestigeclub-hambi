@@ -302,15 +302,15 @@ const HotelListBySearch = ({ darkmode }) => {
 										paramsObj?.town_names?.[0] === 'Фукуок'
 											? 'vcD1qbpHzwIKPr7L'
 											: paramsObj?.town_names?.[0] === 'Китайские Гавайи - Хайнань ( Китай )'
-												? 'bXVAxiJkj6x1fdws'
-												: paramsObj?.town_names?.[0] === 'Шарм эль Шейх'
-													? 'HFPX5xD7UjHFiRLb'
-													: Number(paramsObj?.tour_somo_id) === 248
-														? '4WXrqVI8RvFJ5HVG'
-														: obj?.widget
+											? 'bXVAxiJkj6x1fdws'
+											: paramsObj?.town_names?.[0] === 'Шарм эль Шейх'
+											? 'HFPX5xD7UjHFiRLb'
+											: Number(paramsObj?.tour_somo_id) === 248
+											? '4WXrqVI8RvFJ5HVG'
+											: obj?.widget
 									}
 								/>
-								<div className='container_main '>
+								<div className='container_main w-full'>
 									<PrestigeBanner darkmode={darkmode} guarantee={false} />
 								</div>
 
