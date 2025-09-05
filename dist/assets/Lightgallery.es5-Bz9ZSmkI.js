@@ -1,4 +1,4 @@
-import{r as P}from"./index-DAOtpb3C.js";/*!
+import{r as P}from"./index-DXhfvoum.js";/*!
  * lightgallery | 2.8.3 | March 1st 2025
  * http://www.lightgalleryjs.com/
  * Copyright (c) 2020 Sachin Neravath;

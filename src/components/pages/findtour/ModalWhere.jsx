@@ -185,11 +185,11 @@ const ModalWhere = ({
 								) : (
 									<>
 										{list
-											// .concat({
-											// 	name: 'Uzbekistan',
-											// 	flag: '',
-											// 	somo_id: 0,
-											// })
+											.concat({
+												name: 'Uzbekistan',
+												flag: '',
+												somo_id: 0,
+											})
 											?.filter(item => item?.somo_id !== 31)
 											?.map((item, index) => (
 												<div
@@ -218,18 +218,18 @@ const ModalWhere = ({
 																item?.somo_id === 43
 																	? '/images/vietnam.svg'
 																	: item?.somo_id === 10
-																		? '/images/egypt.svg'
-																		: item?.somo_id === 36
-																			? '/images/azerbaijan.svg'
-																			: item?.somo_id === 13
-																				? '/images/oae.svg'
-																				: item?.somo_id === 9
-																					? '/images/turkey.svg'
-																					: item?.somo_id === 29
-																						? '/images/gruziya.svg'
-																						: item?.somo_id === 66
-																							? '/images/montenegro.svg'
-																							: ''
+																	? '/images/egypt.svg'
+																	: item?.somo_id === 36
+																	? '/images/azerbaijan.svg'
+																	: item?.somo_id === 13
+																	? '/images/oae.svg'
+																	: item?.somo_id === 9
+																	? '/images/turkey.svg'
+																	: item?.somo_id === 29
+																	? '/images/gruziya.svg'
+																	: item?.somo_id === 66
+																	? '/images/montenegro.svg'
+																	: ''
 															}
 															alt=''
 														/>
@@ -237,7 +237,9 @@ const ModalWhere = ({
 													</div>
 
 													{item?.soon ? (
-														<div className='bg-[#235DFF4D] px-[15px] py-[5px] rounded-[10px] text-[#1E2344] text-sm dark:text-white'>{t('home.comingSoon')}</div>
+														<div className='bg-[#235DFF4D] px-[15px] py-[5px] rounded-[10px] text-[#1E2344] text-sm dark:text-white'>
+															{t('home.comingSoon')}
+														</div>
 													) : (
 														<ArrowRight fill={darkmode ? '#B3B7CE' : '#141414'} />
 													)}
