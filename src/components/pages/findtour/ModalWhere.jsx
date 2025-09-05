@@ -185,11 +185,11 @@ const ModalWhere = ({
 								) : (
 									<>
 										{list
-											.concat({
-												name: 'Uzbekistan',
-												flag: '',
-												somo_id: 0,
-											})
+											// .concat({
+											// 	name: 'Uzbekistan',
+											// 	flag: '',
+											// 	somo_id: 0,
+											// })
 											?.filter(item => item?.somo_id !== 31)
 											?.map((item, index) => (
 												<div
