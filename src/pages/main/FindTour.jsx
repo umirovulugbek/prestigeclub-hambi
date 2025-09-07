@@ -521,16 +521,16 @@ const FindTour = ({ darkmode }) => {
 					</div>
 				</div>
 				<div className='container_main pt-[20px]'>
-					<img
-						className='cursor-pointer'
+					<div
+						className='cursor-pointer bg-white dark:bg-[#272829] rounded-[15px]'
 						onClick={() => {
 							setShowCity(true);
 							setModalWhere(true);
-							getTowns(1853, 4, 9);
+							getTowns(1853, 4, 13);
 							Setdeparture({
 								somo_id: 1853,
 								tour_operator_id: 4,
-								state_id: 9,
+								state_id: 13,
 							});
 							setObj(pV => ({
 								...pV,
@@ -539,9 +539,23 @@ const FindTour = ({ darkmode }) => {
 								number_of_days: '',
 							}));
 						}}
-						src={`/images/istanbul-banner-${i18n?.language}.jpg`}
-						alt=''
-					/>
+					>
+						<img src={`/images/dubai-banner-${i18n?.language}.png`} alt='' />
+						<div className='p-[15px] flex flex-col gap-[15px]'>
+							{[
+								{ title: t('home.dubai-banner-title-1'), desc: t('home.dubai-banner-desc-1') },
+								{ title: t('home.dubai-banner-title-2'), desc: t('home.dubai-banner-desc-2') },
+								{ title: t('home.dubai-banner-title-3'), desc: t('home.dubai-banner-desc-3') },
+							]?.map((item, index) => {
+								return (
+									<div key={index} className='font-normal text-lg flex flex-col '>
+										<div className='text-[#141414] font-medium dark:text-white '>{item?.title}</div>
+										<div className='text-[#76787A]'>{item?.desc}</div>
+									</div>
+								);
+							})}
+						</div>
+					</div>
 				</div>
 
 				<LastMinuteTours />
