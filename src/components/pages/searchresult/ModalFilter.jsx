@@ -9,13 +9,11 @@ const ModalFilter = ({ modal, setModal, filter_option }) => {
 	const { search } = useLocation();
 	const navigate = useNavigate();
 	const paramsObj = getSearchParams();
+
 	const { t, i18n } = useTranslation();
 	const [values, setValues] = useState([0, 0]);
 	const [selectedStars, setSelectedStars] = useState([]);
 	const [tags, setTags] = useState([]);
-
-	const [showAll, setShowAll] = useState(false);
-	const visibleTags = showAll ? tags : tags.slice(0, 5);
 
 	const handleStarSelection = star => {
 		setSelectedStars(prev => (prev.includes(+star) ? prev.filter(s => s !== +star) : [...prev, +star]));
@@ -134,15 +132,17 @@ const ModalFilter = ({ modal, setModal, filter_option }) => {
 												style={{
 													position: 'absolute',
 													top: 0,
-													left: `${((values[0] - filter_option?.price_range?.min) /
+													left: `${
+														((values[0] - filter_option?.price_range?.min) /
 															(filter_option?.price_range?.max - filter_option?.price_range?.min)) *
 														100
-														}%`,
-													right: `${100 -
+													}%`,
+													right: `${
+														100 -
 														((values[1] - filter_option?.price_range?.min) /
 															(filter_option?.price_range?.max - filter_option?.price_range?.min)) *
-														100
-														}%`,
+															100
+													}%`,
 													height: '6px',
 													backgroundColor: '#4A90E2',
 												}}
@@ -175,8 +175,9 @@ const ModalFilter = ({ modal, setModal, filter_option }) => {
 									<button
 										key={index}
 										onClick={() => handleStarSelection(Number(star))}
-										className={`px-8 py-2 bg-[#EBF0F5] dark:bg-[#141414] dark:text-[#76787A] rounded-3xl gap-1 flex items-center justify-center text-sm ${selectedStars.includes(Number(star)) ? '!bg-[#235DFF] text-white dark:!text-white' : ''
-											}`}
+										className={`px-8 py-2 bg-[#EBF0F5] dark:bg-[#141414] dark:text-[#76787A] rounded-3xl gap-1 flex items-center justify-center text-sm ${
+											selectedStars.includes(Number(star)) ? '!bg-[#235DFF] text-white dark:!text-white' : ''
+										}`}
 									>
 										<img src='/images/star.svg' alt='' /> {star}
 									</button>
