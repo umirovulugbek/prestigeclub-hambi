@@ -37,7 +37,8 @@ const Axios = (service_url = null, access_token = '') => {
 		mode: 'cors',
 		headers: token
 			? {
-					Authorization: `Bearer ${token}`,
+					// Authorization: `Bearer ${token}`,
+					'X-User-Token': token,
 					lang: localStorage.getItem('i18nextLng') || 'ru',
 			  }
 			: { lang: localStorage.getItem('i18nextLng') || 'ru' },

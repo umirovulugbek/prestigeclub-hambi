@@ -427,7 +427,15 @@ const FindTour = ({ darkmode }) => {
 	return (
 		<div className={`min-h-screen pb-[75px] bg-[#EBF0F5]   dark:bg-[#141414]`}>
 			<div className=''>
-				<NavigationOne linkClose={true} text={t('home.title')} darkmode={darkmode} />
+				<NavigationOne
+					is_close={false}
+					text={
+						<>
+							<img src='/images/hambi_prestige_logo.svg' alt='' />
+						</>
+					}
+					darkmode={darkmode}
+				/>
 			</div>
 			<section className='pb-[50px]'>
 				<div className='container_main  '>

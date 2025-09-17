@@ -10,8 +10,8 @@ const MobileTab = ({ darkmode }) => {
 	const navigate = useNavigate();
 
 	const linkBase = 'w-[82px] cursor-pointer flex flex-col justify-center items-center';
-	const titleBase = 'mt-[5px] text-[#9e9e9e] text-[14px] font-normal leading-[16px] text-center';
-	const activeTitle = 'text-[#235dff]';
+	const titleBase = 'mt-[5px] text-[#9E9E9E] text-[14px] font-normal leading-[16px] text-center';
+	const activeTitle = 'text-midnightNavy';
 
 	return (
 		<div className='fixed bottom-0 z-[1030] w-full flex justify-center !bg-white dark:!bg-[#141414]'>
@@ -19,7 +19,7 @@ const MobileTab = ({ darkmode }) => {
 				<div className='flex justify-around items-center w-full'>
 					{/* Home */}
 					<div onClick={() => navigate('/')} className={`${linkBase} ${pathname === '/' ? 'active' : ''}`}>
-						<div className={`icon flex justify-center items-center ${pathname === '/' ? '[&>svg_*]:fill-[#235dff] [&>svg_*]:stroke-[#235dff]' : ''}`}>{PalmaTree}</div>
+						<div className={`icon flex justify-center items-center ${pathname === '/' ? '[&>svg_*]:fill-midnightNavy [&>svg_*]:stroke-midnightNavy' : ''}`}>{PalmaTree}</div>
 						<div className={`${titleBase} ${pathname === '/' ? activeTitle : ''}`}>{t('home.find_tour')}</div>
 					</div>
 
@@ -31,7 +31,11 @@ const MobileTab = ({ darkmode }) => {
 						}}
 						className={`${linkBase} min-h-[50px] ${pathname === '/mybooking' ? 'active' : ''}`}
 					>
-						<div className={`icon min-h-[30px] flex justify-center items-center ${pathname === '/mybooking' ? '[&>svg_*]:fill-[#235dff] [&>svg_*]:stroke-[#235dff]' : ''}`}>
+						<div
+							className={`icon min-h-[30px] flex justify-center items-center ${
+								pathname === '/mybooking' ? '[&>svg_*]:fill-midnightNavy [&>svg_*]:stroke-midnightNavy' : ''
+							}`}
+						>
 							{BookingIcon}
 						</div>
 						<div className={`${titleBase} ${pathname === '/mybooking' ? activeTitle : ''}`}>{t('home.my_reservations')}</div>
@@ -39,7 +43,9 @@ const MobileTab = ({ darkmode }) => {
 
 					{/* More */}
 					<div onClick={() => navigate('/services')} className={`${linkBase} ${pathname === '/services' ? 'active' : ''}`}>
-						<div className={`icon flex justify-center items-center ${pathname === '/services' ? '[&>svg_*]:fill-[#235dff] [&>svg_*]:stroke-[#235dff]' : ''}`}>{MoreIcon}</div>
+						<div className={`icon flex justify-center items-center ${pathname === '/services' ? '[&>svg_*]:fill-midnightNavy [&>svg_*]:stroke-midnightNavy' : ''}`}>
+							{MoreIcon}
+						</div>
 						<div className={`${titleBase} ${pathname === '/services' ? activeTitle : ''}`}>{t('home.more')}</div>
 					</div>
 				</div>

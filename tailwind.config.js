@@ -38,6 +38,9 @@ export default {
 				blueJordy: '#91aeff',
 				orangeYellow: '#F7EBB7',
 				redDark: '#5A2B2B',
+				electricLime: '#C6FF00',
+				darkIndigo: '#1B182C',
+				midnightNavy: '#10162A',
 			},
 			zIndex: {
 				9999: '9999',

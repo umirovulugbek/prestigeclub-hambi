@@ -2,8 +2,6 @@ import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import LightGallery from 'lightgallery/react';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { ArrowRight } from '../../components/itemIcon';
-import MobileTab from '../../components/main/mobiletab';
 import NavigationOne from '../../components/ui/NavigationOne';
 
 // Styles
@@ -12,7 +10,6 @@ import 'lightgallery/css/lg-zoom.css';
 import 'lightgallery/css/lightgallery.css';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { NaushnukIcon, Settings2ServiseIcon } from '../../components/homeS3Icon';
 
 export const UserServisIcon = () => {
 	return (
@@ -168,7 +165,7 @@ const Services = ({ darkmode }) => {
 
 	return (
 		<div className={`min-h-screen pb-[65px] ${darkmode ? 'bg-[#141414]' : 'bg-neutralSand'}`}>
-			<NavigationOne darkmode={darkmode} text={t('home.service')} />
+			<NavigationOne is_close={false} darkmode={darkmode} text={t('home.service')} />
 			<div className='container_main flex flex-col gap-[8px] !px-0 pt-[65px]'>
 				<div className='bg-white dark:bg-[#272829] pl-[15px] pr-[30px] py-[20px] mx-[15px] mt-[15px] shadow-shadow5 dark:shadow-none rounded-2xl flex justify-between items-center'>
 					<div className='flex gap-[14px] items-center'>
@@ -191,16 +188,14 @@ const Services = ({ darkmode }) => {
 						)}
 						<div className='flex flex-col'>
 							<div className='text-sm text-blueWood dark:text-white font-medium'>
-								{user?.user?.first_name} {user?.user?.last_name} username
+								{user?.first_name} {user?.last_name || 'User'}
 							</div>
-							<div className='text-sm text-blueWood dark:text-white font-medium'>
-								{user?.user?.phone_number ? formatPhoneNumber(user?.user?.phone_number) : user?.user?.phone_number}
-							</div>
+							<div className='text-sm text-blueWood dark:text-white font-medium'>{user?.msisdn ? formatPhoneNumber(user?.msisdn) : `+998 ** *** ** **`}</div>
 						</div>
 					</div>
 				</div>
 
-				<div className='bg-white dark:bg-[#272829] overflow-hidden mx-[15px] mt-[15px] shadow-shadow5 dark:shadow-none rounded-2xl'>
+				{/* <div className='bg-white dark:bg-[#272829] overflow-hidden mx-[15px] mt-[15px] shadow-shadow5 dark:shadow-none rounded-2xl'>
 					<div
 						onClick={() => {
 							window.location.href = 'https://t.me/Salomprestige_bot';
@@ -230,10 +225,10 @@ const Services = ({ darkmode }) => {
 							<ArrowRight fill={darkmode ? '#ffff' : '#042B50'} />
 						</div>
 					</div>
-				</div>
+				</div> */}
 			</div>
 
-			<MobileTab darkmode={darkmode} />
+			{/* <MobileTab darkmode={darkmode} /> */}
 		</div>
 	);
 };

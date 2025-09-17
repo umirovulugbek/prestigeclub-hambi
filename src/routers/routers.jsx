@@ -1,9 +1,9 @@
 import { AnimatePresence } from 'framer-motion';
 import mixpanel from 'mixpanel-browser';
-import React, { Suspense, lazy, useEffect, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom';
 import { YMInitializer } from 'react-yandex-metrika';
 import useDarkSide from '../hooks/useDarkSide';
 
@@ -16,6 +16,7 @@ import TourUzbekistanBrone from '../pages/tour-uzb/TourUzbekistanBrone';
 import Axios from '../utils/httpsClinet';
 import { setToken } from '../utils/tokenStorge';
 import TrackPageViews from '../utils/TrackPageViews';
+
 const HotelDetail = lazy(() => import('../pages/hotel/HotelDetail'));
 const HotelDetailComment = lazy(() => import('../pages/hotel/HotelDetailComment'));
 const HotelGalleryFromDetail = lazy(() => import('../pages/hotel/HotelGalleryFromDetail'));
@@ -29,12 +30,12 @@ const MyBookingDetail = lazy(() => import('../pages/main/MyBookingDetail'));
 const FindTour = lazy(() => import('../pages/main/FindTour'));
 const NotFound = lazy(() => import('../pages/main/NotFound'));
 const Basket = lazy(() => import('../pages/main/Basket'));
-const ClickTravel = lazy(() => import('../pages/click-travel/ClickTravel'));
 const HotelDetailAmenities = lazy(() => import('../pages/hotel/HotelDetailAmenities'));
 const HotelListByHotel = lazy(() => import('../pages/hotel/HotelListByHotel'));
 const ProgramTour = lazy(() => import('../pages/tour-uzb/ProgramTour'));
 const FaqsTourUzb = lazy(() => import('../pages/tour-uzb/FaqsTourUzb'));
 const HotelRixos = lazy(() => import('../pages/hotel/HoteRixos'));
+
 const AppRouter = () => {
 	const dispatch = useDispatch();
 	const location = useLocation();
@@ -46,64 +47,51 @@ const AppRouter = () => {
 		setDarkSide(colorTheme === 'dark' ? false : true);
 	}, [location, darkSide, colorTheme]);
 
-	const getCookie = cname => {
-		let name = cname + '=';
-		let decodedCookie = decodeURIComponent(document.cookie);
+	const getUserFromBeeline = async access_token => {
+		try {
+			const res = await Axios().get('/api/beeline/me');
 
-		let ca = decodedCookie.split(';');
-		for (let i = 0; i < ca.length; i++) {
-			let c = ca[i];
-			while (c.charAt(0) === ' ') {
-				c = c.substring(1);
+			dispatch({ type: 'SET_USER', payload: res.data?.data });
+
+			const isWebViewOpened = sessionStorage.getItem('webview_opened');
+			if (!isWebViewOpened) {
+				mixpanel.track('User_info', {
+					device_type: res?.data?.msisdn || 'nomalum',
+					App_open: 'true',
+				});
+				sessionStorage.setItem('webview_opened', 'true');
 			}
-			if (c.indexOf(name) === 0) {
-				return c.substring(name.length, c.length);
-			}
+		} catch (err) {
+			console.error('Beeline foydalanuvchi olishda xatolik:', err);
 		}
-		return '';
 	};
 
-	const getUser = access_token => {
-		Axios(null, access_token)
-			.get(`/api/v1/click-me`)
-			.then(res => {
-				dispatch({ type: 'SET_USER', payload: res?.data });
-				const isWebViewOpened = sessionStorage.getItem('webview_opened');
-				if (!isWebViewOpened) {
-					// const baseUrl = 'https://travel-front.bpm-tripusk.uz/';
-					// const utmParams = '?utm_source=click_superapp&utm_medium=webview&utm_campaign=homepage';
-					// window.open(baseUrl + utmParams, '_blank');
-					mixpanel.track('User_info', { device_type: res?.data?.user?.phone_number || 'nomalum', App_open: 'true' });
-					sessionStorage.setItem('webview_opened', 'true');
-				}
-			})
-			.catch(err => {});
-	};
+	const getBeelineToken = () => {
+		let token = localStorage.getItem('x-user-token');
 
-	const postClickOneTime = click_web_session => {
-		const formData = new FormData();
+		if (!token) {
+			const params = new URLSearchParams(window.location.search);
+			token = params.get('token');
+		}
 
-		formData.append('web_session', click_web_session);
-
-		Axios()
-			.post(`/api/v1/click-login`, formData)
-			.then(r => {
-				setToken(r?.data?.token);
-				getUser(r?.data?.token);
-			})
-			.catch(e => {})
-			.finally(() => {});
+		return token;
 	};
 
 	useEffect(() => {
-		const value = getCookie('click-web-session');
-		const theme = getCookie('click-theme');
-		setTheme(theme ? theme : 'dark');
-		const language = getCookie('click-language');
+		const token = getBeelineToken();
+		// const token = `eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxMjBiNjlkNC01NDJlLTQyM2QtYmI2Ny01NjEwZTJiZGJhODciLCJtc2lzZG4iOiI5OTg5MDAwMTA4MzMiLCJ1c2VyX2lkIjo5NzkxMzgzLCJzZXNzaW9uX2lkIjoxMzk2ODcxOSwiZGV2aWNlX2lkIjo4MTY4MjU5LCJpbnRlZ3JhdGlvbl90eXBlIjoiYXV0b19yZW50IiwiZXhwIjoxNzU4NzA3MzEwLCJpYXQiOjE3NTgxMDI1MTB9.O2XB9I-aShRHK3NAgRYdpkXyZ_nGuQQWwlJjnfs7GSumlwg6pKsS85WiQ_-TQSG1dJDneiyiDqFM3Cct9HxTd9hCmoT2Lop9HjIGRSr2vTDxIlbethvCHHKOStl_p3MovRlxJ0Okt49_IPdZwgEIDqIGXvUQrc427Mrb2dv7gHO-ZIprPxzhLdscDt9cEODazrMW23nspVGpbNnJJMSrfJdnkLbPJuKvmv6BfHIbcK57E7CxqdeDDiA0W3BGL2MqPAWW44geYmqK3WlY_dMM6-qs4C2UGKVBLbi4ZIrNhCob8zmfvJtS7WXgbbrxbu-idjHC7rGI8jDOzM_y4P6HQw`;
 
+		const theme = localStorage.getItem('beeline-theme');
+		setTheme(theme ? theme : 'light');
+
+		const language = localStorage.getItem('beeline-language');
 		localStorage.setItem('i18nextLng', language ? language : 'uz');
 		i18n.changeLanguage(language ? language : 'uz');
-		postClickOneTime(value ? value : 'dc251856-5a4a-4fab-a183-f448ca8a5df0');
+
+		if (token) {
+			setToken(token);
+			getUserFromBeeline(token);
+		}
 	}, []);
 
 	useEffect(() => {
@@ -112,7 +100,6 @@ const AppRouter = () => {
 				window.ym(98339232, 'hit', window.location.pathname);
 			}
 		};
-
 		trackPageView();
 	}, []);
 
@@ -139,8 +126,8 @@ const AppRouter = () => {
 						{ path: '/mybooking', element: <MyBooking darkmode={darkSide} /> },
 						{ path: '/mybooking/detail/:id', element: <MyBookingDetail darkmode={darkSide} /> },
 						{ path: '/basket', element: <Basket darkmode={darkSide} /> },
-						{ path: '/', element: <FindTour darkmode={darkSide} /> },
-						{ path: '/click-travel/:slug', element: <ClickTravel darkmode={darkSide} /> },
+						// { path: '/', element: <FindTour darkmode={darkSide} /> },
+						{ path: '/', element: <Navigate to='/services' replace /> },
 						{ path: '/tour-uzbekistan/:id', element: <TourUzbekistan darkmode={darkSide} /> },
 						{ path: '/tour-uzbekistan/:id/brone', element: <TourUzbekistanBrone darkmode={darkSide} /> },
 						{ path: '/tour-uzbekistan/program/:id', element: <ProgramTour darkmode={darkSide} /> },
@@ -148,17 +135,7 @@ const AppRouter = () => {
 						{ path: '/brone-form', element: <BroneForm darkmode={darkSide} /> },
 						{ path: '*', element: <NotFound darkmode={darkSide} /> },
 					].map(({ path, element }) => (
-						<Route
-							key={path}
-							path={path}
-							element={
-								<Suspense
-								// fallback={<LoadingMain />}
-								>
-									{element}
-								</Suspense>
-							}
-						/>
+						<Route key={path} path={path} element={<Suspense>{element}</Suspense>} />
 					))}
 				</Routes>
 			</AnimatePresence>
